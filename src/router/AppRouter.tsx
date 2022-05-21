@@ -25,6 +25,7 @@ import NewspaperIcon from '@mui/icons-material/Newspaper';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import MenuIcon from '@mui/icons-material/Menu';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
+import FileCopyIcon from '@mui/icons-material/FileCopy';
 
 // Utils
 import { Suspense, useContext, useState, lazy } from 'react';
@@ -41,6 +42,7 @@ import LinkRouterProps from '../interfaces/LinkRouterProps';
 
 // Objects
 import transitionAllSX from '../helpers/transitionAllSX';
+import Files from '../pages/Files/Files';
 
 
 // Lazy Loading Components //
@@ -58,12 +60,11 @@ const EditBlogs = lazy(() => import('../pages/Blogs/EditBlogs'));
 const drawerWidth = 250;
 
 export default function ResponsiveDrawer() {
-  const [mobileOpen, setMobileOpen] = useState(false);
 
+  const [mobileOpen, setMobileOpen] = useState(false);
   const Theme = useContext(ThemeContext);
   const RTL = useContext(RTLContext);
   const Auth = useContext(AuthContext);
-
   const { t, i18n } = useTranslation();
   const [location] = useLocation();
 
@@ -78,9 +79,8 @@ export default function ResponsiveDrawer() {
     '/blogs/edit': t('breadcrumbNameMap./blogs/edit'),
     '/users': t('breadcrumbNameMap./users'),
     '/users/new': t('breadcrumbNameMap./users/new'),
-    // '/users/edit': 'Edit User',
     '/users/edit/id': t('breadcrumbNameMap./users/edit/id'),
-
+    '/files': t('breadcrumbNameMap./files'),
   };
 
   const pathnames = location.split('/').filter((x) => x);
@@ -108,7 +108,8 @@ export default function ResponsiveDrawer() {
       <List subheader={<ListSubheader sx={{ ...transitionAllSX, fontSize: i18n.resolvedLanguage === 'ar' ? '1.4rem' : "'1.1rem'" }}>{t('sidebar.subheaderTitlesGeneral')}</ListSubheader>}>
         {[
           // { title: t('sidebar.main'), Icon: HomeIcon, href: "/" },
-          { title: t('sidebar.blogs'), Icon: NewspaperIcon, href: "/blogs" }].map(({ title, Icon, href }, index) => {
+          { title: t('sidebar.blogs'), Icon: NewspaperIcon, href: "/blogs" },
+          { title: t('sidebar.files'), Icon: FileCopyIcon, href: "/files" }].map(({ title, Icon, href }, index) => {
             const isSelected = location === href;
             return (
               <Link key={index} href={href}>
@@ -302,6 +303,7 @@ export default function ResponsiveDrawer() {
               <PrivateRoute path="/blogs/edit/:id" component={EditBlogs} />
               <PrivateRoute path="/users" component={Users} />
               <PrivateRoute path="/users/new" component={AddUser} />
+              <PrivateRoute path="/files" component={Files} />
             </Switch>
           </Suspense>
           {/* START - MAIN SECTION */}

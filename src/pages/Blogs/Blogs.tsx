@@ -42,7 +42,7 @@ const Blogs = () => {
                     </IconButton>
                 </Paper>
                 <Link to='/blogs/new'>
-                    <Button color='secondary' startIcon={<AddIcon />} variant='contained'>{t("newsPage.addButton")}</Button>
+                    <Button color='primary' startIcon={<AddIcon />} variant='contained'>{t("newsPage.addButton")}</Button>
                 </Link>
             </Stack>
             {/* END - Search bar */}

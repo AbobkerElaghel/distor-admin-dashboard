@@ -11,6 +11,7 @@
         "main": "الرئيسي",
         "news": "الأخبار",
         "blogs": "المدونات",
+        "files": "الملفات",
         "users": "المستخدمين",
         "subheaderTitlesGeneral": "العام",
         "subheaderTitlesControl": "تحكم"
@@ -105,6 +106,7 @@
         "/blogs/edit": "تعديل مدونة",
         "/users": "المستخدمين",
         "/users/new": "أضافة مستخدم",
-        "/users/edit/id": "تعديل مستخدم"
+        "/users/edit/id": "تعديل مستخدم",
+        "/files": "الملفات"
     }
 }

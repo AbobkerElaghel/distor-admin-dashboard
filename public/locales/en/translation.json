@@ -11,6 +11,7 @@
         "main": "Main",
         "news": "News",
         "blogs": "Blogs",
+        "files": "Files",
         "users": "Users",
         "subheaderTitlesGeneral": "General",
         "subheaderTitlesControl": "Control"
@@ -105,6 +106,7 @@
         "/blogs/edit": "Edit Blogs",
         "/users": "Users",
         "/users/new": "Add User",
-        "/users/edit/id": "Edit User"
+        "/users/edit/id": "Edit User",
+        "/files": "Files"
     }
 }

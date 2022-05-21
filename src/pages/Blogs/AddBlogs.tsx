@@ -10,7 +10,7 @@ import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import ReactQuill from 'react-quill';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import "react-quill/dist/quill.snow.css";
 import { ThemeContext } from '../../providers/ThemeProvider';
 import ImageDropZone from '../../components/ImageDropZone';
@@ -23,15 +23,15 @@ import { addBlogs } from '../../firebase/firestore';
 import { useLocation } from 'wouter';
 import { serverTimestamp } from 'firebase/firestore';
 import { AuthContext } from '../../providers/AuthProvider';
+
 const AddBlogs = () => {
     const { t } = useTranslation();
     const Theme = useContext(ThemeContext);
     const Auth = useContext(AuthContext);
-
     const [_, setLocation] = useLocation();
 
-
     // Fields
+    const [language, setLanguage] = useState("");
     const [RichContent, setRichContent] = useState("");
     const [date, setDate] = useState<Date | null>(new Date());
     const [photo, setPhoto] = useState<File[]>([]);
@@ -39,12 +39,6 @@ const AddBlogs = () => {
     const [errors, setErrors] = useState<any>();
     const { SnackBarComponent, setSnackBarValue } = useSnackBar();
     const [submitting, setSubmitting] = useState(false);
-
-    useEffect(() => {
-        console.log(RichContent);
-
-    }, [RichContent])
-
 
     const onBlogsSubmit = async (e: any) => {
         e.preventDefault();
@@ -61,10 +55,10 @@ const AddBlogs = () => {
             return;
         };
 
-        // if (!category) {
-        //     setErrors({ ...errors, category: true });
-        //     return;
-        // };
+        if (!language) {
+            setErrors({ ...errors, language: true });
+            return;
+        };
 
         if (!photo.length) {
             setSnackBarValue({ message: t('addBlogsPage.feedbackBlogPhotoRequired'), severity: "error" }, 5000);
@@ -79,7 +73,7 @@ const AddBlogs = () => {
             const photoURL = await uploadPhotoAndGetUrl(title, "Blogs", photo[0]);
             await addBlogs({
                 title,
-                // category,
+                language,
                 RichContent,
                 userId: Auth?.user?.uid,
                 photoURL,
@@ -177,23 +171,20 @@ const AddBlogs = () => {
                             fontWeight={500} component={'p'}>{t('addBlogsPage.imageDescription')}</Typography>
                         <ImageDropZone dispacther={setPhoto} />
                     </Paper>
-                    {/* <Paper elevation={4} sx={{ p: 4, marginTop: 2 }}>
-                        <Typography marginBottom={2} variant='h5' fontWeight={500} component={'h5'}>{t('addBlogsPage.category')}</Typography>
+                    <Paper elevation={4} sx={{ p: 4, marginTop: 2 }}>
+                        <Typography marginBottom={2} variant='h5' fontWeight={500} component={'h5'}>{t('addBlogsPage.languages')}</Typography>
+
                         <Autocomplete
                             disablePortal
                             fullWidth
-                            options={["Blog", "News"]}
-                            renderInput={(params) => <TextField error={errors?.category} required name='category' margin='dense' {...params} label='Category' />}
+                            onChange={(_, value) => {
+                                setLanguage(value!.value);
+                            }}
+                            getOptionLabel={(option) => option.title}
+                            options={[{ title: t('navbar.languageMenu-arabic'), value: "ar" }, { title: t('navbar.languageMenu-english'), value: "en" }, { title: t('navbar.languageMenu-french'), value: "fr" }]}
+                            renderInput={(params) => <TextField error={errors?.language} margin='dense' {...params} label={t('addBlogsPage.languages')} />}
                         />
-
-                        {/* <Autocomplete
-                            disablePortal
-                            fullWidth
-                            options={['English', "Arabic", 'French']}
-                            renderInput={(params) => <TextField margin='dense' {...params} label={t('addBlogsPage.languages')} />}
-                        /> */}
-
-                    {/* </Paper>  */}
+                    </Paper>
 
                     <Paper elevation={4} sx={{ p: 4, marginY: 2 }}>
                         <Typography marginBottom={2} variant='h5' fontWeight={500} component={'h5'}>{t('addBlogsPage.date')}</Typography>
@@ -216,8 +207,8 @@ const AddBlogs = () => {
                     }} variant='contained'>{t('addBlogsPage.submit')}</Button>
                 </FormControl>
             </form>
-        </Box >
-    )
+        </Box>
+    );
 };
 
 export default AddBlogs;

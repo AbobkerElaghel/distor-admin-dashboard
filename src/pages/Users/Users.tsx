@@ -31,7 +31,7 @@ const Users = () => {
                 })
                 .catch((e) => {
                     setSnackBarValue({ message: "Error with deleting user", severity: "error" }, 2000);
-                    console.log(e);
+                    console.error(e);
                 })
         }
 
@@ -43,7 +43,7 @@ const Users = () => {
                 })
                 .catch((e) => {
                     setSnackBarValue({ message: "Error with updating user status", severity: "error" }, 2000);
-                    console.log(e);
+                    console.error(e);
                 })
         }
         return <>
@@ -131,7 +131,6 @@ const Users = () => {
         getAllUsers()
             .then(({ data }) => {
                 const payload: any = data;
-                console.log(payload.users);
                 setRows(payload.users);
                 setLoading(false);
             })
