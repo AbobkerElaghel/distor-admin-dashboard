@@ -1,0 +1,110 @@
+{
+    "mainpage": {
+        "text": "This is a text"
+    },
+    "navbar": {
+        "languageMenu-arabic": "Arabic",
+        "languageMenu-english": "English",
+        "languageMenu-french": "French"
+    },
+    "sidebar": {
+        "main": "Main",
+        "news": "News",
+        "blogs": "Blogs",
+        "users": "Users",
+        "subheaderTitlesGeneral": "General",
+        "subheaderTitlesControl": "Control"
+    },
+    "newsPage": {
+        "searchBar": "Search",
+        "addButton": "Add"
+    },
+    "signInPage": {
+        "logIn": "Log in",
+        "logInDescription": "Sign in to access the dashboard",
+        "email": "Email",
+        "password": "Password"
+    },
+    "addNewsPage": {
+        "createNewNews": "Create a New News",
+        
+        "basicInfo": "Basic Information",
+        "title": "Title",
+        "content": "Content",
+        "image": "Image",
+        "imageDescription": "Image will appear in in the News you post",
+        "category": "Category",
+        "languages": "Languages",
+        "date": "Date",
+        "autoSelect": "Auto Select",
+        "submit":"Add news"
+    },
+    "addBlogsPage": {
+        "createNewBlog": "Create a New Blog",
+        "editBlog": "Edit Blog",
+        "basicInfo": "Basic Information",
+        "title": "Title",
+        "content": "Content",
+        "image": "Image",
+        "imageDescription": "Image will appear in in the News you post",
+        "category": "Category",
+        "languages": "Languages",
+        "date": "Date",
+        "autoSelect": "Auto Select",
+        "submit":"Add Blog",
+        "feedbackBlogAdded":"Added Blog Successfully",
+        "feedbackBlogAddedError":"Error in Adding Blog",
+        "feedbackBlogRichContentRequired":" Blog Content is required",
+        "feedbackBlogPhotoRequired":"Photo is Required",
+        "feedbackBlogAuthRequired":"Make sure you are signed in"
+    },
+    "editBlogsPage": {
+        "editBlog": "Edit Blog",
+        "basicInfo": "Basic Information",
+        "title": "Title",
+        "content": "Content",
+        "image": "Image",
+        "imageDescription": "Image will appear in in the News you post",
+        "category": "Category",
+        "languages": "Languages",
+        "date": "Date",
+        "autoSelect": "Auto Select",
+        "submit":"Edit Blog"
+    },
+    "UsersPage": {
+        "columnName":"Name",
+        "columnEmail":"Email",
+        "columnRoles":"Roles",
+        "columnCreatedAt":"Created At",
+        "columnLastSignin":"Last Sign in",
+        "columnActions":"Actions",
+        "addUserButton":"Add User"
+    },
+    "addUsersPage": {
+        "addNewUsertitle":"Add New User",
+        "name":"Name",
+        "email":"Email",
+        "roles":"Roles",
+        "password":"Password",
+        "confirmPassword":"Confirm Password",
+        "submit":"Save User",
+        "feedbackUserAdded":"Added User Successfully",
+        "feedbackUserAddedError":"Error in Adding User",
+        "feedbackUserRolesRequired":"At least one roles must be selected",
+        "feedbackUserPasswordMatch":"Password must match"
+    },
+    "ImageDropZone": {
+        "title": "Select Photo",
+        "clear": "Clear",
+        "description": "Drop files browse through your machine"
+    },
+    "breadcrumbNameMap": {
+        "/": "Home",
+        "/blogs": "Blogs",
+        "/blogs/new": "Add Blogs",
+        "/blogs/edit": "Edit Blogs",
+        "/users": "Users",
+        "/users/new": "Add User",
+        "/users/edit/id": "Edit User"
+    }
+}

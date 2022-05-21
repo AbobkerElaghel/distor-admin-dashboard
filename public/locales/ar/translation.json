@@ -1,0 +1,110 @@
+{
+    "mainpage": {
+        "text": "هدا تيكست"
+    },
+    "navbar": {
+        "languageMenu-arabic": "العربية",
+        "languageMenu-english": "الأنجليزية",
+        "languageMenu-french": "الفرنسية"
+    },
+    "sidebar": {
+        "main": "الرئيسي",
+        "news": "الأخبار",
+        "blogs": "المدونات",
+        "users": "المستخدمين",
+        "subheaderTitlesGeneral": "العام",
+        "subheaderTitlesControl": "تحكم"
+    },
+    "newsPage": {
+        "searchBar": "بحث",
+        "addButton": "أضافة"
+    },
+    "signInPage": {
+        "logIn": "تسجيل الدخول",
+        "logInDescription": "قم بادخال بياناتك بالأسفل لتسجيل الدخول",
+        "email": "البريد الألكتروني",
+        "password": "كلمة المرور"
+    },
+    "addNewsPage": {
+        "createNewNews": "أنشاء خبر جديد",
+        "basicInfo": "معلومات الاساسية",
+        "title": "العنوان",
+        "content": "المحتوي",
+        "image": "الصورة",
+        "imageDescription": "سوف تضهر الصورة هنا عند الاختيار",
+        "category": "النوع",
+        "languages": "اللغة",
+        "date": "التاريخ",
+        "autoSelect": "أختيار تلقائي",
+        "submit":"أضافة الخبر"
+    },
+    "addBlogsPage": {
+        "createNewBlog": "أنشاء مدونة جديد",
+        "editBlog": "تعديل مدونة",
+        "basicInfo": "معلومات الاساسية",
+        "title": "العنوان",
+        "content": "المحتوي",
+        "image": "الصورة",
+        "imageDescription": "سوف تضهر الصورة هنا عند الاختيار",
+        "category": "النوع",
+        "languages": "اللغة",
+        "date": "التاريخ",
+        "autoSelect": "أختيار تلقائي",
+        "submit":"أضافة المدونة",
+        "feedbackBlogAdded":"تمت أضافة المدونة بنجاح",
+        "feedbackBlogAddedError":"مشكلة في أضافة المدونة",
+        "feedbackBlogRichContentRequired":" محتوى المدونة مطلوب",
+        "feedbackBlogPhotoRequired":"الصورة مطلوبة",
+        "feedbackBlogAuthRequired":"تأكد من تسجيل الدخول"
+    },
+    "editBlogsPage": {
+        "editBlog": "تعديل مدونة",
+        "basicInfo": "معلومات الاساسية",
+        "title": "العنوان",
+        "content": "المحتوي",
+        "image": "الصورة",
+        "imageDescription": "سوف تضهر الصورة هنا عند الاختيار",
+        "category": "النوع",
+        "languages": "اللغة",
+        "date": "التاريخ",
+        "autoSelect": "أختيار تلقائي",
+        "submit":"تعديل مدونة"
+    },
+    "UsersPage": {
+        "columnName":"الأسم",
+        "columnEmail":"الأيميل",
+        "columnRoles":"الصلاحيات",
+        "columnCreatedAt":"تاريخ الأنشاء",
+        "columnLastSignin":"أخر تسجيل دخول",
+        "columnActions":"التحكم",
+        "addUserButton":"أضافة مستخدم جديد"
+
+    },
+    "addUsersPage": {
+        "addNewUsertitle":"أضافة مستخدم جديد",
+        "name":"الأسم",
+        "email":"الأيميل",
+        "roles":"الصلاحيات",
+        "password":"كلمة المرور",
+        "confirmPassword":"تأكيد كلمة المرور",
+        "submit":"أضافة المستخدم",
+        "feedbackUserAdded":"تمت أضافة المستخدم بنجاح",
+        "feedbackUserAddedError":"مشكلة في أضافة المستخدم",
+        "feedbackUserRolesRequired":"يجب تحديد صلاحية واحد على الأقل",
+        "feedbackUserPasswordMatch":"يجب أن تتطابق كلمات المرور"
+    },
+    "ImageDropZone": {
+        "title": "اختر الصور",
+        "clear": "مسح",
+        "description": "قم بإسقاط الملفات واستعرضها من خلال جهازك"
+    },
+    "breadcrumbNameMap": {
+        "/": "الرئيسي",
+        "/blogs": "المدونات",
+        "/blogs/new": "أنشاء مدونة",
+        "/blogs/edit": "تعديل مدونة",
+        "/users": "المستخدمين",
+        "/users/new": "أضافة مستخدم",
+        "/users/edit/id": "تعديل مستخدم"
+    }
+}
