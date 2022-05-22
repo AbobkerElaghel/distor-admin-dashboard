@@ -37,7 +37,7 @@
         "languages": "اللغة",
         "date": "التاريخ",
         "autoSelect": "أختيار تلقائي",
-        "submit":"أضافة الخبر"
+        "submit": "أضافة الخبر"
     },
     "addBlogsPage": {
         "createNewBlog": "أنشاء مدونة جديد",
@@ -51,12 +51,29 @@
         "languages": "اللغة",
         "date": "التاريخ",
         "autoSelect": "أختيار تلقائي",
-        "submit":"أضافة المدونة",
-        "feedbackBlogAdded":"تمت أضافة المدونة بنجاح",
-        "feedbackBlogAddedError":"مشكلة في أضافة المدونة",
-        "feedbackBlogRichContentRequired":" محتوى المدونة مطلوب",
-        "feedbackBlogPhotoRequired":"الصورة مطلوبة",
-        "feedbackBlogAuthRequired":"تأكد من تسجيل الدخول"
+        "submit": "أضافة المدونة",
+        "feedbackBlogAdded": "تمت أضافة المدونة بنجاح",
+        "feedbackBlogAddedError": "مشكلة في أضافة المدونة",
+        "feedbackBlogRichContentRequired": " محتوى المدونة مطلوب",
+        "feedbackBlogPhotoRequired": "الصورة مطلوبة",
+        "feedbackBlogAuthRequired": "تأكد من تسجيل الدخول"
+    },
+    "addFilePage": {
+        "createNewFile": "أضافة ملف",
+        "editFile": "تعديل ملف",
+        "basicInfo": "معلومات الاساسية",
+        "title": "العنوان",
+        "file": "الملف",
+        "fileDescription": "الرجاء أضافة الملف المراد رفعه ليتمكن زوار الموقع من تحميلة",
+        "languages": "اللغة",
+        "date": "التاريخ",
+        "autoSelect": "أختيار تلقائي",
+        "submit": "أضافة المدونة",
+        "category": "التصنيف",
+        "feedbackFileAdded": "تمت الملف المدونة بنجاح",
+        "feedbackFileAddedError": "مشكلة في أضافة الملف",
+        "feedbackFileFileRequired": "الملف مطلوبة",
+        "feedbackFileAuthRequired": "تأكد من تسجيل الدخول"
     },
     "editBlogsPage": {
         "editBlog": "تعديل مدونة",
@@ -69,33 +86,41 @@
         "languages": "اللغة",
         "date": "التاريخ",
         "autoSelect": "أختيار تلقائي",
-        "submit":"تعديل مدونة"
+        "submit": "تعديل مدونة"
     },
     "UsersPage": {
-        "columnName":"الأسم",
-        "columnEmail":"الأيميل",
-        "columnRoles":"الصلاحيات",
-        "columnCreatedAt":"تاريخ الأنشاء",
-        "columnLastSignin":"أخر تسجيل دخول",
-        "columnActions":"التحكم",
-        "addUserButton":"أضافة مستخدم جديد"
-
+        "columnName": "الأسم",
+        "columnEmail": "الأيميل",
+        "columnRoles": "الصلاحيات",
+        "columnCreatedAt": "تاريخ الأنشاء",
+        "columnLastSignin": "أخر تسجيل دخول",
+        "columnActions": "التحكم",
+        "addUserButton": "أضافة مستخدم جديد"
+    },
+    "FilesPage": {
+        "addButton": "أضافة ملف",
+        "addNewCategory": "أضافة صنف ملف"
     },
     "addUsersPage": {
-        "addNewUsertitle":"أضافة مستخدم جديد",
-        "name":"الأسم",
-        "email":"الأيميل",
-        "roles":"الصلاحيات",
-        "password":"كلمة المرور",
-        "confirmPassword":"تأكيد كلمة المرور",
-        "submit":"أضافة المستخدم",
-        "feedbackUserAdded":"تمت أضافة المستخدم بنجاح",
-        "feedbackUserAddedError":"مشكلة في أضافة المستخدم",
-        "feedbackUserRolesRequired":"يجب تحديد صلاحية واحد على الأقل",
-        "feedbackUserPasswordMatch":"يجب أن تتطابق كلمات المرور"
+        "addNewUsertitle": "أضافة مستخدم جديد",
+        "name": "الأسم",
+        "email": "الأيميل",
+        "roles": "الصلاحيات",
+        "password": "كلمة المرور",
+        "confirmPassword": "تأكيد كلمة المرور",
+        "submit": "أضافة المستخدم",
+        "feedbackUserAdded": "تمت أضافة المستخدم بنجاح",
+        "feedbackUserAddedError": "مشكلة في أضافة المستخدم",
+        "feedbackUserRolesRequired": "يجب تحديد صلاحية واحد على الأقل",
+        "feedbackUserPasswordMatch": "يجب أن تتطابق كلمات المرور"
     },
     "ImageDropZone": {
         "title": "اختر الصور",
+        "clear": "مسح",
+        "description": "قم بإسقاط الملفات واستعرضها من خلال جهازك"
+    },
+    "FileDropZone": {
+        "title": "اختر الملف",
         "clear": "مسح",
         "description": "قم بإسقاط الملفات واستعرضها من خلال جهازك"
     },
@@ -107,6 +132,16 @@
         "/users": "المستخدمين",
         "/users/new": "أضافة مستخدم",
         "/users/edit/id": "تعديل مستخدم",
-        "/files": "الملفات"
+        "/files": "الملفات",
+        "/files/new": "أضافة ملف"
+    },
+    "AddFileCategory": {
+        "modalTitle": "أضافة تصنيف ملفات جديد",
+        "name": "الأسم",
+        "submit": "أرسال",
+        "cancel": "الغاء",
+        "feedbackFileCategoryAdded": "تمت الاضافة بنجاح",
+        "feedbackFileCategoryAddedError": "مشكلة في أضافة",
+        "feedbackFileCategoryAuthRequired": "تأكد من تسجيل الدخول"
     }
 }

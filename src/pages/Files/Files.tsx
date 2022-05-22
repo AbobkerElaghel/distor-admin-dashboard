@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
@@ -9,18 +9,33 @@ import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import { Link } from 'wouter';
 import AddIcon from '@mui/icons-material/Add';
+import AddFileCategoryModal from './Modals/AddFileCategoryModal';
+import { useTranslation } from 'react-i18next';
 
 const Files = () => {
+    const { Modal, handleOpen } = AddFileCategoryModal();
+    const { t } = useTranslation();
+
+
     return (
         <Box>
+            <Modal />
             <Box display={'flex'} justifyContent="space-between">
                 <Typography component={"h1"} variant={"h3"}>
                     Title of files
                 </Typography>
 
-                <Link to=''>
-                    <Button color='primary' startIcon={<AddIcon />} variant='contained'>{'Add'}</Button>
-                </Link>
+                <Box>
+                    <Link to='/files/new'>
+                        <Button color='primary' startIcon={<AddIcon />} variant='contained'>{t('FilesPage.addButton')}</Button>
+                    </Link>
+                    <Button onClick={() => {
+                        handleOpen();
+                    }} sx={{
+                        marginLeft: 2
+                    }} color='primary' startIcon={<AddIcon />} variant='contained'>{t('FilesPage.addNewCategory')}</Button>
+                </Box>
+
             </Box>
             <Grid container marginY={2} columnGap={1}>
                 {[1, 1, 1, 1, 1].map(() => (
@@ -49,7 +64,7 @@ const Files = () => {
                                 </Box>
                             </Box>
                             <IconButton aria-label="delete" size="large">
-                                <DeleteIcon fontSize='large' />
+                                <DeleteIcon color="error" fontSize='large' />
                             </IconButton>
                         </Box>
                     </Grid>

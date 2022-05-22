@@ -17,12 +17,13 @@ import ImageDropZone from '../../components/ImageDropZone';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import { deletePhoto, uploadPhotoAndGetUrl } from '../../firebase/storage';
 import useSnackBar from '../../hooks/SnackBarHook';
-import { getSingleBlog, updateBlog } from '../../firebase/firestore';
 import { useLocation } from 'wouter';
 import { serverTimestamp } from 'firebase/firestore';
 import { AuthContext } from '../../providers/AuthProvider';
+import { getSingleBlog, updateBlog } from '../../firebase/Firestore/BlogsCollection';
+import deletePhoto from '../../firebase/Storage/deletePhoto';
+import uploadPhotoAndGetUrl from '../../firebase/Storage/uploadPhotoAndGetUrl';
 
 const EditBlogs = ({ params }: any) => {
     const { t } = useTranslation();

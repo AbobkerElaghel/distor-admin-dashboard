@@ -28,7 +28,6 @@
     },
     "addNewsPage": {
         "createNewNews": "Create a New News",
-        
         "basicInfo": "Basic Information",
         "title": "Title",
         "content": "Content",
@@ -38,7 +37,7 @@
         "languages": "Languages",
         "date": "Date",
         "autoSelect": "Auto Select",
-        "submit":"Add news"
+        "submit": "Add news"
     },
     "addBlogsPage": {
         "createNewBlog": "Create a New Blog",
@@ -52,12 +51,29 @@
         "languages": "Languages",
         "date": "Date",
         "autoSelect": "Auto Select",
-        "submit":"Add Blog",
-        "feedbackBlogAdded":"Added Blog Successfully",
-        "feedbackBlogAddedError":"Error in Adding Blog",
-        "feedbackBlogRichContentRequired":" Blog Content is required",
-        "feedbackBlogPhotoRequired":"Photo is Required",
-        "feedbackBlogAuthRequired":"Make sure you are signed in"
+        "submit": "Add Blog",
+        "feedbackBlogAdded": "Added Blog Successfully",
+        "feedbackBlogAddedError": "Error in Adding Blog",
+        "feedbackBlogRichContentRequired": " Blog Content is required",
+        "feedbackBlogPhotoRequired": "Photo is Required",
+        "feedbackBlogAuthRequired": "Make sure you are signed in"
+    },
+    "addFilePage": {
+        "createNewFile": "Add File",
+        "editFile": "Edit File",
+        "basicInfo": "Basic Info",
+        "title": "Title",
+        "file": "File",
+        "fileDescription": "Please add the file to be uploaded so that visitors to the site can download it",
+        "languages": "Language",
+        "category": "Category",
+        "date": "Date",
+        "autoSelect": "Auto Select",
+        "submit": "Submit File",
+        "feedbackFileAdded": "Added File Successfully",
+        "feedbackFileAddedError": "Error in Adding File",
+        "feedbackFileFileRequired": "File is Required",
+        "feedbackFileAuthRequired": "Make sure you are signed in"
     },
     "editBlogsPage": {
         "editBlog": "Edit Blog",
@@ -70,32 +86,41 @@
         "languages": "Languages",
         "date": "Date",
         "autoSelect": "Auto Select",
-        "submit":"Edit Blog"
+        "submit": "Edit Blog"
     },
     "UsersPage": {
-        "columnName":"Name",
-        "columnEmail":"Email",
-        "columnRoles":"Roles",
-        "columnCreatedAt":"Created At",
-        "columnLastSignin":"Last Sign in",
-        "columnActions":"Actions",
-        "addUserButton":"Add User"
+        "columnName": "Name",
+        "columnEmail": "Email",
+        "columnRoles": "Roles",
+        "columnCreatedAt": "Created At",
+        "columnLastSignin": "Last Sign in",
+        "columnActions": "Actions",
+        "addUserButton": "Add User"
+    },
+    "FilesPage": {
+        "addButton": "Add File",
+        "addNewCategory": "Add New Category"
     },
     "addUsersPage": {
-        "addNewUsertitle":"Add New User",
-        "name":"Name",
-        "email":"Email",
-        "roles":"Roles",
-        "password":"Password",
-        "confirmPassword":"Confirm Password",
-        "submit":"Save User",
-        "feedbackUserAdded":"Added User Successfully",
-        "feedbackUserAddedError":"Error in Adding User",
-        "feedbackUserRolesRequired":"At least one roles must be selected",
-        "feedbackUserPasswordMatch":"Password must match"
+        "addNewUsertitle": "Add New User",
+        "name": "Name",
+        "email": "Email",
+        "roles": "Roles",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "submit": "Save User",
+        "feedbackUserAdded": "Added User Successfully",
+        "feedbackUserAddedError": "Error in Adding User",
+        "feedbackUserRolesRequired": "At least one roles must be selected",
+        "feedbackUserPasswordMatch": "Password must match"
     },
     "ImageDropZone": {
         "title": "Select Photo",
+        "clear": "Clear",
+        "description": "Drop files browse through your machine"
+    },
+    "FileDropZone": {
+        "title": "Select File",
         "clear": "Clear",
         "description": "Drop files browse through your machine"
     },
@@ -107,6 +132,16 @@
         "/users": "Users",
         "/users/new": "Add User",
         "/users/edit/id": "Edit User",
-        "/files": "Files"
+        "/files": "Files",
+        "/files/new": "Add File"
+    },
+    "AddFileCategory": {
+        "modalTitle": "Add New File Category",
+        "name": "Title",
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "feedbackFileCategoryAdded": "Added Category Successfully",
+        "feedbackFileCategoryAddedError": "Error in Adding Category",
+        "feedbackFileCategoryAuthRequired": "Make sure you are signed in"
     }
 }

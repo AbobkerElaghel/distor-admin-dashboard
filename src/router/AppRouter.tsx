@@ -43,6 +43,7 @@ import LinkRouterProps from '../interfaces/LinkRouterProps';
 // Objects
 import transitionAllSX from '../helpers/transitionAllSX';
 import Files from '../pages/Files/Files';
+import AddFile from '../pages/Files/AddFile';
 
 
 // Lazy Loading Components //
@@ -81,6 +82,8 @@ export default function ResponsiveDrawer() {
     '/users/new': t('breadcrumbNameMap./users/new'),
     '/users/edit/id': t('breadcrumbNameMap./users/edit/id'),
     '/files': t('breadcrumbNameMap./files'),
+    '/files/new': t('breadcrumbNameMap./files/new'),
+
   };
 
   const pathnames = location.split('/').filter((x) => x);
@@ -304,6 +307,7 @@ export default function ResponsiveDrawer() {
               <PrivateRoute path="/users" component={Users} />
               <PrivateRoute path="/users/new" component={AddUser} />
               <PrivateRoute path="/files" component={Files} />
+              <PrivateRoute path="/files/new" component={AddFile} />
             </Switch>
           </Suspense>
           {/* START - MAIN SECTION */}

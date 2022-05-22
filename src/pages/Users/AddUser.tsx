@@ -2,10 +2,11 @@ import { Box, Typography, Stack, TextField, Autocomplete, Button, Paper } from '
 import { useState } from 'react';
 import ImageDropZone from '../../components/ImageDropZone';
 import { adminAddUser } from '../../firebase/functions';
-import { uploadPhotoAndGetUrl, deletePhoto } from '../../firebase/storage';
 import useSnackBar from '../../hooks/SnackBarHook';
 import { useLocation } from 'wouter';
 import { useTranslation } from 'react-i18next';
+import deletePhoto from '../../firebase/Storage/deletePhoto';
+import uploadPhotoAndGetUrl from '../../firebase/Storage/uploadPhotoAndGetUrl';
 
 const AddUser = () => {
     const [selectedRoles, setSelectedRoles] = useState<string[]>([]);

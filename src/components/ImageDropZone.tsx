@@ -1,18 +1,21 @@
 import { Box, Typography, Button } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import transitionAllSX from "../helpers/transitionAllSX";
 import { useTranslation } from 'react-i18next';
+import { ThemeContext } from "../providers/ThemeProvider";
+
 interface ImagePreviewComponentType {
     dispacther?: (argo: any) => void;
     preview?: string;
     clearImage?: any;
     size?: "small" | "normal";
-}
+};
 
 const ImageDropZone = ({ dispacther = () => { }, preview, clearImage = () => { }, size = "normal" }: ImagePreviewComponentType) => {
     const [image, setImage] = useState<any>([]);
-    const [ineerPreview, setPreview] = useState(preview || '')
+    const [ineerPreview, setPreview] = useState(preview || '');
+    const Theme = useContext(ThemeContext);
     const { t } = useTranslation();
     const { getRootProps, getInputProps } = useDropzone({
         accept: {
@@ -39,7 +42,6 @@ const ImageDropZone = ({ dispacther = () => { }, preview, clearImage = () => { }
                     }} src={ineerPreview ? `${ineerPreview}` : image[0].preview} alt="preview" />
                 </Box>
             </Box> :
-
                 <Box sx={{
                     ...transitionAllSX,
                     border: 1,
@@ -54,11 +56,10 @@ const ImageDropZone = ({ dispacther = () => { }, preview, clearImage = () => { }
                         {
                             <Box sx={{
                                 cursor: "pointer",
-
                             }} width={"100%"} display={"flex"}>
                                 <img width={size === 'small' ? 75 : 150} style={{
                                     margin: "auto"
-                                }} src="https://material-kit-pro-react.devias.io/static/undraw_add_file2_gvbb.svg" alt="dragdrop icon" />
+                                }} src={Theme?.isDarkMode ? "/addImageDark.svg" : "/addImageWhite.svg"} alt="dragdrop icon" />
                                 <Box margin={"auto"} marginX={5}>
                                     <Typography variant='h6' component={'p'}>{t('ImageDropZone.title')}</Typography>
                                     {size === 'normal' ? <Typography variant='subtitle1' component={'p'}>{t('ImageDropZone.description')}</Typography> : undefined}

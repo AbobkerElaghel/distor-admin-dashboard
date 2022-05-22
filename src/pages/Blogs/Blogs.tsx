@@ -9,8 +9,8 @@ import transitionAllSX from '../../helpers/transitionAllSX';
 import AddIcon from '@mui/icons-material/Add';
 import { Link } from 'wouter';
 import { useEffect, useState } from 'react';
-import { getBlogs } from '../../firebase/firestore';
 import { useLocation } from 'wouter';
+import { getBlogs } from '../../firebase/Firestore/BlogsCollection';
 
 const Blogs = () => {
     const { t } = useTranslation();
