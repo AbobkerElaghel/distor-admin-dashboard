@@ -11,13 +11,100 @@ import { Link } from 'wouter';
 import AddIcon from '@mui/icons-material/Add';
 import AddFileCategoryModal from './Modals/AddFileCategoryModal';
 import { useTranslation } from 'react-i18next';
-import { getFiles } from '../../firebase/Firestore/FileCollection';
+import { deleteFile, getFiles } from '../../firebase/Firestore/FileCollection';
+import { FileI } from '../../interfaces/FileI';
 
 const Files = () => {
     const { Modal, handleOpen } = AddFileCategoryModal();
+    const [refresh, setRefresh] = useState<boolean>(false);
     const { t } = useTranslation();
 
-    const [files, setFiles] = useState<any[]>([]);
+    const onDeleteFile = (id: string, category: string, title: string) => {
+        if (window) {
+            if (!window.confirm('Are you Sure?')) {
+                return;
+            }
+        } else {
+            return;
+        }
+        deleteFile(id, category, title)
+            .then(() => {
+                setRefresh(!refresh);
+            })
+            .catch()
+    }
+
+    const RenderFiles = () => {
+        const result = [];
+        let i = 0;
+        if (!files) {
+            return;
+        }
+
+        for (const key in files) {
+            if (files[key] && Array.isArray(files[key]) && files[key].length) {
+                result.push(
+                    i === 0 ? <Box display={'flex'} justifyContent="space-between">
+                        <Typography component={"h1"} variant={"h3"}>
+                            Title of files
+                        </Typography>
+                        <Box>
+                            <Link to='/files/new'>
+                                <Button color='primary' startIcon={<AddIcon />} variant='contained'>{t('FilesPage.addButton')}</Button>
+                            </Link>
+                            <Button onClick={() => {
+                                handleOpen();
+                            }} sx={{
+                                marginLeft: 2
+                            }} color='primary' startIcon={<AddIcon />} variant='contained'>{t('FilesPage.addNewCategory')}</Button>
+                        </Box>
+                    </Box>
+                        :
+                        <Typography component={"h1"} variant={"h3"}>
+                            {key}
+                        </Typography>
+                );
+                result.push(
+                    <Grid container marginY={2} columnGap={1}>
+                        {files[key].map((file: FileI) => (
+                            <Grid sx={{
+                                opacity: 1,
+                                ...transitionAllSX,
+                                ":hover": { opacity: 0.9 },
+                                bgcolor: "secondary.main",
+                                color: "text.primary"
+                            }} borderRadius={6} marginY={1} padding={1.5} display={'flex'} item xl={2.93} md={5.9} xs={12} component="div">
+                                <Box display={'flex'} width={"100%"} justifyContent={'space-between'}>
+                                    <Box display={'flex'}>
+                                        <InsertDriveFileIcon sx={{
+                                            marginY: "auto",
+                                            fontSize: 50,
+                                            marginRight: 1.5
+                                        }} />
+                                        <Box>
+                                            <Typography component={"h6"} variant={"h6"}>
+                                                {file.title}
+                                            </Typography>
+                                            <Typography component={"div"} variant={"subtitle1"}>
+                                                {(file.date as Date).toDateString()}
+                                            </Typography>
+                                        </Box>
+                                    </Box>
+                                    <IconButton onClick={() => onDeleteFile(file.id!, file.category, file.title)} aria-label="delete" size="large">
+                                        <DeleteIcon color="error" fontSize='large' />
+                                    </IconButton>
+                                </Box>
+                            </Grid>
+                        ))}
+                    </Grid>
+                )
+            }
+            i++;
+        }
+        return result;
+    }
+
+    const [files, setFiles] = useState<any>({});
     useEffect(() => {
         const result: any = {};
         getFiles()
@@ -30,124 +117,17 @@ const Files = () => {
                         result[item.category] = [item];
                     }
                 })
-                console.log(result);
+                setFiles(result);
 
             })
-    }, [])
+    }, [refresh])
 
     return (
         <Box>
             <Modal />
-            <Box display={'flex'} justifyContent="space-between">
-                <Typography component={"h1"} variant={"h3"}>
-                    Title of files
-                </Typography>
+            {RenderFiles()}
 
-                <Box>
-                    <Link to='/files/new'>
-                        <Button color='primary' startIcon={<AddIcon />} variant='contained'>{t('FilesPage.addButton')}</Button>
-                    </Link>
-                    <Button onClick={() => {
-                        handleOpen();
-                    }} sx={{
-                        marginLeft: 2
-                    }} color='primary' startIcon={<AddIcon />} variant='contained'>{t('FilesPage.addNewCategory')}</Button>
-                </Box>
 
-            </Box>
-            <Grid container marginY={2} columnGap={1}>
-                {[1, 1, 1, 1, 1].map(() => (
-                    <Grid sx={{
-                        opacity: 1,
-                        ...transitionAllSX,
-                        ":hover": { opacity: 0.9 },
-                        bgcolor: "secondary.main",
-                        color: "text.primary"
-                    }} borderRadius={6} marginY={1} padding={1.5} display={'flex'} item xl={2.93} md={5.9} xs={12} component="div">
-                        <Box display={'flex'} width={"100%"} justifyContent={'space-between'}>
-                            <Box display={'flex'}>
-                                <InsertDriveFileIcon sx={{
-                                    marginY: "auto",
-                                    fontSize: 50,
-                                    marginRight: 1.5
-                                }} />
-                                <Box>
-                                    <Typography component={"h6"} variant={"h6"}>
-                                        Title of files
-                                    </Typography>
-                                    <Typography component={"div"} variant={"subtitle1"}>
-                                        {new Date().toDateString()}
-                                    </Typography>
-
-                                </Box>
-                            </Box>
-                            <IconButton aria-label="delete" size="large">
-                                <DeleteIcon color="error" fontSize='large' />
-                            </IconButton>
-                        </Box>
-                    </Grid>
-                ))}
-            </Grid>
-
-            <Typography component={"h1"} variant={"h3"}>
-                Title of files
-            </Typography>
-            <Grid container marginY={2} columnGap={1}>
-                {[1, 1, 1].map(() => (
-                    <Grid sx={{
-                        opacity: 1,
-                        ...transitionAllSX,
-                        ":hover": { opacity: 0.9 },
-                        bgcolor: "secondary.main",
-                        color: "text.primary"
-                    }} borderRadius={6} marginY={1} padding={1.5} display={'flex'} item xl={2.93} md={5.9} xs={12} component="div">
-                        <InsertDriveFileIcon sx={{
-                            marginY: "auto",
-                            fontSize: 50,
-                            marginRight: 1.5
-                        }} />
-                        <Box>
-                            <Typography component={"h6"} variant={"h6"}>
-                                Title of files
-                            </Typography>
-                            <Typography component={"div"} variant={"subtitle1"}>
-                                {new Date().toDateString()}
-                            </Typography>
-                        </Box>
-
-                    </Grid>
-                ))}
-            </Grid>
-
-            <Typography component={"h1"} variant={"h3"}>
-                Title of files
-            </Typography>
-            <Grid container marginY={2} columnGap={1}>
-                {[1, 1].map(() => (
-                    <Grid sx={{
-                        opacity: 1,
-                        ...transitionAllSX,
-                        ":hover": { opacity: 0.9 },
-                        bgcolor: "secondary.main",
-                        color: "text.primary"
-                    }} borderRadius={6} marginY={1} padding={1.5} display={'flex'} item xl={2.93} md={5.9} xs={12} component="div">
-                        <InsertDriveFileIcon sx={{
-                            marginY: "auto",
-                            fontSize: 50,
-                            marginRight: 1.5
-                        }} />
-                        <Box>
-                            <Typography component={"h6"} variant={"h6"}>
-                                Title of files
-                            </Typography>
-                            <Typography component={"div"} variant={"subtitle1"}>
-                                {new Date().toDateString()}
-                            </Typography>
-
-                        </Box>
-                    </Grid>
-                ))}
-            </Grid>
         </Box>
     )
 }

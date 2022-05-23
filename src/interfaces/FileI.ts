@@ -7,5 +7,6 @@ export interface FileI {
     category: string;
     lang: string;
     fileURL: string;
+    id?: string;
     userId: string;
 }

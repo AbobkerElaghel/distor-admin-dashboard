@@ -1,6 +1,7 @@
-import { collection, where, addDoc, QueryConstraint, QueryDocumentSnapshot, DocumentData, limit, orderBy, startAfter, getDocs, query } from "firebase/firestore";
+import { collection, where, addDoc, QueryConstraint, QueryDocumentSnapshot, DocumentData, limit, orderBy, startAfter, getDocs, query, deleteDoc, doc } from "firebase/firestore";
 import { FileI } from "../../interfaces/FileI";
 import firestore from "../firestore";
+import deletePhoto from "../Storage/deletePhoto";
 
 const FilesCollection = collection(firestore, 'files');
 export const addFile = (file: FileI) => {
@@ -28,3 +29,10 @@ export const getFiles = (
     }
     return getDocs(query(FilesCollection, ...transactionsConstraints));
 };
+
+export const deleteFile = (id: string, category: string, title: string) => {
+    return deleteDoc(doc(firestore, 'files', id))
+        .then(() => {
+            return deletePhoto(title, category);
+        });
+}

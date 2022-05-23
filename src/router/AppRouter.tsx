@@ -42,8 +42,7 @@ import LinkRouterProps from '../interfaces/LinkRouterProps';
 
 // Objects
 import transitionAllSX from '../helpers/transitionAllSX';
-import Files from '../pages/Files/Files';
-import AddFile from '../pages/Files/AddFile';
+
 
 
 // Lazy Loading Components //
@@ -57,6 +56,8 @@ const PublicRoute = lazy(() => import('./PublicRoute'));
 const PrivateRoute = lazy(() => import('./PrivateRoute'));
 const AddUser = lazy(() => import('../pages/Users/AddUser'));
 const EditBlogs = lazy(() => import('../pages/Blogs/EditBlogs'));
+const Files = lazy(() => import('../pages/Files/Files'));
+const AddFile = lazy(() => import('../pages/Files/AddFile'));
 
 const drawerWidth = 250;
 

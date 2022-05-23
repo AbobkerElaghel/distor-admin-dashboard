@@ -30,9 +30,11 @@ const FileDropZone = ({ dispacther = () => { }, clearFile = () => { }, size = "n
         }
     });
 
+
+
     return (
         <>
-            {file.length ? <Box sx={{
+            <Box sx={{
                 ...transitionAllSX,
                 border: 1,
                 cursor: "pointer",
@@ -49,40 +51,15 @@ const FileDropZone = ({ dispacther = () => { }, clearFile = () => { }, size = "n
                         }} width={"100%"} display={"flex"}>
                             <img width={size === 'small' ? 75 : 150} style={{
                                 margin: "auto"
-                            }} src="/fileSelected.svg" alt="dragdrop icon" />
+                            }} src={file.length ? "/fileSelected.svg" : "/fileNotSelected.svg"} alt="dragdrop icon" />
                             <Box margin={"auto"} marginX={5}>
-                                <Typography variant='h6' component={'p'}>{file[0].name}</Typography>
-                                {size === 'normal' ? <Typography variant='subtitle1' dir="ltr" component={'p'}>{file[0].size / 1000 / 1000} MB</Typography> : undefined}
+                                <Typography variant='h6' component={'p'}>{file.length ? file[0].name : t('FileDropZone.title')}</Typography>
+                                {size === 'normal' ? <Typography variant='subtitle1' component={'p'}>{file.length ? (file[0].size / 1000 / 1000).toPrecision(3) : t('ImageDropZone.description')} MB</Typography> : undefined}
                             </Box>
                         </Box>
                     }
                 </Box>
-            </Box> : <Box sx={{
-                ...transitionAllSX,
-                border: 1,
-                cursor: "pointer",
-                borderStyle: "dashed",
-                ":hover": {
-                    opacity: 0.7
-                }
-            }} display={'flex'} width={'100%'} height={'100%'} marginY={size === 'normal' ? 3 : 1} padding={size === 'normal' ? 3 : 2} borderRadius={3}  {...getRootProps()}>
-                <Box margin={'auto'}>
-                    <input {...getInputProps()} />
-                    {
-                        <Box sx={{
-                            cursor: "pointer",
-                        }} width={"100%"} display={"flex"}>
-                            <img width={size === 'small' ? 75 : 150} style={{
-                                margin: "auto"
-                            }} src="https://material-kit-pro-react.devias.io/static/undraw_add_file2_gvbb.svg" alt="dragdrop icon" />
-                            <Box margin={"auto"} marginX={5}>
-                                <Typography variant='h6' component={'p'}>{t('FileDropZone.title')}</Typography>
-                                {size === 'normal' ? <Typography variant='subtitle1' component={'p'}>{t('ImageDropZone.description')}</Typography> : undefined}
-                            </Box>
-                        </Box>
-                    }
-                </Box>
-            </Box>}
+            </Box>
             {
                 file.length ? <>
                     <Button variant="contained" color="primary" onClick={() => { setFile([]); dispacther([]); clearFile() }}>{t('ImageDropZone.clear')}</Button>
