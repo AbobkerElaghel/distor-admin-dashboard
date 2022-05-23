@@ -131,7 +131,6 @@ const AddFile = () => {
                             onChange={(_, value) => {
                                 setCategory(value!.title);
                             }}
-                            loading={!fileCategories.length}
                             getOptionLabel={(option) => option.title}
                             options={fileCategories}
                             renderInput={(params) => <TextField error={errors?.category} margin='dense' {...params} label={t('addFilePage.category')} />}

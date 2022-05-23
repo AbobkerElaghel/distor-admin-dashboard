@@ -11,11 +11,29 @@ import { Link } from 'wouter';
 import AddIcon from '@mui/icons-material/Add';
 import AddFileCategoryModal from './Modals/AddFileCategoryModal';
 import { useTranslation } from 'react-i18next';
+import { getFiles } from '../../firebase/Firestore/FileCollection';
 
 const Files = () => {
     const { Modal, handleOpen } = AddFileCategoryModal();
     const { t } = useTranslation();
 
+    const [files, setFiles] = useState<any[]>([]);
+    useEffect(() => {
+        const result: any = {};
+        getFiles()
+            .then(data => {
+                const docsData = data.docs.map(doc => { const data = doc.data(); return { ...data, date: data.date.toDate(), id: doc.id }; });
+                docsData.forEach((item: any) => {
+                    if (result[item.category]) {
+                        result[item.category].push(item);
+                    } else {
+                        result[item.category] = [item];
+                    }
+                })
+                console.log(result);
+
+            })
+    }, [])
 
     return (
         <Box>
