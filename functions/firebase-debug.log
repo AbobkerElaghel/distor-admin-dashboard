@@ -1,0 +1,95 @@
+[debug] [2022-05-30T13:42:05.592Z] ----------------------------------------------------------------------
+[debug] [2022-05-30T13:42:05.595Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Funoon\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2022-05-30T13:42:05.596Z] CLI Version:   11.0.1
+[debug] [2022-05-30T13:42:05.596Z] Platform:      win32
+[debug] [2022-05-30T13:42:05.596Z] Node Version:  v16.15.0
+[debug] [2022-05-30T13:42:05.598Z] Time:          Mon May 30 2022 15:42:05 GMT+0200 (Eastern European Standard Time)
+[debug] [2022-05-30T13:42:05.598Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-30T13:42:05.603Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-05-30T13:42:05.737Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-30T13:42:05.738Z] > authorizing via signed-in user (abobkerelaghel@gmail.com)
+[debug] [2022-05-30T13:42:06.401Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-05-30T13:42:06.402Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2022-05-30T13:42:06.921Z] java version "18.0.1.1" 2022-04-22
+
+[debug] [2022-05-30T13:42:06.921Z] Java(TM) SE Runtime Environment (build 18.0.1.1+2-6)
+Java HotSpot(TM) 64-Bit Server VM (build 18.0.1.1+2-6, mixed mode, sharing)
+
+[debug] [2022-05-30T13:42:06.948Z] Parsed Java major version: 18
+[info] i  emulators: Starting emulators: auth, functions, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, database, hosting, pubsub, storage"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project al-distor-org. This may result in unexpected behavior. 
+[debug] [2022-05-30T13:42:06.965Z] [hub] writing locator at C:\Users\Funoon\AppData\Local\Temp\hub-al-distor-org.json
+[info] +  functions: Using node@16 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@16 from host."}}
+[debug] [2022-05-30T13:42:07.403Z] defaultcredentials: writing to file C:\Users\Funoon\AppData\Roaming\firebase\abobkerelaghel_gmail_com_application_default_credentials.json
+[debug] [2022-05-30T13:42:07.405Z] Setting GAC to C:\Users\Funoon\AppData\Roaming\firebase\abobkerelaghel_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Funoon\\AppData\\Roaming\\firebase\\abobkerelaghel_gmail_com_application_default_credentials.json"}}
+[debug] [2022-05-30T13:42:07.406Z] > refreshing access token with scopes: []
+[debug] [2022-05-30T13:42:07.407Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-05-30T13:42:07.655Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Mon, 30 May 2022 13:42:08 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-05-30T13:42:07.669Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org/adminSdkConfig [none]
+[debug] [2022-05-30T13:42:08.148Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org/adminSdkConfig 200
+[debug] [2022-05-30T13:42:08.148Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org/adminSdkConfig {"projectId":"al-distor-org","storageBucket":"al-distor-org.appspot.com","locationId":"europe-west"}
+[debug] [2022-05-30T13:42:08.176Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-05-30T13:42:08.176Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-05-30T13:42:08.176Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\Funoon\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.14.3.jar","--host","localhost","--port",8080,"--rules","C:\\Users\\Funoon\\Desktop\\Projects\\distor-admin-dashboard\\firestore.rules","--functions_emulator","localhost:5001"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\Funoon\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.14.3.jar\",\"--host\",\"localhost\",\"--port\",8080,\"--rules\",\"C:\\\\Users\\\\Funoon\\\\Desktop\\\\Projects\\\\distor-admin-dashboard\\\\firestore.rules\",\"--functions_emulator\",\"localhost:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2022-05-30T13:42:10.545Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org [none]
+[debug] [2022-05-30T13:42:10.828Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org 200
+[debug] [2022-05-30T13:42:10.828Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org {"projectId":"al-distor-org","projectNumber":"17612612435","displayName":"Al Distor org","name":"projects/al-distor-org","resources":{"hostingSite":"al-distor-org","storageBucket":"al-distor-org.appspot.com","locationId":"europe-west"},"state":"ACTIVE"}
+[debug] [2022-05-30T13:42:10.828Z] database rules config:  []
+[warn] !  database: Did not find a Realtime Database rules file specified in a firebase.json config file. The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration. {"metadata":{"emulator":{"name":"database"},"message":"Did not find a Realtime Database rules file specified in a firebase.json config file. The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration."}}
+[debug] [2022-05-30T13:42:10.833Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-05-30T13:42:10.833Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-05-30T13:42:10.833Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2022-05-30T13:42:10.833Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\Funoon\\.cache\\firebase\\emulators\\firebase-database-emulator-v4.8.0.jar","--host","localhost","--port",9000,"--functions_emulator_host","localhost","--functions_emulator_port",5001],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\Funoon\\\\.cache\\\\firebase\\\\emulators\\\\firebase-database-emulator-v4.8.0.jar\",\"--host\",\"localhost\",\"--port\",9000,\"--functions_emulator_host\",\"localhost\",\"--functions_emulator_port\",5001],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\"],\"joinArgs\":false}"}}
+[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
+[debug] [2022-05-30T13:42:24.176Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-05-30T13:42:24.176Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-05-30T13:42:24.176Z] Starting Pub/Sub Emulator with command {"binary":"C:\\Users\\Funoon\\.cache\\firebase\\emulators\\pubsub-emulator-0.1.0\\pubsub-emulator\\bin\\cloud-pubsub-emulator.bat","args":["--host=localhost","--port=8085"],"optionalArgs":["port","host"],"joinArgs":true} {"metadata":{"emulator":{"name":"pubsub"},"message":"Starting Pub/Sub Emulator with command {\"binary\":\"C:\\\\Users\\\\Funoon\\\\.cache\\\\firebase\\\\emulators\\\\pubsub-emulator-0.1.0\\\\pubsub-emulator\\\\bin\\\\cloud-pubsub-emulator.bat\",\"args\":[\"--host=localhost\",\"--port=8085\"],\"optionalArgs\":[\"port\",\"host\"],\"joinArgs\":true}"}}
+[info] i  pubsub: Pub/Sub Emulator logging to pubsub-debug.log {"metadata":{"emulator":{"name":"pubsub"},"message":"Pub/Sub Emulator logging to \u001b[1mpubsub-debug.log\u001b[22m"}}
+[debug] [2022-05-30T13:42:26.041Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-05-30T13:42:27.476Z] Temp file directory for storage emulator: C:\Users\Funoon\AppData\Local\Temp/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: C:\\Users\\Funoon\\AppData\\Local\\Temp/firebase/storage/blobs"}}
+[debug] [2022-05-30T13:42:27.486Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/al-distor-org/sites 
+[debug] [2022-05-30T13:42:28.736Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/al-distor-org/sites 200
+[debug] [2022-05-30T13:42:28.736Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/al-distor-org/sites {"sites":[{"name":"projects/al-distor-org/sites/al-distor-org","defaultUrl":"https://al-distor-org.web.app","appId":"1:17612612435:web:ae0f679a5ff166116f37a6","type":"DEFAULT_SITE"}]}
+[debug] [2022-05-30T13:42:28.737Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org/webApps/1:17612612435:web:ae0f679a5ff166116f37a6/config [none]
+[debug] [2022-05-30T13:42:29.767Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org/webApps/1:17612612435:web:ae0f679a5ff166116f37a6/config 200
+[debug] [2022-05-30T13:42:29.767Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org/webApps/1:17612612435:web:ae0f679a5ff166116f37a6/config {"projectId":"al-distor-org","appId":"1:17612612435:web:ae0f679a5ff166116f37a6","storageBucket":"al-distor-org.appspot.com","locationId":"europe-west","apiKey":"AIzaSyDcQPOdyt6tKYnnTcWaaGHc6NAHzbjrsiE","authDomain":"al-distor-org.firebaseapp.com","messagingSenderId":"17612612435","measurementId":"G-06ZL0FMHQJ"}
+[info] i  hosting: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[debug] [2022-05-30T13:42:29.829Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-05-30T13:42:29.829Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-05-30T13:42:29.829Z] Starting Emulator UI with command {"binary":"node","args":["--dns-result-order=ipv4first","C:\\Users\\Funoon\\.cache\\firebase\\emulators\\ui-v1.7.0\\server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"--dns-result-order=ipv4first\",\"C:\\\\Users\\\\Funoon\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.7.0\\\\server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-05-30T13:42:30.035Z] Web / API server started at localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
+[info] i  functions: Watching "C:\Users\Funoon\Desktop\Projects\distor-admin-dashboard\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\Funoon\\Desktop\\Projects\\distor-admin-dashboard\\functions\" for Cloud Functions..."}}
+[debug] [2022-05-30T13:42:30.102Z] Validating nodejs source
+[debug] [2022-05-30T13:42:35.020Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "serve": "npm run build && firebase emulators:start",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-05-30T13:42:35.021Z] Building nodejs source
+[debug] [2022-05-30T13:42:35.021Z] Analyzing nodejs backend spec
+[debug] [2022-05-30T13:42:35.023Z] Could not find functions.yaml. Must use http discovery

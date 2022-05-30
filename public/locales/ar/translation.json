@@ -16,9 +16,9 @@
         "subheaderTitlesGeneral": "العام",
         "subheaderTitlesControl": "تحكم"
     },
-    "newsPage": {
+    "blogsPage": {
         "searchBar": "بحث",
-        "addButton": "أضافة"
+        "addButton": "أضافة مقالة"
     },
     "signInPage": {
         "logIn": "تسجيل الدخول",

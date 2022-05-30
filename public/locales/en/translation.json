@@ -16,9 +16,9 @@
         "subheaderTitlesGeneral": "General",
         "subheaderTitlesControl": "Control"
     },
-    "newsPage": {
+    "blogsPage": {
         "searchBar": "Search",
-        "addButton": "Add"
+        "addButton": "Add Blog"
     },
     "signInPage": {
         "logIn": "Log in",

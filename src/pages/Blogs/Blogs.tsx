@@ -28,21 +28,21 @@ const Blogs = () => {
         <>
             {/* START - Search bar */}
             <Stack justifyContent={"space-between"} sx={{ p: '2px 4px', }} direction={"row"}>
-                <Paper
+                {/* <Paper
                     component="form"
                     sx={{ display: 'flex', alignItems: 'center', width: { md: '300px' } }}
                 >
                     <InputBase
                         sx={{ ml: 1, flex: 1 }}
-                        placeholder={t("newsPage.searchBar")}
+                        placeholder={t("blogsPage.searchBar")}
                         inputProps={{ 'aria-label': 'search google maps' }}
                     />
                     <IconButton sx={{ p: '10px' }} aria-label="search">
                         <SearchIcon />
                     </IconButton>
-                </Paper>
+                </Paper> */}
                 <Link to='/blogs/new'>
-                    <Button color='primary' startIcon={<AddIcon />} variant='contained'>{t("newsPage.addButton")}</Button>
+                    <Button color='primary' startIcon={<AddIcon />} variant='contained'>{t("blogsPage.addButton")}</Button>
                 </Link>
             </Stack>
             {/* END - Search bar */}

@@ -44,22 +44,6 @@ const Files = () => {
         for (const key in files) {
             if (files[key] && Array.isArray(files[key]) && files[key].length) {
                 result.push(
-                    i === 0 ? <Box display={'flex'} justifyContent="space-between">
-                        <Typography component={"h1"} variant={"h3"}>
-                            Title of files
-                        </Typography>
-                        <Box>
-                            <Link to='/files/new'>
-                                <Button color='primary' startIcon={<AddIcon />} variant='contained'>{t('FilesPage.addButton')}</Button>
-                            </Link>
-                            <Button onClick={() => {
-                                handleOpen();
-                            }} sx={{
-                                marginLeft: 2
-                            }} color='primary' startIcon={<AddIcon />} variant='contained'>{t('FilesPage.addNewCategory')}</Button>
-                        </Box>
-                    </Box>
-                        :
                         <Typography component={"h1"} variant={"h3"}>
                             {key}
                         </Typography>
@@ -125,6 +109,18 @@ const Files = () => {
     return (
         <Box>
             <Modal />
+            <Box display={'flex'} marginBottom={3} justifyContent="space-between">
+                        <Box>
+                            <Link to='/files/new'>
+                                <Button color='primary' startIcon={<AddIcon />} variant='contained'>{t('FilesPage.addButton')}</Button>
+                            </Link>
+                            <Button onClick={() => {
+                                handleOpen();
+                            }} sx={{
+                                marginLeft: 2
+                            }} color='primary' startIcon={<AddIcon />} variant='contained'>{t('FilesPage.addNewCategory')}</Button>
+                        </Box>
+                    </Box>
             {RenderFiles()}
 
 
