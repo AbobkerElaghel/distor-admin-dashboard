@@ -19,6 +19,26 @@ const Files = () => {
     const [refresh, setRefresh] = useState<boolean>(false);
     const { t } = useTranslation();
 
+    const [files, setFiles] = useState<any>({});
+    useEffect(() => {
+        const result: any = {};
+        getFiles()
+            .then(data => {
+                // const docsData = data.docs.map(doc => { const data = doc.data(); return { ...data, date: data.date.toDate(), id: doc.id }; });
+                data.docs.forEach((item) => {
+                    const data = item.data();
+                    if (result[data.category]) {
+                        result[data.category].push({ ...data, date: data.date.toDate(), id: item.id });
+                    } else {
+                        result[data.category] = [{ ...data, date: data.date.toDate(), id: item.id }];
+                    }
+                })
+                setFiles(result);
+
+            })
+    }, [refresh]);
+
+
     const onDeleteFile = (id: string, category: string, title: string) => {
         if (window) {
             if (!window.confirm('Are you Sure?')) {
@@ -33,20 +53,18 @@ const Files = () => {
             })
             .catch()
     }
-
     const RenderFiles = () => {
         const result = [];
         let i = 0;
         if (!files) {
             return;
         }
-
         for (const key in files) {
             if (files[key] && Array.isArray(files[key]) && files[key].length) {
                 result.push(
-                        <Typography component={"h1"} variant={"h3"}>
-                            {key}
-                        </Typography>
+                    <Typography component={"h1"} variant={"h3"}>
+                        {key}
+                    </Typography>
                 );
                 result.push(
                     <Grid container marginY={2} columnGap={1}>
@@ -88,39 +106,23 @@ const Files = () => {
         return result;
     }
 
-    const [files, setFiles] = useState<any>({});
-    useEffect(() => {
-        const result: any = {};
-        getFiles()
-            .then(data => {
-                const docsData = data.docs.map(doc => { const data = doc.data(); return { ...data, date: data.date.toDate(), id: doc.id }; });
-                docsData.forEach((item: any) => {
-                    if (result[item.category]) {
-                        result[item.category].push(item);
-                    } else {
-                        result[item.category] = [item];
-                    }
-                })
-                setFiles(result);
 
-            })
-    }, [refresh])
 
     return (
         <Box>
             <Modal />
             <Box display={'flex'} marginBottom={3} justifyContent="space-between">
-                        <Box>
-                            <Link to='/files/new'>
-                                <Button color='primary' startIcon={<AddIcon />} variant='contained'>{t('FilesPage.addButton')}</Button>
-                            </Link>
-                            <Button onClick={() => {
-                                handleOpen();
-                            }} sx={{
-                                marginLeft: 2
-                            }} color='primary' startIcon={<AddIcon />} variant='contained'>{t('FilesPage.addNewCategory')}</Button>
-                        </Box>
-                    </Box>
+                <Box>
+                    <Link to='/files/new'>
+                        <Button color='primary' startIcon={<AddIcon />} variant='contained'>{t('FilesPage.addButton')}</Button>
+                    </Link>
+                    <Button onClick={() => {
+                        handleOpen();
+                    }} sx={{
+                        marginLeft: 2
+                    }} color='primary' startIcon={<AddIcon />} variant='contained'>{t('FilesPage.addNewCategory')}</Button>
+                </Box>
+            </Box>
             {RenderFiles()}
 
 
