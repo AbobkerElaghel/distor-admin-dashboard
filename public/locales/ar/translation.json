@@ -20,6 +20,10 @@
         "searchBar": "بحث",
         "addButton": "أضافة مقالة"
     },
+    "newsPage": {
+        "searchBar": "بحث",
+        "addButton": "أضافة أخبار"
+    },
     "signInPage": {
         "logIn": "تسجيل الدخول",
         "logInDescription": "قم بادخال بياناتك بالأسفل لتسجيل الدخول",
@@ -37,7 +41,13 @@
         "languages": "اللغة",
         "date": "التاريخ",
         "autoSelect": "أختيار تلقائي",
-        "submit": "أضافة الخبر"
+        "submit": "أضافة الخبر",
+        "feedbackNewsAdded": "تمت أضافة المدونة بنجاح",
+        "feedbackNewsAddedError": "مشكلة في أضافة المدونة",
+        "feedbackNewsRichContentRequired": " محتوى المدونة مطلوب",
+        "feedbackNewsPhotoRequired": "الصورة مطلوبة",
+        "feedbackNewsAuthRequired": "تأكد من تسجيل الدخول"
+
     },
     "addBlogsPage": {
         "createNewBlog": "أنشاء مدونة جديد",
@@ -88,6 +98,19 @@
         "autoSelect": "أختيار تلقائي",
         "submit": "تعديل مدونة"
     },
+    "editNewsPage": {
+        "editNews": "تعديل الخبر",
+        "basicInfo": "معلومات الاساسية",
+        "title": "العنوان",
+        "content": "المحتوي",
+        "image": "الصورة",
+        "imageDescription": "سوف تضهر الصورة هنا عند الاختيار",
+        "category": "النوع",
+        "languages": "اللغة",
+        "date": "التاريخ",
+        "autoSelect": "أختيار تلقائي",
+        "submit": "تعديل الخبر"
+    },
     "UsersPage": {
         "columnName": "الأسم",
         "columnEmail": "الأيميل",
@@ -133,7 +156,11 @@
         "/users/new": "أضافة مستخدم",
         "/users/edit/id": "تعديل مستخدم",
         "/files": "الملفات",
-        "/files/new": "أضافة ملف"
+        "/files/new": "أضافة ملف",
+        "/news": "الأخبار",
+        "/news/new": "أنشاء خبر جديد",
+        "/news/edit": "تعديل الخبر"
+
     },
     "AddFileCategory": {
         "modalTitle": "أضافة تصنيف ملفات جديد",

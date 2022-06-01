@@ -1,28 +1,28 @@
 import { collection, where, addDoc, getDoc, doc, updateDoc, QueryConstraint, QueryDocumentSnapshot, DocumentData, limit, orderBy, startAfter, getDocs, query } from "firebase/firestore";
 import firestore from '../firestore';
-const CollectionName = 'blogs';
-const BlogsCollection = collection(firestore, CollectionName);
-const BlogDoc = (id: string) => doc(firestore, CollectionName, id);
+const CollectionName = "news";
+const NewsCollection = collection(firestore, CollectionName);
+const NewsDoc = (id: string) => doc(firestore, CollectionName, id);
 
-export const addBlogs = (blog: any) => {
-    return getBlogs(1, [where("title", '==', blog.title)])
+export const addNews = (news: any) => {
+    return getNews(1, [where("title", '==', news.title)])
         .then((doc) => {
             if (doc.size !== 0) {
                 throw new Error("Title Name is Used Already");
             }
-            return addDoc(BlogsCollection, blog);
+            return addDoc(NewsCollection, news);
         });
-}
-
-export const getSingleBlog = (id: string) => {
-    return getDoc(BlogDoc(id));
 };
 
-export const updateBlog = (id: string, blog: any) => {
-    return updateDoc(BlogDoc(id), blog);
+export const getSingleNews = (id: string) => {
+    return getDoc(NewsDoc(id));
 };
 
-export const getBlogs = (
+export const updateNews = (id: string, news: any) => {
+    return updateDoc(NewsDoc(id), news);
+};
+
+export const getNews = (
     queryLimit: number = 1000,
     queryConstraint: QueryConstraint[] = [],
     curser?: QueryDocumentSnapshot<DocumentData>,
@@ -35,5 +35,5 @@ export const getBlogs = (
     if (curser) {
         transactionsConstraints.push(startAfter(curser));
     }
-    return getDocs(query(BlogsCollection, ...transactionsConstraints));
+    return getDocs(query(NewsCollection, ...transactionsConstraints));
 };

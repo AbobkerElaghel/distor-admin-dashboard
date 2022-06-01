@@ -104,9 +104,7 @@ const Files = () => {
             i++;
         }
         return result;
-    }
-
-
+    };
 
     return (
         <Box>

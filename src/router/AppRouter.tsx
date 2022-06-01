@@ -26,6 +26,7 @@ import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import MenuIcon from '@mui/icons-material/Menu';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
+import ArticleIcon from '@mui/icons-material/Article';
 
 // Utils
 import { Suspense, useContext, useState, lazy } from 'react';
@@ -43,8 +44,6 @@ import LinkRouterProps from '../interfaces/LinkRouterProps';
 // Objects
 import transitionAllSX from '../helpers/transitionAllSX';
 
-
-
 // Lazy Loading Components //
 // Pages
 const LogInPage = lazy(() => import('../pages/LogInPage'));
@@ -58,9 +57,12 @@ const AddUser = lazy(() => import('../pages/Users/AddUser'));
 const EditBlogs = lazy(() => import('../pages/Blogs/EditBlogs'));
 const Files = lazy(() => import('../pages/Files/Files'));
 const AddFile = lazy(() => import('../pages/Files/AddFile'));
+const News = lazy(() => import('../pages/News/News'));
+const AddNews = lazy(() => import('../pages/News/AddNews'));
+const EditNews = lazy(() => import('../pages/News/EditNews'));
+
 
 const drawerWidth = 250;
-
 export default function ResponsiveDrawer() {
 
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -76,6 +78,9 @@ export default function ResponsiveDrawer() {
 
   const breadcrumbNameMap: { [key: string]: string } = {
     '/': t('breadcrumbNameMap./'),
+    '/news': t('breadcrumbNameMap./news'),
+    '/news/new': t('breadcrumbNameMap./news/new'),
+    '/news/edit': t('breadcrumbNameMap./news/edit'),
     '/blogs': t('breadcrumbNameMap./blogs'),
     '/blogs/new': t('breadcrumbNameMap./blogs/new'),
     '/blogs/edit': t('breadcrumbNameMap./blogs/edit'),
@@ -84,7 +89,6 @@ export default function ResponsiveDrawer() {
     '/users/edit/id': t('breadcrumbNameMap./users/edit/id'),
     '/files': t('breadcrumbNameMap./files'),
     '/files/new': t('breadcrumbNameMap./files/new'),
-
   };
 
   const pathnames = location.split('/').filter((x) => x);
@@ -112,7 +116,8 @@ export default function ResponsiveDrawer() {
       <List subheader={<ListSubheader sx={{ ...transitionAllSX, fontSize: i18n.resolvedLanguage === 'ar' ? '1.4rem' : "'1.1rem'" }}>{t('sidebar.subheaderTitlesGeneral')}</ListSubheader>}>
         {[
           // { title: t('sidebar.main'), Icon: HomeIcon, href: "/" },
-          { title: t('sidebar.blogs'), Icon: NewspaperIcon, href: "/blogs" },
+          { title: t('sidebar.blogs'), Icon: ArticleIcon, href: "/blogs" },
+          { title: t('sidebar.news'), Icon: NewspaperIcon, href: "/news" },
           { title: t('sidebar.files'), Icon: FileCopyIcon, href: "/files" }].map(({ title, Icon, href }, index) => {
             const isSelected = location === href;
             return (
@@ -301,6 +306,9 @@ export default function ResponsiveDrawer() {
             <Switch location={location}>
               <PublicRoute path="/login" component={LogInPage} />
               <PrivateRoute path="/" component={MainPage} />
+              <PrivateRoute path="/news" component={News} />
+              <PrivateRoute path="/news/new" component={AddNews} />
+              <PrivateRoute path="/news/edit/:id" component={EditNews} />
               <PrivateRoute path="/blogs" component={Blogs} />
               <PrivateRoute path="/blogs/new" component={AddBlogs} />
               <PrivateRoute path="/blogs/edit" component={Blogs} />

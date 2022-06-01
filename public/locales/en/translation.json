@@ -20,6 +20,10 @@
         "searchBar": "Search",
         "addButton": "Add Blog"
     },
+    "newsPage": {
+        "searchBar": "Search",
+        "addButton": "Add News"
+    },
     "signInPage": {
         "logIn": "Log in",
         "logInDescription": "Sign in to access the dashboard",
@@ -37,7 +41,13 @@
         "languages": "Languages",
         "date": "Date",
         "autoSelect": "Auto Select",
-        "submit": "Add news"
+        "submit": "Add News",
+        "feedbackNewsAdded": "Added News Successfully",
+        "feedbackNewsAddedError": "Error in Adding News",
+        "feedbackNewsRichContentRequired": " News Content is required",
+        "feedbackNewsPhotoRequired": "Photo is Required",
+        "feedbackNewsAuthRequired": "Make sure you are signed in"
+
     },
     "addBlogsPage": {
         "createNewBlog": "Create a New Blog",
@@ -76,7 +86,7 @@
         "feedbackFileAuthRequired": "Make sure you are signed in"
     },
     "editBlogsPage": {
-        "editBlog": "Edit Blog",
+        "editNews": "Edit Blog",
         "basicInfo": "Basic Information",
         "title": "Title",
         "content": "Content",
@@ -87,6 +97,19 @@
         "date": "Date",
         "autoSelect": "Auto Select",
         "submit": "Edit Blog"
+    },
+    "editNewsPage": {
+        "editNews": "Edit News",
+        "basicInfo": "Basic Information",
+        "title": "Title",
+        "content": "Content",
+        "image": "Image",
+        "imageDescription": "Image will appear in in the News you post",
+        "category": "Category",
+        "languages": "Languages",
+        "date": "Date",
+        "autoSelect": "Auto Select",
+        "submit": "Edit News"
     },
     "UsersPage": {
         "columnName": "Name",
@@ -133,7 +156,11 @@
         "/users/new": "Add User",
         "/users/edit/id": "Edit User",
         "/files": "Files",
-        "/files/new": "Add File"
+        "/files/new": "Add File",
+        "/news": "News",
+        "/news/new": "Add News",
+        "/news/edit": "Edit News"
+
     },
     "AddFileCategory": {
         "modalTitle": "Add New File Category",

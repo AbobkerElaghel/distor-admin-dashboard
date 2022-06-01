@@ -7,17 +7,17 @@ import AddIcon from '@mui/icons-material/Add';
 import { Link } from 'wouter';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'wouter';
-import { getBlogs } from '../../firebase/Firestore/BlogsCollection';
+import { getNews } from '../../firebase/Firestore/NewsCollection';
 
-const Blogs = () => {
+const News = () => {
     const { t } = useTranslation();
-    const [blogs, setBlogs] = useState<any[]>([]);
+    const [News, setNews] = useState<any[]>([]);
     const [_, setLocation] = useLocation();
 
     useEffect(() => {
-        getBlogs()
+        getNews()
             .then((data) => {
-                setBlogs(data.docs.map(doc => { const data = doc.data(); return { ...data, date: data.date.toDate(), id: doc.id } }));
+                setNews(data.docs.map(doc => { const data = doc.data(); return { ...data, date: data.date.toDate(), id: doc.id } }));
             })
     }, [])
 
@@ -31,28 +31,28 @@ const Blogs = () => {
                 >
                     <InputBase
                         sx={{ ml: 1, flex: 1 }}
-                        placeholder={t("blogsPage.searchBar")}
+                        placeholder={t("newsPage.searchBar")}
                         inputProps={{ 'aria-label': 'search google maps' }}
                     />
                     <IconButton sx={{ p: '10px' }} aria-label="search">
                         <SearchIcon />
                     </IconButton>
                 </Paper> */}
-                <Link to='/blogs/new'>
-                    <Button color='primary' startIcon={<AddIcon />} variant='contained'>{t("blogsPage.addButton")}</Button>
+                <Link to='/news/new'>
+                    <Button color='primary' startIcon={<AddIcon />} variant='contained'>{t("newsPage.addButton")}</Button>
                 </Link>
             </Stack>
             {/* END - Search bar */}
 
             {/* Start Main News Section */}
             <Grid container columnGap={1}>
-                {blogs.slice(0, 3).map((blogsItem, index) => {
+                {News.slice(0, 3).map((NewsItem, index) => {
                     if (index === 0) {
                         return (
                             <Grid key={index} onClick={() => {
-                                setLocation(`/blogs/edit/${blogsItem.id}`)
+                                setLocation(`/news/edit/${NewsItem.id}`)
                             }} item md={5.9} xs={12} component="div" sx={{
-                                backgroundImage: `url('${blogsItem.photoURL}')`,
+                                backgroundImage: `url('${NewsItem.photoURL}')`,
                                 height: "400px",
                                 backgroundRepeat: "no-repeat",
                                 backgroundSize: "cover",
@@ -68,17 +68,17 @@ const Blogs = () => {
                             }}>
                                 <Avatar>A</Avatar>
                                 <Box marginBottom={5}>
-                                    <Typography color="rgba(255, 255, 255, 0.7)" component="div">{blogsItem.date.toLocaleString('en')}</Typography>
-                                    <Typography color="white" fontSize="1.5rem" component="h1">{blogsItem.title}</Typography>
+                                    <Typography color="rgba(255, 255, 255, 0.7)" component="div">{NewsItem.date.toLocaleString('en')}</Typography>
+                                    <Typography color="white" fontSize="1.5rem" component="h1">{NewsItem.title}</Typography>
                                 </Box>
                             </Grid>
                         )
                     } else {
                         return (
                             <Grid key={index} onClick={() => {
-                                setLocation(`/blogs/edit/${blogsItem.id}`)
+                                setLocation(`/news/edit/${NewsItem.id}`)
                             }} item xl={2.93} md={5.9} xs={12} component="div" sx={{
-                                backgroundImage: `url('${blogsItem.photoURL}')`,
+                                backgroundImage: `url('${NewsItem.photoURL}')`,
                                 height: "400px",
                                 backgroundRepeat: "no-repeat",
                                 backgroundSize: "cover",
@@ -94,19 +94,19 @@ const Blogs = () => {
                             }}>
                                 <Avatar>A</Avatar>
                                 <Box marginBottom={5}>
-                                    <Typography color="rgba(255, 255, 255, 0.7)" component="div">{blogsItem.date.toLocaleString('en')}</Typography>
-                                    <Typography color="white" fontSize="1.2rem" component="h1">{blogsItem.title}</Typography>
+                                    <Typography color="rgba(255, 255, 255, 0.7)" component="div">{NewsItem.date.toLocaleString('en')}</Typography>
+                                    <Typography color="white" fontSize="1.2rem" component="h1">{NewsItem.title}</Typography>
                                 </Box>
                             </Grid>
                         )
                     }
                 })}
-                {blogs.slice(3).map((blogsItem, index) => {
+                {News.slice(3).map((NewsItem, index) => {
                     return (
                         <Grid key={index} onClick={() => {
-                            setLocation(`/blogs/edit/${blogsItem.id}`)
+                            setLocation(`/news/edit/${NewsItem.id}`)
                         }} item xl={2.93} md={5.9} xs={12} component="div" sx={{
-                            backgroundImage: `url('${blogsItem.photoURL}')`,
+                            backgroundImage: `url('${NewsItem.photoURL}')`,
                             height: "400px",
                             backgroundRepeat: "no-repeat",
                             backgroundSize: "cover",
@@ -122,8 +122,8 @@ const Blogs = () => {
                         }}>
                             <Avatar>A</Avatar>
                             <Box marginBottom={5}>
-                                <Typography color="rgba(255, 255, 255, 0.7)" component="div">{blogsItem.date.toLocaleString('en')}</Typography>
-                                <Typography color="white" fontSize="1.2rem" component="h1">{blogsItem.title}</Typography>
+                                <Typography color="rgba(255, 255, 255, 0.7)" component="div">{NewsItem.date.toLocaleString('en')}</Typography>
+                                <Typography color="white" fontSize="1.2rem" component="h1">{NewsItem.title}</Typography>
                             </Box>
                         </Grid>
                     )
@@ -133,4 +133,4 @@ const Blogs = () => {
     )
 }
 
-export default Blogs;
+export default News;
