@@ -16,6 +16,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { default as MuiLink } from '@mui/material/Link';
+// Components
 
 // Icons
 // import HomeIcon from '@mui/icons-material/Home';
@@ -27,22 +28,29 @@ import MenuIcon from '@mui/icons-material/Menu';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import ArticleIcon from '@mui/icons-material/Article';
+import LocalActivityIcon from '@mui/icons-material/LocalActivity';
+// Icons
 
 // Utils
 import { Suspense, useContext, useState, lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, Switch, useLocation } from 'wouter';
+// Utils
 
 // Providers
 import { AuthContext } from '../providers/AuthProvider';
 import { ThemeContext } from '../providers/ThemeProvider';
 import { RTLContext } from '../providers/RTLProvider';
+// Providers
 
 // Interfaces
 import LinkRouterProps from '../interfaces/LinkRouterProps';
+// Interfaces
 
 // Objects
 import transitionAllSX from '../helpers/transitionAllSX';
+// Objects
+
 
 // Lazy Loading Components //
 // Pages
@@ -60,7 +68,11 @@ const AddFile = lazy(() => import('../pages/Files/AddFile'));
 const News = lazy(() => import('../pages/News/News'));
 const AddNews = lazy(() => import('../pages/News/AddNews'));
 const EditNews = lazy(() => import('../pages/News/EditNews'));
-
+const Activities = lazy(() => import('../pages/Activities/Activities'));
+const AddActivities = lazy(() => import('../pages/Activities/AddActivities'));
+const EditActivities = lazy(() => import('../pages/Activities/EditActivities'));
+// Pages
+// Lazy Loading Components //
 
 const drawerWidth = 250;
 export default function ResponsiveDrawer() {
@@ -81,6 +93,9 @@ export default function ResponsiveDrawer() {
     '/news': t('breadcrumbNameMap./news'),
     '/news/new': t('breadcrumbNameMap./news/new'),
     '/news/edit': t('breadcrumbNameMap./news/edit'),
+    '/activities': t('breadcrumbNameMap./activities'),
+    '/activities/new': t('breadcrumbNameMap./activities/new'),
+    '/activities/edit': t('breadcrumbNameMap./activities/edit'),
     '/blogs': t('breadcrumbNameMap./blogs'),
     '/blogs/new': t('breadcrumbNameMap./blogs/new'),
     '/blogs/edit': t('breadcrumbNameMap./blogs/edit'),
@@ -118,19 +133,21 @@ export default function ResponsiveDrawer() {
           // { title: t('sidebar.main'), Icon: HomeIcon, href: "/" },
           { title: t('sidebar.blogs'), Icon: ArticleIcon, href: "/blogs" },
           { title: t('sidebar.news'), Icon: NewspaperIcon, href: "/news" },
-          { title: t('sidebar.files'), Icon: FileCopyIcon, href: "/files" }].map(({ title, Icon, href }, index) => {
-            const isSelected = location === href;
-            return (
-              <Link key={index} href={href}>
-                <ListItemButton sx={transitionAllSX} selected={isSelected} key={title}>
-                  <ListItemIcon sx={transitionAllSX}>
-                    <Icon fontSize='medium' sx={transitionAllSX} color={isSelected ? 'primary' : "action"} />
-                  </ListItemIcon>
-                  <ListItemText primary={<Typography sx={transitionAllSX} color={isSelected ? 'primary' : ""} fontSize={i18n.resolvedLanguage === 'ar' ? '1.3rem' : "'1rem'"} fontWeight={500}>{title}</Typography>} />
-                </ListItemButton>
-              </Link>
-            );
-          })}
+          { title: t('sidebar.files'), Icon: FileCopyIcon, href: "/files" },
+          { title: t('sidebar.activities'), Icon: LocalActivityIcon, href: "/activities" }
+        ].map(({ title, Icon, href }, index) => {
+          const isSelected = location === href;
+          return (
+            <Link key={index} href={href}>
+              <ListItemButton sx={transitionAllSX} selected={isSelected} key={title}>
+                <ListItemIcon sx={transitionAllSX}>
+                  <Icon fontSize='medium' sx={transitionAllSX} color={isSelected ? 'primary' : "action"} />
+                </ListItemIcon>
+                <ListItemText primary={<Typography sx={transitionAllSX} color={isSelected ? 'primary' : ""} fontSize={i18n.resolvedLanguage === 'ar' ? '1.3rem' : "'1rem'"} fontWeight={500}>{title}</Typography>} />
+              </ListItemButton>
+            </Link>
+          );
+        })}
       </List>
 
       {/* CONTROL - ADMIN ONLY */}
@@ -309,6 +326,9 @@ export default function ResponsiveDrawer() {
               <PrivateRoute path="/news" component={News} />
               <PrivateRoute path="/news/new" component={AddNews} />
               <PrivateRoute path="/news/edit/:id" component={EditNews} />
+              <PrivateRoute path="/activities" component={Activities} />
+              <PrivateRoute path="/activities/new" component={AddActivities} />
+              <PrivateRoute path="/activities/edit/:id" component={EditActivities} />
               <PrivateRoute path="/blogs" component={Blogs} />
               <PrivateRoute path="/blogs/new" component={AddBlogs} />
               <PrivateRoute path="/blogs/edit" component={Blogs} />

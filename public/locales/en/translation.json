@@ -11,6 +11,7 @@
         "main": "Main",
         "news": "News",
         "blogs": "Blogs",
+        "activities": "Activities",
         "files": "Files",
         "users": "Users",
         "subheaderTitlesGeneral": "General",
@@ -23,6 +24,10 @@
     "newsPage": {
         "searchBar": "Search",
         "addButton": "Add News"
+    },
+    "activitiesPage": {
+        "searchBar": "Search",
+        "addButton": "Add Activity"
     },
     "signInPage": {
         "logIn": "Log in",
@@ -47,7 +52,6 @@
         "feedbackNewsRichContentRequired": " News Content is required",
         "feedbackNewsPhotoRequired": "Photo is Required",
         "feedbackNewsAuthRequired": "Make sure you are signed in"
-
     },
     "addBlogsPage": {
         "createNewBlog": "Create a New Blog",
@@ -67,6 +71,24 @@
         "feedbackBlogRichContentRequired": " Blog Content is required",
         "feedbackBlogPhotoRequired": "Photo is Required",
         "feedbackBlogAuthRequired": "Make sure you are signed in"
+    },
+    "addActivitiesPage": {
+        "createNewActivity": "Create a New Activity",
+        "basicInfo": "Basic Information",
+        "title": "Title",
+        "content": "Content",
+        "image": "Image",
+        "imageDescription": "Image will appear in in the Activity you post",
+        "category": "Category",
+        "languages": "Languages",
+        "date": "Date",
+        "autoSelect": "Auto Select",
+        "submit": "Add Activity",
+        "feedbackActivityAdded": "Added Activity Successfully",
+        "feedbackActivityAddedError": "Error in Adding Activity",
+        "feedbackActivityRichContentRequired": " Activity Content is required",
+        "feedbackActivityPhotoRequired": "Photo is Required",
+        "feedbackActivityAuthRequired": "Make sure you are signed in"
     },
     "addFilePage": {
         "createNewFile": "Add File",
@@ -110,6 +132,19 @@
         "date": "Date",
         "autoSelect": "Auto Select",
         "submit": "Edit News"
+    },
+    "editActivitiesPage": {
+        "editActivity": "Edit Activity",
+        "basicInfo": "Basic Information",
+        "title": "Title",
+        "content": "Content",
+        "image": "Image",
+        "imageDescription": "Image will appear in in the Activity you post",
+        "category": "Category",
+        "languages": "Languages",
+        "date": "Date",
+        "autoSelect": "Auto Select",
+        "submit": "Edit Activity"
     },
     "UsersPage": {
         "columnName": "Name",
@@ -159,8 +194,10 @@
         "/files/new": "Add File",
         "/news": "News",
         "/news/new": "Add News",
-        "/news/edit": "Edit News"
-
+        "/news/edit": "Edit News",
+        "/activities": "Activity",
+        "/activities/new": "Add Activity",
+        "/activities/edit": "Edit Activity"
     },
     "AddFileCategory": {
         "modalTitle": "Add New File Category",

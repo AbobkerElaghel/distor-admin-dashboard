@@ -11,6 +11,7 @@
         "main": "الرئيسي",
         "news": "الأخبار",
         "blogs": "المدونات",
+        "activities": "المناشط",
         "files": "الملفات",
         "users": "المستخدمين",
         "subheaderTitlesGeneral": "العام",
@@ -23,6 +24,10 @@
     "newsPage": {
         "searchBar": "بحث",
         "addButton": "أضافة أخبار"
+    },
+    "activitiesPage": {
+        "searchBar": "بحث",
+        "addButton": "أضافة منشط"
     },
     "signInPage": {
         "logIn": "تسجيل الدخول",
@@ -47,7 +52,6 @@
         "feedbackNewsRichContentRequired": " محتوى المدونة مطلوب",
         "feedbackNewsPhotoRequired": "الصورة مطلوبة",
         "feedbackNewsAuthRequired": "تأكد من تسجيل الدخول"
-
     },
     "addBlogsPage": {
         "createNewBlog": "أنشاء مدونة جديد",
@@ -97,6 +101,51 @@
         "date": "التاريخ",
         "autoSelect": "أختيار تلقائي",
         "submit": "تعديل مدونة"
+    },
+    "editActivityPage": {
+        "editActivity": "تعديل منشط",
+        "basicInfo": "معلومات الاساسية",
+        "title": "العنوان",
+        "content": "المحتوي",
+        "image": "الصورة",
+        "imageDescription": "سوف تضهر الصورة هنا عند الاختيار",
+        "category": "النوع",
+        "languages": "اللغة",
+        "date": "التاريخ",
+        "autoSelect": "أختيار تلقائي",
+        "submit": "تعديل منشط"
+    },
+    "editActivitiesPage": {
+        "editActivities": "تعديل المنشط",
+        "basicInfo": "معلومات الاساسية",
+        "title": "العنوان",
+        "content": "المحتوي",
+        "image": "الصورة",
+        "imageDescription": "سوف تضهر الصورة هنا عند الاختيار",
+        "category": "النوع",
+        "languages": "اللغة",
+        "date": "التاريخ",
+        "autoSelect": "أختيار تلقائي",
+        "submit": "تعديل المنشط"
+    },
+    "addActivitiesPage": {
+        "createNewActivity": "أنشاء منشط جديد",
+        "editActivity": "تعديل منشط",
+        "basicInfo": "معلومات الاساسية",
+        "title": "العنوان",
+        "content": "المحتوي",
+        "image": "الصورة",
+        "imageDescription": "سوف تضهر الصورة هنا عند الاختيار",
+        "category": "النوع",
+        "languages": "اللغة",
+        "date": "التاريخ",
+        "autoSelect": "أختيار تلقائي",
+        "submit": "أضافة المنشط",
+        "feedbackActivityAdded": "تمت أضافة المنشط بنجاح",
+        "feedbackActivityAddedError": "مشكلة في أضافة المنشط",
+        "feedbackActivityRichContentRequired": " محتوى المنشط مطلوب",
+        "feedbackActivityPhotoRequired": "الصورة مطلوبة",
+        "feedbackActivityAuthRequired": "تأكد من تسجيل الدخول"
     },
     "editNewsPage": {
         "editNews": "تعديل الخبر",
