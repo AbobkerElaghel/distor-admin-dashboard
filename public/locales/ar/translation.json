@@ -29,6 +29,11 @@
         "searchBar": "بحث",
         "addButton": "أضافة منشط"
     },
+    "addPageCommons": {
+        "title": "Title",
+        "excerpt":"المختصر",
+        "content": "Content"
+    },
     "signInPage": {
         "logIn": "تسجيل الدخول",
         "logInDescription": "قم بادخال بياناتك بالأسفل لتسجيل الدخول",

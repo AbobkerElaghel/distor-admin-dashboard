@@ -44,10 +44,16 @@ const AddBlogs = () => {
     const onBlogsSubmit = async (e: any) => {
         e.preventDefault();
         const title = e.target.elements.title.value;
+        const excerpt = e.target.elements.excerpt.value;
         // const category = e.target.elements.category.value;
 
         if (!title) {
             setErrors({ ...errors, title: true });
+            return;
+        };
+
+        if (!excerpt) {
+            setErrors({ ...errors, excerpt: true });
             return;
         };
 
@@ -75,6 +81,7 @@ const AddBlogs = () => {
             await addBlogs({
                 title,
                 language,
+                excerpt,
                 RichContent,
                 userId: Auth?.user?.uid,
                 photoURL,
@@ -126,6 +133,7 @@ const AddBlogs = () => {
                     <Paper elevation={4} sx={{ p: 4 }}>
                         <Typography variant='h5' fontWeight={500} component={'h5'}>{t('addBlogsPage.basicInfo')}</Typography>
                         <TextField error={errors?.title} required name="title" margin='normal' fullWidth label={t('addBlogsPage.title')} variant="outlined" />
+                        <TextField error={errors?.excerpt} required name="excerpt" margin='normal' fullWidth label={t('addPageCommons.excerpt')} variant="outlined" />
                         <Typography marginTop={5} marginBottom={2} variant='h6' component={'p'}>{t('addBlogsPage.content')}</Typography>
                         <Box sx={{
                             border: "1px sold rgb(45, 55, 72)",

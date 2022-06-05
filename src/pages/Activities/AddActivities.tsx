@@ -44,10 +44,15 @@ const AddActivities = () => {
     const onActivitiesSubmit = async (e: any) => {
         e.preventDefault();
         const title = e.target.elements.title.value;
-        // const category = e.target.elements.category.value;
+        const excerpt = e.target.elements.excerpt.value;
 
         if (!title) {
             setErrors({ ...errors, title: true });
+            return;
+        };
+
+        if (!excerpt) {
+            setErrors({ ...errors, excerpt: true });
             return;
         };
 
@@ -74,6 +79,7 @@ const AddActivities = () => {
             const photoURL = await uploadPhotoAndGetUrl(title, "Activities", photo[0]);
             await addActivities({
                 title,
+                excerpt,
                 language,
                 RichContent,
                 userId: Auth?.user?.uid,
@@ -126,6 +132,8 @@ const AddActivities = () => {
                     <Paper elevation={4} sx={{ p: 4 }}>
                         <Typography variant='h5' fontWeight={500} component={'h5'}>{t('addActivitiesPage.basicInfo')}</Typography>
                         <TextField error={errors?.title} required name="title" margin='normal' fullWidth label={t('addActivitiesPage.title')} variant="outlined" />
+                        <TextField error={errors?.excerpt} required name="excerpt" margin='normal' fullWidth label={t('addPageCommons.excerpt')} variant="outlined" />
+
                         <Typography marginTop={5} marginBottom={2} variant='h6' component={'p'}>{t('addActivitiesPage.content')}</Typography>
                         <Box sx={{
                             border: "1px sold rgb(45, 55, 72)",

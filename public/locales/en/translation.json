@@ -35,6 +35,11 @@
         "email": "Email",
         "password": "Password"
     },
+    "addPageCommons": {
+        "title": "Title",
+        "excerpt":"excerpt",
+        "content": "Content"
+    },
     "addNewsPage": {
         "createNewNews": "Create a New News",
         "basicInfo": "Basic Information",

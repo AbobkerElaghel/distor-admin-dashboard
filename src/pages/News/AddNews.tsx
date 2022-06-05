@@ -44,10 +44,16 @@ const AddNews = () => {
     const onNewsSubmit = async (e: any) => {
         e.preventDefault();
         const title = e.target.elements.title.value;
+        const excerpt = e.target.elements.excerpt.value;
         // const category = e.target.elements.category.value;
 
         if (!title) {
             setErrors({ ...errors, title: true });
+            return;
+        };
+
+        if (!excerpt) {
+            setErrors({ ...errors, excerpt: true });
             return;
         };
 
@@ -76,6 +82,7 @@ const AddNews = () => {
                 title,
                 language,
                 RichContent,
+                excerpt,
                 userId: Auth?.user?.uid,
                 photoURL,
                 date: isAutoDate ? serverTimestamp() : date
@@ -126,6 +133,7 @@ const AddNews = () => {
                     <Paper elevation={4} sx={{ p: 4 }}>
                         <Typography variant='h5' fontWeight={500} component={'h5'}>{t('addNewsPage.basicInfo')}</Typography>
                         <TextField error={errors?.title} required name="title" margin='normal' fullWidth label={t('addNewsPage.title')} variant="outlined" />
+                        <TextField error={errors?.excerpt} required name="excerpt" margin='normal' fullWidth label={t('addPageCommons.excerpt')} variant="outlined" />
                         <Typography marginTop={5} marginBottom={2} variant='h6' component={'p'}>{t('addNewsPage.content')}</Typography>
                         <Box sx={{
                             border: "1px sold rgb(45, 55, 72)",
