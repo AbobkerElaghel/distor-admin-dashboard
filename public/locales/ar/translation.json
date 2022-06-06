@@ -14,6 +14,7 @@
         "activities": "المناشط",
         "files": "الملفات",
         "users": "المستخدمين",
+        "signatures": "التوقيعات",
         "subheaderTitlesGeneral": "العام",
         "subheaderTitlesControl": "تحكم"
     },
@@ -174,6 +175,13 @@
         "columnActions": "التحكم",
         "addUserButton": "أضافة مستخدم جديد"
     },
+    "SignaturesPage":{
+        "columnName": "الأسم",
+        "columnEmail": "الأيميل",
+        "columnPhone": "رقم الهاتف",
+        "columnCreatedAt": "تاريخ الأنشاء",
+        "columnActions": "التحكم"
+    },
     "FilesPage": {
         "addButton": "أضافة ملف",
         "addNewCategory": "أضافة صنف ملف"
@@ -213,7 +221,9 @@
         "/files/new": "أضافة ملف",
         "/news": "الأخبار",
         "/news/new": "أنشاء خبر جديد",
-        "/news/edit": "تعديل الخبر"
+        "/news/edit": "تعديل الخبر",
+        "/signatures": "التوقيعات"
+
 
     },
     "AddFileCategory": {

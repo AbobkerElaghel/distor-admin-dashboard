@@ -160,6 +160,14 @@
         "columnActions": "Actions",
         "addUserButton": "Add User"
     },
+    "SignaturesPage":{
+        "columnName": "Name",
+        "columnEmail": "Email",
+        "columnPhone": "Phone Number",
+        "columnCreatedAt": "Created At",
+        "columnLastSignin": "Last Sign in",
+        "columnActions": "Actions"
+    },
     "FilesPage": {
         "addButton": "Add File",
         "addNewCategory": "Add New Category"

@@ -29,6 +29,7 @@ import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import ArticleIcon from '@mui/icons-material/Article';
 import LocalActivityIcon from '@mui/icons-material/LocalActivity';
+import CreateIcon from '@mui/icons-material/Create';
 // Icons
 
 // Utils
@@ -71,6 +72,8 @@ const EditNews = lazy(() => import('../pages/News/EditNews'));
 const Activities = lazy(() => import('../pages/Activities/Activities'));
 const AddActivities = lazy(() => import('../pages/Activities/AddActivities'));
 const EditActivities = lazy(() => import('../pages/Activities/EditActivities'));
+const Signatures = lazy(() => import('../pages/Signatures/Signatures'));
+
 // Pages
 // Lazy Loading Components //
 
@@ -104,6 +107,7 @@ export default function ResponsiveDrawer() {
     '/users/edit/id': t('breadcrumbNameMap./users/edit/id'),
     '/files': t('breadcrumbNameMap./files'),
     '/files/new': t('breadcrumbNameMap./files/new'),
+    '/signatures': t('breadcrumbNameMap./signatures'),
   };
 
   const pathnames = location.split('/').filter((x) => x);
@@ -134,7 +138,9 @@ export default function ResponsiveDrawer() {
           { title: t('sidebar.blogs'), Icon: ArticleIcon, href: "/blogs" },
           { title: t('sidebar.news'), Icon: NewspaperIcon, href: "/news" },
           { title: t('sidebar.files'), Icon: FileCopyIcon, href: "/files" },
-          { title: t('sidebar.activities'), Icon: LocalActivityIcon, href: "/activities" }
+          { title: t('sidebar.activities'), Icon: LocalActivityIcon, href: "/activities" },
+          { title: t('sidebar.signatures'), Icon: CreateIcon, href: "/signatures" }
+
         ].map(({ title, Icon, href }, index) => {
           const isSelected = location === href;
           return (
@@ -337,6 +343,7 @@ export default function ResponsiveDrawer() {
               <PrivateRoute path="/users/new" component={AddUser} />
               <PrivateRoute path="/files" component={Files} />
               <PrivateRoute path="/files/new" component={AddFile} />
+              <PrivateRoute path="/signatures" component={Signatures} />
             </Switch>
           </Suspense>
           {/* START - MAIN SECTION */}

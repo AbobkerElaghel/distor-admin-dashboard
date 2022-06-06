@@ -1,0 +1,130 @@
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import useSnackBar from '../../hooks/SnackBarHook';
+import { Link } from 'wouter';
+import { useEffect, useState } from 'react';
+import { IconButton, Tooltip } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { useTranslation } from 'react-i18next';
+import { deleteSignature, getSignaturesDocs } from '../../firebase/Firestore/SignaturesCollection';
+
+const Signatures = () => {
+    const { SnackBarComponent, setSnackBarValue } = useSnackBar();
+    const [rows, setRows] = useState<any>([]);
+    const [refresh, setRefresh] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const { t } = useTranslation();
+
+    const MatEdit = ({ id }: any) => {
+        const handleDeleteClick = () => {
+            deleteSignature(id)
+                .then(() => {
+                    setSnackBarValue({ message: "deleted signature", severity: "info" }, 2000);
+                    setRefresh(!refresh);
+                })
+                .catch((e) => {
+                    setSnackBarValue({ message: "Error with deleting signature", severity: "error" }, 2000);
+                    console.error(e);
+                })
+        }
+
+        return <>
+            <Tooltip title="Delete signature">
+                <IconButton color="error" aria-label="Delete Account" onClick={handleDeleteClick} >
+                    <DeleteIcon />
+                </IconButton>
+            </Tooltip>
+        </>
+    };
+
+    const columns: GridColDef[] = [
+        {
+            field: 'name',
+            headerName: t('SignaturesPage.columnName'),
+            width: 240,
+            editable: false,
+        },
+        {
+            field: 'email',
+            headerName: t('SignaturesPage.columnEmail'),
+            width: 220,
+            editable: false,
+        },
+        {
+            field: 'phonenumber',
+            headerName: t('SignaturesPage.columnPhone'),
+            width: 200,
+            editable: false,
+            type: "number"
+        },
+        {
+            field: 'date',
+            headerName: t('SignaturesPage.columnCreatedAt'),
+            type: 'date',
+            width: 240,
+            editable: false,
+        },
+        {
+            field: "Actions", headerAlign: "center", headerName: t('SignaturesPage.columnActions'), disableColumnMenu: true, align: "right", hideSortIcons: true, sortable: false, width: 100, renderCell: params => {
+                return (
+                    <div style={{ cursor: "pointer" }}>
+                        <MatEdit id={params.id} />
+                    </div>
+                );
+            }
+        }
+    ];
+
+
+
+    useEffect(() => {
+        setLoading(true);
+        getSignaturesDocs()
+            .then((data) => {
+                setRows(data.docs.map(doc => { const data = doc.data(); return { ...data, date: data.date.toDate(), id: doc.id } }));
+                setLoading(false);
+            })
+            .catch(error => {
+                setSnackBarValue({ message: error.message, severity: "error" }, 3000);
+                setLoading(false);
+            })
+    }, [refresh])
+
+
+    const toolBar = () => (
+        <Box sx={{
+            padding: 1
+        }}>
+            <Link to='/users/new'>
+                <Button startIcon={<PersonAddIcon />} variant='contained'>{t('SignaturesPage.addUserButton')}</Button>
+            </Link>
+        </Box>
+    );
+    return (
+        <Paper sx={{
+            height: "85vh",
+            border: 'none',
+        }}>
+            <SnackBarComponent />
+            <DataGrid
+                sx={{
+                    border: "none"
+                }}
+                rows={rows}
+                columns={columns}
+                components={{
+                }}
+                rowHeight={65}
+                pageSize={5}
+                getRowId={(row) => row.uid}
+                rowsPerPageOptions={[5]}
+                loading={loading}
+            />
+        </Paper >
+    )
+}
+
+export default Signatures
