@@ -117,6 +117,7 @@ const EditNews = ({ params }: any) => {
 
     const modules = {
         toolbar: [
+            [{ size: [] }],
             ["bold", "italic", "underline", "strike", "blockquote"],
             [
                 { list: "ordered" },
