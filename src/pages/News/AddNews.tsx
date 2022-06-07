@@ -74,6 +74,7 @@ const AddNews = () => {
             setSnackBarValue({ message: t('addNewsPage.feedbackNewsAuthRequired'), severity: "error" }, 5000);
             return;
         }
+
         try {
             setSubmitting(true);
             const photoURL = await uploadPhotoAndGetUrl(title, "News", photo[0]);

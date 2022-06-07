@@ -123,3 +123,9 @@ export const deleteUser = regionedFunctions.https.onCall(async (data, context) =
         });
     return;
 });
+
+export const incrementSignatures = regionedFunctions.firestore
+    .document('signatures/{signatureId}')
+    .onCreate(async () => {
+        await app.firestore().collection('signaturesCount').doc("count").update({ count: admin.firestore.FieldValue.increment(1) });
+    });

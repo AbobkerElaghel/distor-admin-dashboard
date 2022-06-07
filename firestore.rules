@@ -5,10 +5,6 @@ service cloud.firestore {
       return request.auth.token.admin == true;
     }
 
-    function isReader(){
-      return request.auth.token.reader == true;
-    }
-
     function isEditor(){
       return request.auth.token.editor == true;
     }
@@ -31,6 +27,11 @@ service cloud.firestore {
     match /files/{newFileId} {
       allow read: if true;
       allow write: if request.auth != null && (isAdmin() || isEditor());
+    }
+
+    match /signatures/{newsignatureId} {
+      allow read: if request.auth != null && (isAdmin() || isEditor()) || request.query.limit == 1;
+      allow create: if true;
     }
   }
 }
