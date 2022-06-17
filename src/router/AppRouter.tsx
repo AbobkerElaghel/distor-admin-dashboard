@@ -52,7 +52,6 @@ import LinkRouterProps from '../interfaces/LinkRouterProps';
 import transitionAllSX from '../helpers/transitionAllSX';
 // Objects
 
-
 // Lazy Loading Components //
 // Pages
 const LogInPage = lazy(() => import('../pages/LogInPage'));
@@ -76,7 +75,6 @@ const Signatures = lazy(() => import('../pages/Signatures/Signatures'));
 
 // Pages
 // Lazy Loading Components //
-
 const drawerWidth = 250;
 export default function ResponsiveDrawer() {
 
