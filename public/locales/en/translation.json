@@ -14,6 +14,7 @@
         "activities": "Activities",
         "files": "Files",
         "users": "Users",
+        "signatures": "Signatures",
         "subheaderTitlesGeneral": "General",
         "subheaderTitlesControl": "Control"
     },
@@ -210,7 +211,9 @@
         "/news/edit": "Edit News",
         "/activities": "Activity",
         "/activities/new": "Add Activity",
-        "/activities/edit": "Edit Activity"
+        "/activities/edit": "Edit Activity",
+        "/signatures": "Signatures"
+
     },
     "AddFileCategory": {
         "modalTitle": "Add New File Category",
