@@ -82,7 +82,6 @@ const Signatures = () => {
         setLoading(true);
         getSignaturesDocs()
             .then((data) => {
-                console.log(data);
                 setRows(data.docs.map(doc => { const data = doc.data(); return { ...data, date: data.date.toDate(), id: doc.id } }));
                 setLoading(false);
             })
@@ -117,7 +116,6 @@ const Signatures = () => {
                 }}
                 rowHeight={65}
                 pageSize={5}
-                getRowId={(row) => row.uid}
                 rowsPerPageOptions={[5]}
                 loading={loading}
             />
