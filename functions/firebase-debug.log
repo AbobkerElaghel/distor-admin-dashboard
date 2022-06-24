@@ -133,3 +133,32 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
 [debug] [2022-06-24T15:42:15.884Z] >>> [apiv2][body] POST http://localhost:5001/functions/projects/al-distor-org/trigger_multicast {"eventId":"51f28c0e-ba0f-4b78-8608-c45dc0107946","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/al-distor-org","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2022-06-24T15:42:15.882Z","data":{"uid":"47YHTyKuAEDQAQXf6Pr9ABU69Aep","email":"abobkerelaghel@gmail.com","emailVerified":false,"displayName":"Abobker","photoURL":"","metadata":{"creationTime":"1656085335880","lastSignInTime":"1656085335879"},"customClaims":{},"providerData":[{"providerId":"password","email":"abobkerelaghel@gmail.com","federatedId":"abobkerelaghel@gmail.com","rawId":"abobkerelaghel@gmail.com","displayName":"Abobker","photoUrl":""}]}}
 [debug] [2022-06-24T15:42:15.892Z] <<< [apiv2][status] POST http://localhost:5001/functions/projects/al-distor-org/trigger_multicast 200
 [debug] [2022-06-24T15:42:15.893Z] <<< [apiv2][body] POST http://localhost:5001/functions/projects/al-distor-org/trigger_multicast {"status":"multicast_acknowledged"}
+[debug] [2022-06-24T15:47:52.178Z] File C:\Users\Abobk\Desktop\Projects\Personal Projects\distor-admin-dashboard\functions\lib\index.js.map changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\Abobk\\Desktop\\Projects\\Personal Projects\\distor-admin-dashboard\\functions\\lib\\index.js.map changed, reloading triggers"}}
+[debug] [2022-06-24T15:47:52.180Z] File C:\Users\Abobk\Desktop\Projects\Personal Projects\distor-admin-dashboard\functions\lib\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\Abobk\\Desktop\\Projects\\Personal Projects\\distor-admin-dashboard\\functions\\lib\\index.js changed, reloading triggers"}}
+[debug] [2022-06-24T15:47:53.184Z] Validating nodejs source
+[debug] [2022-06-24T15:47:57.559Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "serve": "npm run build && firebase emulators:start --import=exported-dev-data --export-on-exit=exported-dev-data",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-06-24T15:47:57.560Z] Building nodejs source
+[debug] [2022-06-24T15:47:57.560Z] Analyzing nodejs backend spec

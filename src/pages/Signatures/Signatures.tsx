@@ -78,12 +78,11 @@ const Signatures = () => {
         }
     ];
 
-
-
     useEffect(() => {
         setLoading(true);
         getSignaturesDocs()
             .then((data) => {
+                console.log(data);
                 setRows(data.docs.map(doc => { const data = doc.data(); return { ...data, date: data.date.toDate(), id: doc.id } }));
                 setLoading(false);
             })
@@ -91,8 +90,7 @@ const Signatures = () => {
                 setSnackBarValue({ message: error.message, severity: "error" }, 3000);
                 setLoading(false);
             })
-    }, [refresh])
-
+    }, [refresh]);
 
     const toolBar = () => (
         <Box sx={{
@@ -127,4 +125,4 @@ const Signatures = () => {
     )
 }
 
-export default Signatures
+export default Signatures;
