@@ -34,6 +34,7 @@ export const adminAddUser = regionedFunctions.https.onCall(async (data, context)
     if (!password) {
         throw new functions.https.HttpsError('invalid-argument', 'password are invalid');
     }
+
     const user = await app.auth().createUser({
         email,
         displayName,
@@ -50,7 +51,8 @@ export const adminAddUser = regionedFunctions.https.onCall(async (data, context)
             admin: true,
             editor: true,
             reader: true
-        })
+        });
+        return user;
     };
 
     if (roles.editor) {
@@ -59,6 +61,7 @@ export const adminAddUser = regionedFunctions.https.onCall(async (data, context)
             editor: true,
             reader: true
         })
+        return user;
     };
 
     if (roles.reader) {
@@ -67,9 +70,8 @@ export const adminAddUser = regionedFunctions.https.onCall(async (data, context)
             editor: false,
             reader: true
         })
+        return user;
     };
-
-    return user;
 });
 
 export const getAllUsers = regionedFunctions.https.onCall(async (data, context) => {

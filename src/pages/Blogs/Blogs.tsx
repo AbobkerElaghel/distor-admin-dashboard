@@ -1,16 +1,19 @@
 import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
-import { Button, Grid, Stack, Typography } from '@mui/material';
+import { Button, Grid, IconButton, Stack, Typography } from '@mui/material';
 import transitionAllSX from '../../helpers/transitionAllSX';
 import AddIcon from '@mui/icons-material/Add';
 import { Link } from 'wouter';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'wouter';
-import { getBlogs } from '../../firebase/Firestore/BlogsCollection';
+import { deleteBlog, getBlogs } from '../../firebase/Firestore/BlogsCollection';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Blogs = () => {
     const { t } = useTranslation();
+    const Auth = useContext(AuthContext);
     const [blogs, setBlogs] = useState<any[]>([]);
     const [_, setLocation] = useLocation();
 
@@ -66,7 +69,19 @@ const Blogs = () => {
                                 flexDirection: "column",
                                 justifyContent: "space-between"
                             }}>
-                                <Avatar>A</Avatar>
+                                <Box display={"flex"} justifyContent={"space-between"}>
+                                    <Avatar src={Auth?.user?.photoURL as string | undefined}>{Auth?.user?.displayName ? Auth?.user?.displayName[0] : 'A'}</Avatar>
+                                    {/* onClick={() => onDeleteFile(file.id!, file.category, file.title)} */}
+                                    <IconButton onClick={() => {
+                                        // eslint-disable-next-line no-restricted-globals
+                                        if (window.confirm(t('areyousure'))) {
+                                            deleteBlog(blogsItem.id, blogsItem.title);
+                                        }
+                                    }} aria-label="delete" size="large">
+                                        <DeleteIcon color="error" fontSize='large' />
+                                    </IconButton>
+                                </Box>
+
                                 <Box marginBottom={5}>
                                     <Typography color="rgba(255, 255, 255, 0.7)" component="div">{blogsItem.date.toLocaleString('en')}</Typography>
                                     <Typography color="white" fontSize="1.5rem" component="h1">{blogsItem.title}</Typography>
@@ -92,7 +107,15 @@ const Blogs = () => {
                                 flexDirection: "column",
                                 justifyContent: "space-between"
                             }}>
-                                <Avatar>A</Avatar>
+                                <Box display={"flex"} justifyContent={"space-between"}>
+                                    <Avatar src={Auth?.user?.photoURL as string | undefined}>{Auth?.user?.displayName ? Auth?.user?.displayName[0] : 'A'}</Avatar>
+                                    {/* onClick={() => onDeleteFile(file.id!, file.category, file.title)} */}
+                                    <IconButton onClick={() => {
+                                        deleteBlog(blogsItem.id, blogsItem.title);
+                                    }} aria-label="delete" size="large">
+                                        <DeleteIcon color="error" fontSize='large' />
+                                    </IconButton>
+                                </Box>
                                 <Box marginBottom={5}>
                                     <Typography color="rgba(255, 255, 255, 0.7)" component="div">{blogsItem.date.toLocaleString('en')}</Typography>
                                     <Typography color="white" fontSize="1.2rem" component="h1">{blogsItem.title}</Typography>
@@ -120,7 +143,16 @@ const Blogs = () => {
                             flexDirection: "column",
                             justifyContent: "space-between"
                         }}>
-                            <Avatar>A</Avatar>
+                            <Box display={"flex"} justifyContent={"space-between"}>
+                                <Avatar src={Auth?.user?.photoURL as string | undefined}>{Auth?.user?.displayName ? Auth?.user?.displayName[0] : 'A'}</Avatar>
+
+                                {/* onClick={() => onDeleteFile(file.id!, file.category, file.title)} */}
+                                <IconButton onClick={() => {
+                                    deleteBlog(blogsItem.id, blogsItem.title);
+                                }} aria-label="delete" size="large">
+                                    <DeleteIcon color="error" fontSize='large' />
+                                </IconButton>
+                            </Box>
                             <Box marginBottom={5}>
                                 <Typography color="rgba(255, 255, 255, 0.7)" component="div">{blogsItem.date.toLocaleString('en')}</Typography>
                                 <Typography color="white" fontSize="1.2rem" component="h1">{blogsItem.title}</Typography>

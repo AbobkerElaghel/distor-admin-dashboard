@@ -234,5 +234,8 @@
         "feedbackFileCategoryAdded": "تمت الاضافة بنجاح",
         "feedbackFileCategoryAddedError": "مشكلة في أضافة",
         "feedbackFileCategoryAuthRequired": "تأكد من تسجيل الدخول"
+    },
+    "Generics": {
+        "areyousure": "هل أنت متأكد من العملية؟"
     }
 }

@@ -223,5 +223,8 @@
         "feedbackFileCategoryAdded": "Added Category Successfully",
         "feedbackFileCategoryAddedError": "Error in Adding Category",
         "feedbackFileCategoryAuthRequired": "Make sure you are signed in"
+    },
+    "Generics": {
+        "areyousure": "Are You Sure?"
     }
 }

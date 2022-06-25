@@ -1,5 +1,6 @@
-import { collection, where, addDoc, getDoc, doc, updateDoc, QueryConstraint, QueryDocumentSnapshot, DocumentData, limit, orderBy, startAfter, getDocs, query } from "firebase/firestore";
+import { collection, where, addDoc, getDoc, doc, updateDoc, QueryConstraint, QueryDocumentSnapshot, DocumentData, limit, orderBy, startAfter, getDocs, query, deleteDoc } from "firebase/firestore";
 import firestore from '../firestore';
+import deletePhoto from "../Storage/deletePhoto";
 const CollectionName = 'activities';
 const ActivitiesCollection = collection(firestore, CollectionName);
 const ActivitiesDoc = (id: string) => doc(firestore, CollectionName, id);
@@ -36,4 +37,10 @@ export const getActivities = (
         transactionsConstraints.push(startAfter(curser));
     }
     return getDocs(query(ActivitiesCollection, ...transactionsConstraints));
+};
+
+export const deleteActivities = (id: string, title: string) => {
+    return deleteDoc(ActivitiesDoc(id)).then(() => {
+        return deletePhoto(title, 'Activities');
+    });
 };

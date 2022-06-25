@@ -13,8 +13,6 @@ import BlockIcon from '@mui/icons-material/Block';
 import Chip from '@mui/material/Chip';
 import { useTranslation } from 'react-i18next';
 
-
-
 const Users = () => {
     const { SnackBarComponent, setSnackBarValue } = useSnackBar();
     const [rows, setRows] = useState([]);
@@ -91,7 +89,7 @@ const Users = () => {
                 const chips = [];
                 for (const key in row.customClaims) {
                     if (row.customClaims[key]) {
-                        chips.push(<Chip variant='filled' label={key} />)
+                        chips.push(<Chip key={key} variant='filled' label={key} />)
                     }
                 }
                 return chips;
