@@ -10,7 +10,8 @@ import { IconButton, Tooltip } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useTranslation } from 'react-i18next';
 import { deleteSignature, getSignaturesDocs } from '../../firebase/Firestore/SignaturesCollection';
-
+import deletePhoto from '../../firebase/Storage/deletePhoto';
+import DownloadIcon from '@mui/icons-material/Download';
 const Signatures = () => {
     const { SnackBarComponent, setSnackBarValue } = useSnackBar();
     const [rows, setRows] = useState<any>([]);
@@ -18,9 +19,12 @@ const Signatures = () => {
     const [loading, setLoading] = useState(false);
     const { t } = useTranslation();
 
-    const MatEdit = ({ id }: any) => {
+    const MatEdit = ({ id, personId }: any) => {
         const handleDeleteClick = () => {
             deleteSignature(id)
+                .then(() => {
+                    return deletePhoto(personId, 'peopleIds');
+                })
                 .then(() => {
                     setSnackBarValue({ message: "deleted signature", severity: "info" }, 2000);
                     setRefresh(!refresh);
@@ -41,6 +45,12 @@ const Signatures = () => {
     };
 
     const columns: GridColDef[] = [
+        {
+            field: 'personId',
+            headerName: t('SignaturesPage.columnPersonId'),
+            width: 240,
+            editable: false,
+        },
         {
             field: 'name',
             headerName: t('SignaturesPage.columnName'),
@@ -68,10 +78,24 @@ const Signatures = () => {
             editable: false,
         },
         {
+            field: "fileURL", headerAlign: "center", headerName: t('SignaturesPage.columnFileURL'), disableColumnMenu: true, hideSortIcons: true, sortable: false, width: 150, renderCell: params => {
+                return (
+                    <Button onClick={() => {
+                        console.log(params.row.fileURL);
+                        const link = document.createElement("a");
+                        link.target = "_blank";
+                        link.href = params.row.fileURL;
+                        link.download = params.row.name;
+                        link.click();
+                    }} variant="contained" endIcon={<DownloadIcon />}>{t('Download')}</Button>
+                );
+            }
+        },
+        {
             field: "Actions", headerAlign: "center", headerName: t('SignaturesPage.columnActions'), disableColumnMenu: true, align: "right", hideSortIcons: true, sortable: false, width: 100, renderCell: params => {
                 return (
                     <div style={{ cursor: "pointer" }}>
-                        <MatEdit id={params.id} />
+                        <MatEdit id={params.id} personId={params.row.personId} />
                     </div>
                 );
             }

@@ -167,7 +167,11 @@
         "columnPhone": "Phone Number",
         "columnCreatedAt": "Created At",
         "columnLastSignin": "Last Sign in",
-        "columnActions": "Actions"
+        "columnActions": "Actions",
+        "columnFileURL": "ID File URL",
+        "columnPersonId": "Person's Id",
+        "Download": "Download"
+
     },
     "FilesPage": {
         "addButton": "Add File",

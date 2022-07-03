@@ -180,7 +180,10 @@
         "columnEmail": "الأيميل",
         "columnPhone": "رقم الهاتف",
         "columnCreatedAt": "تاريخ الأنشاء",
-        "columnActions": "التحكم"
+        "columnFileURL": "رابط ملف الهوية",
+        "columnActions": "التحكم",
+        "columnPersonId": "رقم الهوية",
+        "Download": "تحميل"
     },
     "FilesPage": {
         "addButton": "أضافة ملف",

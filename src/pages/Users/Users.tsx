@@ -22,6 +22,9 @@ const Users = () => {
 
     const MatEdit = ({ uid, status }: any) => {
         const handleDeleteClick = () => {
+            if (!window.confirm(t('areyousure'))) {
+                return;
+            }
             deleteUser({ uid, status: !status })
                 .then(() => {
                     setSnackBarValue({ message: "deleted user", severity: "info" }, 2000);

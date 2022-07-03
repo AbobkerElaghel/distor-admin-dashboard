@@ -52,26 +52,20 @@ export const adminAddUser = regionedFunctions.https.onCall(async (data, context)
             editor: true,
             reader: true
         });
-        return user;
-    };
-
-    if (roles.editor) {
+    } else if (roles.editor) {
         await app.auth().setCustomUserClaims(user.uid, {
             admin: false,
             editor: true,
             reader: true
         })
-        return user;
-    };
-
-    if (roles.reader) {
+    } else if (roles.reader) {
         await app.auth().setCustomUserClaims(user.uid, {
             admin: false,
             editor: false,
             reader: true
         })
-        return user;
     };
+    return user;
 });
 
 export const getAllUsers = regionedFunctions.https.onCall(async (data, context) => {
