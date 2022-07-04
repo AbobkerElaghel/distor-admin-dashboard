@@ -15,7 +15,10 @@
         "files": "الملفات",
         "users": "المستخدمين",
         "signatures": "التوقيعات",
+        "founders": "المؤسسين",
+        "events": "الأحداث",
         "subheaderTitlesGeneral": "العام",
+        "subheaderTitlesFounders": "المؤسسين",
         "subheaderTitlesControl": "تحكم"
     },
     "blogsPage": {
@@ -175,6 +178,24 @@
         "columnActions": "التحكم",
         "addUserButton": "أضافة مستخدم جديد"
     },
+    "FoundersPage": {
+        "columnName": "الأسم",
+        "columnEmail": "الأيميل",
+        "columnRoles": "الصلاحيات",
+        "columnCreatedAt": "تاريخ الأنشاء",
+        "columnLastSignin": "أخر تسجيل دخول",
+        "columnActions": "التحكم",
+        "addUserButton": "أضافة مستخدم جديد"
+    },
+    "AddFounderPage": {
+        "columnName": "الأسم",
+        "columnEmail": "الأيميل",
+        "columnRoles": "الصلاحيات",
+        "columnCreatedAt": "تاريخ الأنشاء",
+        "columnLastSignin": "أخر تسجيل دخول",
+        "columnActions": "التحكم",
+        "addUserButton": "أضافة مؤسس جديد"
+    },
     "SignaturesPage":{
         "columnName": "الأسم",
         "columnEmail": "الأيميل",
@@ -223,11 +244,16 @@
         "/files": "الملفات",
         "/files/new": "أضافة ملف",
         "/news": "الأخبار",
+        "/activities": "المناشط",
+        "/activities/new": "أضافة منشط",
+        "/activities/edit": "تعديل منشط",
         "/news/new": "أنشاء خبر جديد",
         "/news/edit": "تعديل الخبر",
-        "/signatures": "التوقيعات"
-
-
+        "/signatures": "التوقيعات",
+        "/founders": "المؤسسون",
+        "/founders/add": "أضافة مؤسس",
+        "/events/add": "أضافة حدث",
+        "/events": "الأحداث"
     },
     "AddFileCategory": {
         "modalTitle": "أضافة تصنيف ملفات جديد",

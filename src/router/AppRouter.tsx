@@ -30,6 +30,8 @@ import FileCopyIcon from '@mui/icons-material/FileCopy';
 import ArticleIcon from '@mui/icons-material/Article';
 import LocalActivityIcon from '@mui/icons-material/LocalActivity';
 import CreateIcon from '@mui/icons-material/Create';
+import PeopleIcon from '@mui/icons-material/People';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 // Icons
 
 // Utils
@@ -72,6 +74,8 @@ const Activities = lazy(() => import('../pages/Activities/Activities'));
 const AddActivities = lazy(() => import('../pages/Activities/AddActivities'));
 const EditActivities = lazy(() => import('../pages/Activities/EditActivities'));
 const Signatures = lazy(() => import('../pages/Signatures/Signatures'));
+const Founders = lazy(() => import('../pages/Founders/Founders'));
+const AddFounder = lazy(() => import('../pages/Founders/AddFounder'));
 
 // Pages
 // Lazy Loading Components //
@@ -106,6 +110,10 @@ export default function ResponsiveDrawer() {
     '/files': t('breadcrumbNameMap./files'),
     '/files/new': t('breadcrumbNameMap./files/new'),
     '/signatures': t('breadcrumbNameMap./signatures'),
+    '/founders': t('breadcrumbNameMap./founders'),
+    '/founders/add': t('breadcrumbNameMap./founders/add'),
+    '/events': t('breadcrumbNameMap./events'),
+    '/events/add': t('breadcrumbNameMap./events/add'),
   };
 
   const pathnames = location.split('/').filter((x) => x);
@@ -129,6 +137,8 @@ export default function ResponsiveDrawer() {
       padding: "0 0.5rem"
     }}>
       <Toolbar />
+
+
       {/* General */}
       <List subheader={<ListSubheader sx={{ ...transitionAllSX, fontSize: i18n.resolvedLanguage === 'ar' ? '1.4rem' : "'1.1rem'" }}>{t('sidebar.subheaderTitlesGeneral')}</ListSubheader>}>
         {[
@@ -138,6 +148,27 @@ export default function ResponsiveDrawer() {
           { title: t('sidebar.files'), Icon: FileCopyIcon, href: "/files" },
           { title: t('sidebar.activities'), Icon: LocalActivityIcon, href: "/activities" },
           { title: t('sidebar.signatures'), Icon: CreateIcon, href: "/signatures" }
+
+        ].map(({ title, Icon, href }, index) => {
+          const isSelected = location === href;
+          return (
+            <Link key={index} href={href}>
+              <ListItemButton sx={transitionAllSX} selected={isSelected} key={title}>
+                <ListItemIcon sx={transitionAllSX}>
+                  <Icon fontSize='medium' sx={transitionAllSX} color={isSelected ? 'primary' : "action"} />
+                </ListItemIcon>
+                <ListItemText primary={<Typography sx={transitionAllSX} color={isSelected ? 'primary' : ""} fontSize={i18n.resolvedLanguage === 'ar' ? '1.3rem' : "'1rem'"} fontWeight={500}>{title}</Typography>} />
+              </ListItemButton>
+            </Link>
+          );
+        })}
+      </List>
+
+      {/* Founders */}
+      <List subheader={<ListSubheader sx={{ ...transitionAllSX, fontSize: i18n.resolvedLanguage === 'ar' ? '1.4rem' : "'1.1rem'" }}>{t('sidebar.subheaderTitlesFounders')}</ListSubheader>}>
+        {[
+          { title: t('sidebar.founders'), Icon: PeopleIcon, href: "/founders" },
+          { title: t('sidebar.events'), Icon: CalendarMonthIcon, href: "/events" },
 
         ].map(({ title, Icon, href }, index) => {
           const isSelected = location === href;
@@ -342,6 +373,9 @@ export default function ResponsiveDrawer() {
               <PrivateRoute path="/files" component={Files} />
               <PrivateRoute path="/files/new" component={AddFile} />
               <PrivateRoute path="/signatures" component={Signatures} />
+              <PrivateRoute path="/founders" component={Founders} />
+              <PrivateRoute path="/founders/new" component={AddFounder} />
+
             </Switch>
           </Suspense>
           {/* START - MAIN SECTION */}

@@ -1,4 +1,4 @@
-import { connectStorageEmulator, deleteObject, getStorage, ref, uploadBytes, UploadMetadata, getDownloadURL } from "firebase/storage";
+import { connectStorageEmulator, getStorage } from "firebase/storage";
 import firebaseConfigApp from "./configApp";
 
 const storage = getStorage(firebaseConfigApp);

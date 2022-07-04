@@ -15,7 +15,10 @@
         "files": "Files",
         "users": "Users",
         "signatures": "Signatures",
+        "founders": "Founders",
+        "events": "Events",
         "subheaderTitlesGeneral": "General",
+        "subheaderTitlesFounders": "Founders",
         "subheaderTitlesControl": "Control"
     },
     "blogsPage": {
@@ -161,6 +164,24 @@
         "columnActions": "Actions",
         "addUserButton": "Add User"
     },
+    "FoundersPage": {
+        "columnName": "الأسم",
+        "columnEmail": "الأيميل",
+        "columnRoles": "الصلاحيات",
+        "columnCreatedAt": "تاريخ الأنشاء",
+        "columnLastSignin": "أخر تسجيل دخول",
+        "columnActions": "التحكم",
+        "addUserButton": "أضافة مستخدم جديد"
+    },
+    "AddFounderPage": {
+        "columnName": "Name",
+        "columnDescription": "Full Description",
+        "columnPhoto": "Photo",
+        "columnCreatedAt": "تاريخ الأنشاء",
+        "columnExcerpt": "Excerpt",
+        "columnActions": "التحكم",
+        "addUserButton": "Add founders"
+    },
     "SignaturesPage":{
         "columnName": "Name",
         "columnEmail": "Email",
@@ -216,7 +237,12 @@
         "/activities": "Activity",
         "/activities/new": "Add Activity",
         "/activities/edit": "Edit Activity",
-        "/signatures": "Signatures"
+        "/signatures": "Signatures",
+        "/founders": "Founders",
+        "/founders/add": "Add Founder",
+        "/events/add": "Add Event",
+        "/events": "Events"
+
 
     },
     "AddFileCategory": {

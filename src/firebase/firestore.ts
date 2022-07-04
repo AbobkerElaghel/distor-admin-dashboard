@@ -1,6 +1,5 @@
 import firebaseConfigApp from './configApp';
-import { connectFirestoreEmulator, getFirestore, addDoc, collection, getDocs, QueryDocumentSnapshot, DocumentData, limit, orderBy, query, QueryConstraint, startAfter, where, getDoc, doc, updateDoc } from 'firebase/firestore'
-import { FileCategoryI } from '../interfaces/FileCategoryI';
+import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore'
 
 const firestore = getFirestore(firebaseConfigApp);
 
