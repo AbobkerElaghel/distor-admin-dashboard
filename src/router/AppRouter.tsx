@@ -76,6 +76,8 @@ const EditActivities = lazy(() => import('../pages/Activities/EditActivities'));
 const Signatures = lazy(() => import('../pages/Signatures/Signatures'));
 const Founders = lazy(() => import('../pages/Founders/Founders'));
 const AddFounder = lazy(() => import('../pages/Founders/AddFounder'));
+const EditFounder = lazy(() => import('../pages/Founders/EditFounder'));
+
 
 // Pages
 // Lazy Loading Components //
@@ -112,6 +114,7 @@ export default function ResponsiveDrawer() {
     '/signatures': t('breadcrumbNameMap./signatures'),
     '/founders': t('breadcrumbNameMap./founders'),
     '/founders/new': t('breadcrumbNameMap./founders/new'),
+    '/founders/edit': t('breadcrumbNameMap./founders/edit'),
     '/events': t('breadcrumbNameMap./events'),
     '/events/new': t('breadcrumbNameMap./events/new'),
   };
@@ -374,6 +377,8 @@ export default function ResponsiveDrawer() {
               <PrivateRoute path="/signatures" component={Signatures} />
               <PrivateRoute path="/founders" component={Founders} />
               <PrivateRoute path="/founders/new" component={AddFounder} />
+              <PrivateRoute path="/founders/edit/:id" component={EditFounder} />
+
             </Switch>
           </Suspense>
           {/* START - MAIN SECTION */}

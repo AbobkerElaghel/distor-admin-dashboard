@@ -117,7 +117,7 @@
         "feedbackFileAuthRequired": "Make sure you are signed in"
     },
     "editBlogsPage": {
-        "editNews": "Edit Blog",
+        "editBlog": "Edit Blog",
         "basicInfo": "Basic Information",
         "title": "Title",
         "content": "Content",
@@ -165,13 +165,16 @@
         "addUserButton": "Add User"
     },
     "FoundersPage": {
-        "columnName": "الأسم",
-        "columnEmail": "الأيميل",
-        "columnRoles": "الصلاحيات",
-        "columnCreatedAt": "تاريخ الأنشاء",
-        "columnLastSignin": "أخر تسجيل دخول",
-        "columnActions": "التحكم",
-        "addUserButton": "أضافة مستخدم جديد"
+        "addFounderButton": "Add New Founder",
+        "Founder": "Founder",
+        "deleteFounder": "Delete Founder",
+        "editFounder": "Edit Founder"
+    },
+    "editFoundersPage": {
+        "addFounderButton": "Add New Founder",
+        "Founder": "Founder",
+        "deleteFounder": "Delete Founder",
+        "editFounder": "Edit Founder"
     },
     "AddFounderPage": {
         "columnName": "Name",
@@ -181,6 +184,7 @@
         "columnExcerpt": "Excerpt",
         "columnActions": "Control",
         "addUserButton": "Add founder",
+        "content":"Founder Story (Content)",
         "submit": "Add Founder",
         "feedbackFounderAdded": "Added Founder Successfully",
         "feedbackFounderAddedError": "Error in Adding Founder",
@@ -246,10 +250,10 @@
         "/signatures": "Signatures",
         "/founders": "Founders",
         "/founders/new": "Add Founder",
+        "/founders/edit": "Edit Founder",
+
         "/events/new": "Add Event",
         "/events": "Events"
-
-
     },
     "AddFileCategory": {
         "modalTitle": "Add New File Category",
@@ -261,6 +265,29 @@
         "feedbackFileCategoryAuthRequired": "Make sure you are signed in"
     },
     "Generics": {
-        "areyousure": "Are You Sure?"
+        "areyousure": "Are You Sure?",
+        "createdAt": "Created At",
+        "name": "Name",
+        "email": "Email",
+        "excerpt": "Excerpt",
+        "roles": "Roles",
+        "phone": "Phone Number",
+        "password": "Password",
+        "language": "Language",
+        "imageDescription": "Image will appear in the place you post it to",
+        "actions": "Actions",
+        "basicInfo": "Basic Information",
+        "title": "Title",
+        "content": "Content",
+        "image": "Image",
+        "category": "Category",
+        "languages": "Languages",
+        "submit": "Submit",
+        "date": "Date",
+        "autoSelect": "Auto Select",
+        "fr": "French",
+        "ar": "Arabic",
+        "en": "English"
+
     }
 }

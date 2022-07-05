@@ -74,7 +74,7 @@ const Activities = () => {
                                     {/* onClick={() => onDeleteFile(file.id!, file.category, file.title)} */}
                                     <IconButton onClick={() => {
                                         // eslint-disable-next-line no-restricted-globals
-                                        if (window.confirm(t('areyousure'))) {
+                                        if (window.confirm(t('Generics.areyousure'))) {
                                             // deleteNews(NewsItem.id, NewsItem.title);
                                         }
                                     }} aria-label="delete" size="large">
@@ -112,7 +112,7 @@ const Activities = () => {
                                     {/* onClick={() => onDeleteFile(file.id!, file.category, file.title)} */}
                                     <IconButton onClick={() => {
                                         // eslint-disable-next-line no-restricted-globals
-                                        if (window.confirm(t('areyousure'))) {
+                                        if (window.confirm(t('Generics.areyousure'))) {
                                             // deleteNews(NewsItem.id, NewsItem.title);
                                         }
                                     }} aria-label="delete" size="large">
@@ -152,7 +152,7 @@ const Activities = () => {
                                 <IconButton onClick={() => {
                                     // eslint-disable-next-line no-restricted-globals
 
-                                    if (window.confirm(t('areyousure'))) {
+                                    if (window.confirm(t('Generics.areyousure'))) {
                                         deleteActivities(activitiesItem.id, activitiesItem.title);
                                     }
                                 }} aria-label="delete" size="large">

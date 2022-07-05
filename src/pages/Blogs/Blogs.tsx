@@ -74,7 +74,7 @@ const Blogs = () => {
                                     {/* onClick={() => onDeleteFile(file.id!, file.category, file.title)} */}
                                     <IconButton onClick={() => {
                                         // eslint-disable-next-line no-restricted-globals
-                                        if (window.confirm(t('areyousure'))) {
+                                        if (window.confirm(t('Generics.areyousure'))) {
                                             deleteBlog(blogsItem.id, blogsItem.title);
                                         }
                                     }} aria-label="delete" size="large">

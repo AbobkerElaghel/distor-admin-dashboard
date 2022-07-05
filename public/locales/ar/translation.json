@@ -179,13 +179,10 @@
         "addUserButton": "أضافة مستخدم جديد"
     },
     "FoundersPage": {
-        "columnName": "الأسم",
-        "columnEmail": "الأيميل",
-        "columnRoles": "الصلاحيات",
-        "columnCreatedAt": "تاريخ الأنشاء",
-        "columnLastSignin": "أخر تسجيل دخول",
-        "columnActions": "التحكم",
-        "addUserButton": "أضافة مستخدم جديد"
+        "addFounderButton": "أضافة مؤسس جديد",
+        "Founder": "المؤسس",
+        "deleteFounder": "مسح المؤسس",
+        "editFounder": "تعديل المؤسس"
     },
     "AddFounderPage": {
         "columnName": "الأسم",
@@ -195,6 +192,7 @@
         "columnLastSignin": "أخر تسجيل دخول",
         "columnActions": "التحكم",
         "addUserButton": "أضافة مؤسس جديد",
+        "content":"قصة المؤسس (المحتوى)",
         "submit": "أضافة مؤسس",
         "feedbackFounderAdded": "تمت أضافة مؤسس بنجاح",
         "feedbackFounderAddedError": "مشكلة في أضافة مؤسس",
@@ -258,6 +256,8 @@
         "/signatures": "التوقيعات",
         "/founders": "المؤسسون",
         "/founders/new": "أضافة مؤسس",
+        "/founders/edit": "تعديل مؤسس",
+
         "/events/new": "أضافة حدث",
         "/events": "الأحداث"
     },
@@ -270,7 +270,35 @@
         "feedbackFileCategoryAddedError": "مشكلة في أضافة",
         "feedbackFileCategoryAuthRequired": "تأكد من تسجيل الدخول"
     },
+    "editFoundersPage": {
+        "addFounderButton": "أضافة مؤسس جديد",
+        "Founder": "المؤسس",
+        "deleteFounder": "مسح مؤسس",
+        "editFounder": "تعديل مؤسس"
+    },
     "Generics": {
-        "areyousure": "هل أنت متأكد من العملية؟"
+        "areyousure": "هل أنت متأكد من العملية؟",
+        "createdAt": "تاريخ الأنشاء",
+        "name": "الأسم",
+        "excerpt": "المختصر",
+        "email": "البريد الألكتروني",
+        "roles": "الصلاحيات",
+        "language": "اللغة",
+        "password": "كلمة المرور",
+        "phone": "رقم الهاتف",
+        "actions": "التحكم",
+        "submit": "حفظ",
+        "imageDescription": "سوف تضهر الصورة هنا عند الاختيار",
+        "basicInfo": "معلومات الاساسية",
+        "title": "العنوان",
+        "content": "المحتوي",
+        "image": "الصورة",
+        "category": "النوع",
+        "languages": "اللغة",
+        "date": "التاريخ",
+        "autoSelect": "أختيار تلقائي",
+        "fr": "الفرنسية",
+        "ar": "العربية",
+        "en": "الأنجليزية"
     }
 }

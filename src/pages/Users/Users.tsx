@@ -22,7 +22,7 @@ const Users = () => {
 
     const MatEdit = ({ uid, status }: any) => {
         const handleDeleteClick = () => {
-            if (!window.confirm(t('areyousure'))) {
+            if (!window.confirm(t('Generics.areyousure'))) {
                 return;
             }
             deleteUser({ uid, status: !status })

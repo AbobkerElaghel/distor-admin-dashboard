@@ -1,7 +1,7 @@
 import Paper from '@mui/material/Paper';
 import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
-import Autocomplete from '@mui/material/Autocomplete';
+// import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -10,7 +10,7 @@ import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import ReactQuill from 'react-quill';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import "react-quill/dist/quill.snow.css";
 import { ThemeContext } from '../../providers/ThemeProvider';
 import ImageDropZone from '../../components/ImageDropZone';
@@ -21,92 +21,117 @@ import useSnackBar from '../../hooks/SnackBarHook';
 import { useLocation } from 'wouter';
 import { serverTimestamp } from 'firebase/firestore';
 import { AuthContext } from '../../providers/AuthProvider';
-import { addFounders } from '../../firebase/Firestore/FoundersCollection';
+import { getSingleFounder, updateFounder } from '../../firebase/Firestore/FoundersCollection';
 import deletePhoto from '../../firebase/Storage/deletePhoto';
 import uploadPhotoAndGetUrl from '../../firebase/Storage/uploadPhotoAndGetUrl';
 
-const AddBlogs = () => {
+const EditFounders = ({ params }: any) => {
     const { t } = useTranslation();
     const Theme = useContext(ThemeContext);
     const Auth = useContext(AuthContext);
     const [_, setLocation] = useLocation();
-
     // Fields
-    const [language, setLanguage] = useState("");
+
     const [RichContent, setRichContent] = useState("");
-    const [date, setDate] = useState<Date | null>(null);
+    const [date, setDate] = useState<Date | null>(new Date());
     const [photo, setPhoto] = useState<File[]>([]);
+    const [photoURL, setPhotoURL] = useState<string>("");
     const [isAutoDate, setIsAutoDate] = useState<boolean>(true);
+    const [title, setTitle] = useState<string>("");
+    const [excerpt, setExcerpt] = useState<string>("");
+
+    // const [category, setCategory] = useState<string>("");
+
     const [errors, setErrors] = useState<any>();
     const { SnackBarComponent, setSnackBarValue } = useSnackBar();
     const [submitting, setSubmitting] = useState(false);
-
     const onFoundersSubmit = async (e: any) => {
         e.preventDefault();
-        const title = e.target.elements.title.value;
-        const excerpt = e.target.elements.excerpt.value;
-        // const category = e.target.elements.category.value;
 
         if (!title) {
             setErrors({ ...errors, title: true });
             return;
         };
 
-        if (!excerpt) {
-            setErrors({ ...errors, excerpt: true });
-            return;
-        };
-
         if (!RichContent) {
-            setSnackBarValue({ message: t('AddFounderPage.feedbackFounderRichContentRequired'), severity: "error" }, 5000);
+            setSnackBarValue({ message: "Content is required", severity: "error" }, 5000);
             return;
         };
 
-        if (!language) {
-            setErrors({ ...errors, language: true });
-            return;
-        };
+        // if (!category) {
+        //     setErrors({ ...errors, category: true });
+        //     return;
+        // };
 
-        if (!photo.length) {
-            setSnackBarValue({ message: t('AddFounderPage.feedbackFounderPhotoRequired'), severity: "error" }, 5000);
-            return;
-        }
+
         if (!Auth?.user?.uid) {
-            setSnackBarValue({ message: t('AddFounderPage.feedbackFounderAuthRequired'), severity: "error" }, 5000);
+            setSnackBarValue({ message: "Make sure you are signed in", severity: "error" }, 5000);
             return;
         }
+
+        let photoURL = undefined;
+
+        if (photo && photo.length) {
+            photoURL = await uploadPhotoAndGetUrl(title, "Founders", photo[0]);
+        }
+
         try {
             setSubmitting(true);
-            const photoURL = await uploadPhotoAndGetUrl(title, "Founders", photo[0]);
-            await addFounders({
+            await updateFounder(params?.id, photoURL ? {
                 title,
-                language,
-                excerpt,
+                // category,
                 RichContent,
                 userId: Auth?.user?.uid,
                 photoURL,
                 date: isAutoDate ? serverTimestamp() : date
+            } : {
+                title,
+                // category,
+                RichContent,
+                userId: Auth?.user?.uid,
+                date: isAutoDate ? serverTimestamp() : date
             });
-            setSnackBarValue({ message: t('AddFounderPage.feedbackFounderAdded'), severity: "success" }, 2000);
+            setSnackBarValue({ message: "Updated Founders successfully", severity: "success" }, 2000);
             setTimeout(() => {
                 setLocation('/founders');
             }, 2100)
         } catch (error: any) {
-            setSnackBarValue({ message: error.message || t('AddFounderPage.feedbackFounderAddedError'), severity: "error" }, 3000);
-            console.dir(error);
+            setSnackBarValue({ message: error.message || 'Error in Editing a new Founders', severity: "error" }, 3000);
+            console.dir(error)
             setSubmitting(false);
-            if (!(error.message === "Title Name is Used Already")) {
-                await deletePhoto(title, "Founders");
-            }
+            await deletePhoto(title, "Founders");
         }
     }
+
+    useEffect(() => {
+        if (!params?.id) {
+            setLocation('/founders');
+            return;
+        }
+
+        getSingleFounder(params.id)
+            .then((doc) => {
+                if (doc.exists()) {
+                    const data = doc.data();
+                    setTitle(data.title);
+                    setExcerpt(data.excerpt);
+                    // setCategory(data.category);
+                    setRichContent(data.RichContent);
+                    setIsAutoDate(false);
+                    setDate(data.date);
+                    setPhotoURL(data.photoURL);
+                    // setNewsObject(doc.data());
+                } else {
+                    setLocation('/founders');
+                }
+            })
+
+    }, [])
 
     const modules = {
         toolbar: [
             [{ size: [] }],
-            ["bold", "italic", "underline", "strike", "blockquote", "code", "link"],
-            [{ 'background': ["#000000", "#e60000", "#ff9900", "#ffff00", "#008a00", "#0066cc", "#9933ff", "#ffffff", "#facccc", "#ffebcc", "#ffffcc", "#cce8cc", "#cce0f5", "#ebd6ff", "#bbbbbb", "#f06666", "#ffc266", "#ffff66", "#66b966", "#66a3e0", "#c285ff", "#888888", "#a10000", "#b26b00", "#b2b200", "#006100", "#0047b2", "#6b24b2", "#444444", "#5c0000", "#663d00", "#666600", "#003700", "#002966", "#3d1466"] }],
-            [{ 'color': ["#000000", "#e60000", "#ff9900", "#ffff00", "#008a00", "#0066cc", "#9933ff", "#ffffff", "#facccc", "#ffebcc", "#ffffcc", "#cce8cc", "#cce0f5", "#ebd6ff", "#bbbbbb", "#f06666", "#ffc266", "#ffff66", "#66b966", "#66a3e0", "#c285ff", "#888888", "#a10000", "#b26b00", "#b2b200", "#006100", "#0047b2", "#6b24b2", "#444444", "#5c0000", "#663d00", "#666600", "#003700", "#002966", "#3d1466"] }],
+            ["bold", "italic", "underline", "strike", "blockquote"],
             [
                 { list: "ordered" },
                 { list: "bullet" },
@@ -127,14 +152,14 @@ const AddBlogs = () => {
             margin: "auto",
         }}>
             <SnackBarComponent />
-            <Typography marginTop={7} marginBottom={3} fontWeight={500} variant='h3' component={"h3"}>{t('AddFounderPage.addUserButton')}</Typography>
+            <Typography marginTop={7} marginBottom={3} fontWeight={500} variant='h3' component={"h3"}>{t('editFoundersPage.editFounder')}</Typography>
             <form onSubmit={onFoundersSubmit}>
                 <FormControl fullWidth>
                     <Paper elevation={4} sx={{ p: 4 }}>
-                        <Typography variant='h5' fontWeight={500} component={'h5'}>{t('addBlogsPage.basicInfo')}</Typography>
-                        <TextField error={errors?.title} required name="title" margin='normal' fullWidth label={t('addBlogsPage.title')} variant="outlined" />
-                        <TextField error={errors?.excerpt} required name="excerpt" margin='normal' fullWidth label={t('addPageCommons.excerpt')} variant="outlined" />
-                        <Typography marginTop={5} marginBottom={2} variant='h6' component={'p'}>{t('AddFounderPage.content')}</Typography>
+                        <Typography variant='h5' fontWeight={500} component={'h5'}>{t('Generics.basicInfo')}</Typography>
+                        <TextField onChange={({ target: { value } }) => setTitle(value)} value={title} error={errors?.title} required name="title" margin='normal' fullWidth label={t('Generics.title')} variant="outlined" />
+                        <TextField onChange={({ target: { value } }) => setExcerpt(value)} value={title} error={errors?.excerpt} required name="excerpt" margin='normal' fullWidth label={t('Generics.excerpt')} variant="outlined" />
+                        <Typography marginTop={5} marginBottom={2} variant='h6' component={'p'}>{t('Generics.content')}</Typography>
                         <Box sx={{
                             border: "1px sold rgb(45, 55, 72)",
                             borderTopLeftRadius: "8px",
@@ -175,35 +200,34 @@ const AddBlogs = () => {
                     </Paper>
 
                     <Paper elevation={4} sx={{ p: 4, marginTop: 2 }}>
-                        <Typography variant='h5' fontWeight={500} component={'h5'}>{t('addBlogsPage.image')}</Typography>
+                        <Typography variant='h5' fontWeight={500} component={'h5'}>{t('Generics.image')}</Typography>
                         <Typography variant='subtitle1' sx={{ opacity: 0.75 }}
-                            fontWeight={500} component={'p'}>{t('addBlogsPage.imageDescription')}</Typography>
-                        <ImageDropZone dispacther={setPhoto} />
+                            fontWeight={500} component={'p'}>{t('Generics.imageDescription')}</Typography>
+                        {photoURL ? <ImageDropZone preview={photoURL} dispacther={setPhoto} /> : undefined}
                     </Paper>
-                    <Paper elevation={4} sx={{ p: 4, marginTop: 2 }}>
-                        <Typography marginBottom={2} variant='h5' fontWeight={500} component={'h5'}>{t('addBlogsPage.languages')}</Typography>
-
+                    {/* <Paper elevation={4} sx={{ p: 4, marginTop: 2 }}>
+                        <Typography marginBottom={2} variant='h5' fontWeight={500} component={'h5'}>{t('Generics.category')}</Typography>
                         <Autocomplete
                             disablePortal
                             fullWidth
-                            onChange={(_, value) => {
-                                setLanguage(value!.value);
-                            }}
-                            getOptionLabel={(option) => option.title}
-                            options={[{ title: t('navbar.languageMenu-arabic'), value: "ar" }, { title: t('navbar.languageMenu-english'), value: "en" }, { title: t('navbar.languageMenu-french'), value: "fr" }]}
-                            renderInput={(params) => <TextField error={errors?.language} margin='dense' {...params} label={t('addBlogsPage.languages')} />}
+                            value={category}
+                            onChange={(_, value) => setCategory(value || "")}
+                            options={["Founder", "News"]}
+                            renderInput={(params) => <TextField value={category} error={errors?.category} required name='category' margin='dense' {...params} label='Category' />}
                         />
-                    </Paper>
+
+                    </Paper> */}
 
                     <Paper elevation={4} sx={{ p: 4, marginY: 2 }}>
-                        <Typography marginBottom={2} variant='h5' fontWeight={500} component={'h5'}>{t('addBlogsPage.date')}</Typography>
+                        <Typography marginBottom={2} variant='h5' fontWeight={500} component={'h5'}>{t('Generics.date')}</Typography>
                         {/* <FormGroup sx={{
                             mb: 1
                         }}>
-                            <FormControlLabel control={<Switch onChange={(e) => setIsAutoDate(e.target.checked)} name='autoDate' defaultChecked />} label={t('addBlogsPage.autoSelect')} />
+                            <FormControlLabel control={<Switch onChange={(e) => setIsAutoDate(e.target.checked)} name='autoDate' value={isAutoDate} />} label={t('Generics.autoSelect')} />
                         </FormGroup> */}
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DateTimePicker
+                                // disabled={isAutoDate}
                                 value={date}
                                 onChange={setDate}
                                 renderInput={(params) => <TextField fullWidth {...params} />}
@@ -212,11 +236,11 @@ const AddBlogs = () => {
                     </Paper>
                     <Button disabled={submitting} type='submit' sx={{
                         mb: 3
-                    }} variant='contained'>{t('AddFounderPage.submit')}</Button>
+                    }} variant='contained'>{t('Generics.submit')}</Button>
                 </FormControl>
             </form>
         </Box>
-    );
+    )
 };
 
-export default AddBlogs;
+export default EditFounders;
