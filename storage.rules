@@ -5,6 +5,10 @@ service firebase.storage {
       allow read: if request.auth != null;
       allow write: if request.auth != null && (request.auth.token.admin == true || request.auth.token.editor == true);
     }
+    match /Founders/{newFounderId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && (request.auth.token.admin == true || request.auth.token.editor == true);
+    }
     match /News/{newNewsId} {
       allow read: if request.auth != null;
       allow write: if request.auth != null && (request.auth.token.admin == true || request.auth.token.editor == true);

@@ -21,7 +21,7 @@ import useSnackBar from '../../hooks/SnackBarHook';
 import { useLocation } from 'wouter';
 import { serverTimestamp } from 'firebase/firestore';
 import { AuthContext } from '../../providers/AuthProvider';
-import { addBlogs } from '../../firebase/Firestore/BlogsCollection';
+import { addFounders } from '../../firebase/Firestore/FoundersCollection';
 import deletePhoto from '../../firebase/Storage/deletePhoto';
 import uploadPhotoAndGetUrl from '../../firebase/Storage/uploadPhotoAndGetUrl';
 
@@ -41,7 +41,7 @@ const AddBlogs = () => {
     const { SnackBarComponent, setSnackBarValue } = useSnackBar();
     const [submitting, setSubmitting] = useState(false);
 
-    const onBlogsSubmit = async (e: any) => {
+    const onFoundersSubmit = async (e: any) => {
         e.preventDefault();
         const title = e.target.elements.title.value;
         const excerpt = e.target.elements.excerpt.value;
@@ -58,7 +58,7 @@ const AddBlogs = () => {
         };
 
         if (!RichContent) {
-            setSnackBarValue({ message: t('addBlogsPage.feedbackBlogRichContentRequired'), severity: "error" }, 5000);
+            setSnackBarValue({ message: t('AddFounderPage.feedbackFounderRichContentRequired'), severity: "error" }, 5000);
             return;
         };
 
@@ -68,17 +68,17 @@ const AddBlogs = () => {
         };
 
         if (!photo.length) {
-            setSnackBarValue({ message: t('addBlogsPage.feedbackBlogPhotoRequired'), severity: "error" }, 5000);
+            setSnackBarValue({ message: t('AddFounderPage.feedbackFounderPhotoRequired'), severity: "error" }, 5000);
             return;
         }
         if (!Auth?.user?.uid) {
-            setSnackBarValue({ message: t('addBlogsPage.feedbackBlogAuthRequired'), severity: "error" }, 5000);
+            setSnackBarValue({ message: t('AddFounderPage.feedbackFounderAuthRequired'), severity: "error" }, 5000);
             return;
         }
         try {
             setSubmitting(true);
-            const photoURL = await uploadPhotoAndGetUrl(title, "Blogs", photo[0]);
-            await addBlogs({
+            const photoURL = await uploadPhotoAndGetUrl(title, "Founders", photo[0]);
+            await addFounders({
                 title,
                 language,
                 excerpt,
@@ -87,16 +87,16 @@ const AddBlogs = () => {
                 photoURL,
                 date: isAutoDate ? serverTimestamp() : date
             });
-            setSnackBarValue({ message: t('addBlogsPage.feedbackBlogAdded'), severity: "success" }, 2000);
+            setSnackBarValue({ message: t('AddFounderPage.feedbackFounderAdded'), severity: "success" }, 2000);
             setTimeout(() => {
-                setLocation('/blogs');
+                setLocation('/founders');
             }, 2100)
         } catch (error: any) {
-            setSnackBarValue({ message: error.message || t('addBlogsPage.feedbackBlogAddedError'), severity: "error" }, 3000);
+            setSnackBarValue({ message: error.message || t('AddFounderPage.feedbackFounderAddedError'), severity: "error" }, 3000);
             console.dir(error);
             setSubmitting(false);
             if (!(error.message === "Title Name is Used Already")) {
-                await deletePhoto(title, "Blogs");
+                await deletePhoto(title, "Founders");
             }
         }
     }
@@ -127,8 +127,8 @@ const AddBlogs = () => {
             margin: "auto",
         }}>
             <SnackBarComponent />
-            <Typography marginTop={7} marginBottom={3} fontWeight={500} variant='h3' component={"h3"}>{t('addBlogsPage.createNewBlog')}</Typography>
-            <form onSubmit={onBlogsSubmit}>
+            <Typography marginTop={7} marginBottom={3} fontWeight={500} variant='h3' component={"h3"}>{t('AddFounderPage.addUserButton')}</Typography>
+            <form onSubmit={onFoundersSubmit}>
                 <FormControl fullWidth>
                     <Paper elevation={4} sx={{ p: 4 }}>
                         <Typography variant='h5' fontWeight={500} component={'h5'}>{t('addBlogsPage.basicInfo')}</Typography>
@@ -213,7 +213,7 @@ const AddBlogs = () => {
                     </Paper>
                     <Button disabled={submitting} type='submit' sx={{
                         mb: 3
-                    }} variant='contained'>{t('addBlogsPage.submit')}</Button>
+                    }} variant='contained'>{t('AddFounderPage.submit')}</Button>
                 </FormControl>
             </form>
         </Box>

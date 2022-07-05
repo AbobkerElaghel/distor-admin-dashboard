@@ -111,9 +111,9 @@ export default function ResponsiveDrawer() {
     '/files/new': t('breadcrumbNameMap./files/new'),
     '/signatures': t('breadcrumbNameMap./signatures'),
     '/founders': t('breadcrumbNameMap./founders'),
-    '/founders/add': t('breadcrumbNameMap./founders/add'),
+    '/founders/new': t('breadcrumbNameMap./founders/new'),
     '/events': t('breadcrumbNameMap./events'),
-    '/events/add': t('breadcrumbNameMap./events/add'),
+    '/events/new': t('breadcrumbNameMap./events/new'),
   };
 
   const pathnames = location.split('/').filter((x) => x);
@@ -168,8 +168,7 @@ export default function ResponsiveDrawer() {
       <List subheader={<ListSubheader sx={{ ...transitionAllSX, fontSize: i18n.resolvedLanguage === 'ar' ? '1.4rem' : "'1.1rem'" }}>{t('sidebar.subheaderTitlesFounders')}</ListSubheader>}>
         {[
           { title: t('sidebar.founders'), Icon: PeopleIcon, href: "/founders" },
-          { title: t('sidebar.events'), Icon: CalendarMonthIcon, href: "/events" },
-
+          { title: t('sidebar.events'), Icon: CalendarMonthIcon, href: "/events" }
         ].map(({ title, Icon, href }, index) => {
           const isSelected = location === href;
           return (
@@ -375,7 +374,6 @@ export default function ResponsiveDrawer() {
               <PrivateRoute path="/signatures" component={Signatures} />
               <PrivateRoute path="/founders" component={Founders} />
               <PrivateRoute path="/founders/new" component={AddFounder} />
-
             </Switch>
           </Suspense>
           {/* START - MAIN SECTION */}

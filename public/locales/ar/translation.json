@@ -194,7 +194,13 @@
         "columnCreatedAt": "تاريخ الأنشاء",
         "columnLastSignin": "أخر تسجيل دخول",
         "columnActions": "التحكم",
-        "addUserButton": "أضافة مؤسس جديد"
+        "addUserButton": "أضافة مؤسس جديد",
+        "submit": "أضافة مؤسس",
+        "feedbackFounderAdded": "تمت أضافة مؤسس بنجاح",
+        "feedbackFounderAddedError": "مشكلة في أضافة مؤسس",
+        "feedbackFounderRichContentRequired": " محتوى مؤسس مطلوب",
+        "feedbackFounderPhotoRequired": "الصورة مطلوبة",
+        "feedbackFounderAuthRequired": "تأكد من تسجيل الدخول"
     },
     "SignaturesPage":{
         "columnName": "الأسم",
@@ -251,8 +257,8 @@
         "/news/edit": "تعديل الخبر",
         "/signatures": "التوقيعات",
         "/founders": "المؤسسون",
-        "/founders/add": "أضافة مؤسس",
-        "/events/add": "أضافة حدث",
+        "/founders/new": "أضافة مؤسس",
+        "/events/new": "أضافة حدث",
         "/events": "الأحداث"
     },
     "AddFileCategory": {

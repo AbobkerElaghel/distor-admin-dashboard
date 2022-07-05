@@ -177,10 +177,16 @@
         "columnName": "Name",
         "columnDescription": "Full Description",
         "columnPhoto": "Photo",
-        "columnCreatedAt": "تاريخ الأنشاء",
+        "columnCreatedAt": "Created At",
         "columnExcerpt": "Excerpt",
-        "columnActions": "التحكم",
-        "addUserButton": "Add founders"
+        "columnActions": "Control",
+        "addUserButton": "Add founder",
+        "submit": "Add Founder",
+        "feedbackFounderAdded": "Added Founder Successfully",
+        "feedbackFounderAddedError": "Error in Adding Founder",
+        "feedbackFounderRichContentRequired": " Founder Content is required",
+        "feedbackFounderPhotoRequired": "Photo is Required",
+        "feedbackFounderAuthRequired": "Make sure you are signed in"
     },
     "SignaturesPage":{
         "columnName": "Name",
@@ -239,8 +245,8 @@
         "/activities/edit": "Edit Activity",
         "/signatures": "Signatures",
         "/founders": "Founders",
-        "/founders/add": "Add Founder",
-        "/events/add": "Add Event",
+        "/founders/new": "Add Founder",
+        "/events/new": "Add Event",
         "/events": "Events"
 
 
