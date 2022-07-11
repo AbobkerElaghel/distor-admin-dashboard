@@ -158,7 +158,7 @@ const EditFounders = ({ params }: any) => {
                     <Paper elevation={4} sx={{ p: 4 }}>
                         <Typography variant='h5' fontWeight={500} component={'h5'}>{t('Generics.basicInfo')}</Typography>
                         <TextField onChange={({ target: { value } }) => setTitle(value)} value={title} error={errors?.title} required name="title" margin='normal' fullWidth label={t('Generics.title')} variant="outlined" />
-                        <TextField onChange={({ target: { value } }) => setExcerpt(value)} value={title} error={errors?.excerpt} required name="excerpt" margin='normal' fullWidth label={t('Generics.excerpt')} variant="outlined" />
+                        <TextField onChange={({ target: { value } }) => setExcerpt(value)} value={excerpt} error={errors?.excerpt} required name="excerpt" margin='normal' fullWidth label={t('Generics.excerpt')} variant="outlined" />
                         <Typography marginTop={5} marginBottom={2} variant='h6' component={'p'}>{t('Generics.content')}</Typography>
                         <Box sx={{
                             border: "1px sold rgb(45, 55, 72)",

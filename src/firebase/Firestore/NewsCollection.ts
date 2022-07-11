@@ -39,8 +39,8 @@ export const getNews = (
     return getDocs(query(NewsCollection, ...transactionsConstraints));
 };
 
-export const deleteNews = (id: string, title: string) => {
+export const deleteNews = (id: string) => {
     return deleteDoc(NewsDoc(id)).then(() => {
-        return deletePhoto(title, 'News');
+        return deletePhoto(id, 'News');
     });
 };

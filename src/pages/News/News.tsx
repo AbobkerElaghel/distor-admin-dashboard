@@ -74,7 +74,7 @@ const News = () => {
                                     {/* onClick={() => onDeleteFile(file.id!, file.category, file.title)} */}
                                     <IconButton onClick={() => {
                                         if (window.window.confirm(t('Generics.areyousure'))) {
-                                            deleteNews(NewsItem.id, NewsItem.title);
+                                            deleteNews(NewsItem.id);
                                         }
                                     }} aria-label="delete" size="large">
                                         <DeleteIcon color="error" fontSize='large' />
@@ -110,7 +110,7 @@ const News = () => {
 
                                     {/* onClick={() => onDeleteFile(file.id!, file.category, file.title)} */}
                                     <IconButton onClick={() => {
-                                        deleteNews(NewsItem.id, NewsItem.title);
+                                        deleteNews(NewsItem.id);
                                     }} aria-label="delete" size="large">
                                         <DeleteIcon color="error" fontSize='large' />
                                     </IconButton>
@@ -147,7 +147,7 @@ const News = () => {
 
                                 {/* onClick={() => onDeleteFile(file.id!, file.category, file.title)} */}
                                 <IconButton onClick={() => {
-                                    deleteNews(NewsItem.id, NewsItem.title);
+                                    deleteNews(NewsItem.id);
                                 }} aria-label="delete" size="large">
                                     <DeleteIcon color="error" fontSize='large' />
                                 </IconButton>

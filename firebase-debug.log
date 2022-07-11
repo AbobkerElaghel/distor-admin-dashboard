@@ -1089,3 +1089,138 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
 [debug] [2022-07-05T12:38:23.215Z] >>> [apiv2][body] POST http://localhost:5001/functions/projects/al-distor-org/trigger_multicast {"specversion":"1","id":"41537a5a-78f8-45c2-a0a2-5a0501f05deb","type":"google.cloud.storage.object.v1.finalized","source":"//storage.googleapis.com/projects/_/buckets/al-distor-org.appspot.com/objects/Founders/qw","time":"2022-07-05T14:38:23.139Z","data":{"kind":"#storage#object","name":"Founders/qw","bucket":"al-distor-org.appspot.com","generation":"1657024703136","metageneration":"1","contentType":"image/png","contentDisposition":"inline","timeCreated":"2022-07-05T14:38:23.135Z","updated":"2022-07-05T14:38:23.139Z","storageClass":"STANDARD","size":"276958","md5Hash":"ftnScpx6M1sRJw1arUXv8A==","etag":"JCvwZVPw5eOOAWzBHJ3pt1Y8us0","cacheControl":"public, max-age=3600","contentEncoding":"identity","crc32c":"----Ew==","timeStorageClassUpdated":"2022-07-05T14:38:23.135Z","id":"al-distor-org.appspot.com/Founders/qw/1657024703136","selfLink":"http://localhost:9199/storage/v1/b/al-distor-org.appspot.com/o/Founders%2Fqw","mediaLink":"http://localhost:9199/download/storage/v1/b/al-distor-org.appspot.com/o/Founders%2Fqw?generation=1657024703136&alt=media"}}
 [debug] [2022-07-05T12:38:23.223Z] <<< [apiv2][status] POST http://localhost:5001/functions/projects/al-distor-org/trigger_multicast 200
 [debug] [2022-07-05T12:38:23.223Z] <<< [apiv2][body] POST http://localhost:5001/functions/projects/al-distor-org/trigger_multicast {"status":"multicast_acknowledged"}
+[debug] [2022-07-11T13:00:57.183Z] ----------------------------------------------------------------------
+[debug] [2022-07-11T13:00:57.185Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Abobk\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2022-07-11T13:00:57.185Z] CLI Version:   10.7.1
+[debug] [2022-07-11T13:00:57.185Z] Platform:      win32
+[debug] [2022-07-11T13:00:57.185Z] Node Version:  v16.15.0
+[debug] [2022-07-11T13:00:57.186Z] Time:          Mon Jul 11 2022 15:00:57 GMT+0200 (Eastern European Standard Time)
+[debug] [2022-07-11T13:00:57.186Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-07-11T13:00:57.190Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-07-11T13:00:57.277Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-07-11T13:00:57.277Z] > authorizing via signed-in user (abobkerelaghel@gmail.com)
+[debug] [2022-07-11T13:00:57.419Z] java version "16.0.2" 2021-07-20
+Java(TM) SE Runtime Environment (build 16.0.2+7-67)
+Java HotSpot(TM) 64-Bit Server VM (build 16.0.2+7-67, mixed mode, sharing)
+
+[debug] [2022-07-11T13:00:57.439Z] Parsed Java major version: 16
+[info] i  emulators: Starting emulators: auth, functions, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, database, hosting, pubsub, storage"}}
+[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project al-distor-org. This may result in unexpected behavior. 
+[debug] [2022-07-11T13:00:57.452Z] [hub] writing locator at C:\Users\Abobk\AppData\Local\Temp\hub-al-distor-org.json
+[info] +  functions: Using node@16 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@16 from host."}}
+[debug] [2022-07-11T13:00:57.519Z] defaultcredentials: writing to file C:\Users\Abobk\AppData\Roaming\firebase\abobkerelaghel_gmail_com_application_default_credentials.json
+[debug] [2022-07-11T13:00:57.523Z] Setting GAC to C:\Users\Abobk\AppData\Roaming\firebase\abobkerelaghel_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\Abobk\\AppData\\Roaming\\firebase\\abobkerelaghel_gmail_com_application_default_credentials.json"}}
+[debug] [2022-07-11T13:00:57.524Z] > refreshing access token with scopes: []
+[debug] [2022-07-11T13:00:57.525Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-07-11T13:00:57.696Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-07-11T13:00:57.696Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2022-07-11T13:00:57.774Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","date":"Mon, 11 Jul 2022 13:00:57 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-07-11T13:00:57.780Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org/adminSdkConfig [none]
+[debug] [2022-07-11T13:00:58.259Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org/adminSdkConfig 200
+[debug] [2022-07-11T13:00:58.259Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org/adminSdkConfig {"projectId":"al-distor-org","storageBucket":"al-distor-org.appspot.com","locationId":"europe-west"}
+[debug] [2022-07-11T13:00:58.272Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-07-11T13:00:58.273Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-07-11T13:00:58.273Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\Abobk\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.14.3.jar","--host","localhost","--port",8080,"--rules","C:\\Users\\Abobk\\Desktop\\Projects\\Personal Projects\\distor-admin-dashboard\\firestore.rules","--functions_emulator","localhost:5001"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\Abobk\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.14.3.jar\",\"--host\",\"localhost\",\"--port\",8080,\"--rules\",\"C:\\\\Users\\\\Abobk\\\\Desktop\\\\Projects\\\\Personal Projects\\\\distor-admin-dashboard\\\\firestore.rules\",\"--functions_emulator\",\"localhost:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2022-07-11T13:00:59.867Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org [none]
+[debug] [2022-07-11T13:01:00.336Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org 200
+[debug] [2022-07-11T13:01:00.336Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org {"projectId":"al-distor-org","projectNumber":"17612612435","displayName":"Al Distor org","name":"projects/al-distor-org","resources":{"hostingSite":"al-distor-org","storageBucket":"al-distor-org.appspot.com","locationId":"europe-west"},"state":"ACTIVE"}
+[debug] [2022-07-11T13:01:00.336Z] database rules config:  []
+[warn] !  database: Did not find a Realtime Database rules file specified in a firebase.json config file. The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration. {"metadata":{"emulator":{"name":"database"},"message":"Did not find a Realtime Database rules file specified in a firebase.json config file. The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration."}}
+[debug] [2022-07-11T13:01:00.340Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-07-11T13:01:00.340Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-07-11T13:01:00.340Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2022-07-11T13:01:00.340Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\Abobk\\.cache\\firebase\\emulators\\firebase-database-emulator-v4.7.3.jar","--host","localhost","--port",9000,"--functions_emulator_host","localhost","--functions_emulator_port",5001],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\Abobk\\\\.cache\\\\firebase\\\\emulators\\\\firebase-database-emulator-v4.7.3.jar\",\"--host\",\"localhost\",\"--port\",9000,\"--functions_emulator_host\",\"localhost\",\"--functions_emulator_port\",5001],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\"],\"joinArgs\":false}"}}
+[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
+[debug] [2022-07-11T13:01:09.452Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-07-11T13:01:09.452Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"pubsub"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-07-11T13:01:09.452Z] Starting Pub/Sub Emulator with command {"binary":"C:\\Users\\Abobk\\.cache\\firebase\\emulators\\pubsub-emulator-0.1.0\\pubsub-emulator\\bin\\cloud-pubsub-emulator.bat","args":["--host=localhost","--port=8085"],"optionalArgs":["port","host"],"joinArgs":true} {"metadata":{"emulator":{"name":"pubsub"},"message":"Starting Pub/Sub Emulator with command {\"binary\":\"C:\\\\Users\\\\Abobk\\\\.cache\\\\firebase\\\\emulators\\\\pubsub-emulator-0.1.0\\\\pubsub-emulator\\\\bin\\\\cloud-pubsub-emulator.bat\",\"args\":[\"--host=localhost\",\"--port=8085\"],\"optionalArgs\":[\"port\",\"host\"],\"joinArgs\":true}"}}
+[info] i  pubsub: Pub/Sub Emulator logging to pubsub-debug.log {"metadata":{"emulator":{"name":"pubsub"},"message":"Pub/Sub Emulator logging to \u001b[1mpubsub-debug.log\u001b[22m"}}
+[debug] [2022-07-11T13:01:10.786Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-07-11T13:01:11.778Z] Temp file directory for storage emulator: C:\Users\Abobk\AppData\Local\Temp/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: C:\\Users\\Abobk\\AppData\\Local\\Temp/firebase/storage/blobs"}}
+[debug] [2022-07-11T13:01:11.785Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/al-distor-org/sites 
+[debug] [2022-07-11T13:01:13.044Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/al-distor-org/sites 200
+[debug] [2022-07-11T13:01:13.044Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/al-distor-org/sites {"sites":[{"name":"projects/al-distor-org/sites/al-distor-org","defaultUrl":"https://al-distor-org.web.app","appId":"1:17612612435:web:ae0f679a5ff166116f37a6","type":"DEFAULT_SITE"}]}
+[debug] [2022-07-11T13:01:13.044Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org/webApps/1:17612612435:web:ae0f679a5ff166116f37a6/config [none]
+[debug] [2022-07-11T13:01:14.031Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org/webApps/1:17612612435:web:ae0f679a5ff166116f37a6/config 200
+[debug] [2022-07-11T13:01:14.031Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/al-distor-org/webApps/1:17612612435:web:ae0f679a5ff166116f37a6/config {"projectId":"al-distor-org","appId":"1:17612612435:web:ae0f679a5ff166116f37a6","storageBucket":"al-distor-org.appspot.com","locationId":"europe-west","apiKey":"AIzaSyDcQPOdyt6tKYnnTcWaaGHc6NAHzbjrsiE","authDomain":"al-distor-org.firebaseapp.com","messagingSenderId":"17612612435","measurementId":"G-06ZL0FMHQJ"}
+[info] i  hosting: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[debug] [2022-07-11T13:01:14.323Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-07-11T13:01:14.323Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-07-11T13:01:14.323Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\Abobk\\.cache\\firebase\\emulators\\ui-v1.6.5\\server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\Abobk\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.6.5\\\\server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-07-11T13:01:14.444Z] Web / API server started at localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
+[info] i  functions: Watching "C:\Users\Abobk\Desktop\Projects\Personal Projects\distor-admin-dashboard\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\Abobk\\Desktop\\Projects\\Personal Projects\\distor-admin-dashboard\\functions\" for Cloud Functions..."}}
+[debug] [2022-07-11T13:01:14.598Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2022-07-11T13:01:17.083Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "build": "tsc",
+    "serve": "npm run build && firebase emulators:start --import=exported-dev-data --export-on-exit=exported-dev-data",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-07-11T13:01:17.084Z] Building nodejs source
+[debug] [2022-07-11T13:01:17.084Z] Analyzing nodejs backend spec
+[info] +  functions[europe-west1-adminAddUser]: http function initialized (http://localhost:5001/al-distor-org/europe-west1/adminAddUser). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/al-distor-org/europe-west1/adminAddUser)."}}
+[info] +  functions[europe-west1-getAllUsers]: http function initialized (http://localhost:5001/al-distor-org/europe-west1/getAllUsers). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/al-distor-org/europe-west1/getAllUsers)."}}
+[info] +  functions[europe-west1-changeUserStatus]: http function initialized (http://localhost:5001/al-distor-org/europe-west1/changeUserStatus). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/al-distor-org/europe-west1/changeUserStatus)."}}
+[info] +  functions[europe-west1-deleteUser]: http function initialized (http://localhost:5001/al-distor-org/europe-west1/deleteUser). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/al-distor-org/europe-west1/deleteUser)."}}
+[debug] [2022-07-11T13:01:17.264Z] addFirestoreTrigger "{\"eventTrigger\":{\"eventType\":\"providers/cloud.firestore/eventTypes/document.create\",\"resource\":\"projects/al-distor-org/databases/(default)/documents/signatures/{signatureId}\",\"service\":\"firestore.googleapis.com\"}}"
+[debug] [2022-07-11T13:01:17.264Z] >>> HTTP REQUEST PUT http://localhost:8080/emulator/v1/projects/al-distor-org/triggers/europe-west1-incrementSignatures-0  
+ {"eventTrigger":{"eventType":"providers/cloud.firestore/eventTypes/document.create","resource":"projects/al-distor-org/databases/(default)/documents/signatures/{signatureId}","service":"firestore.googleapis.com"}}
+[debug] [2022-07-11T13:01:18.218Z] <<< HTTP RESPONSE 200 {"content-type":"application/json","content-length":"4"}
+[info] +  functions[europe-west1-incrementSignatures]: firestore function initialized. {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mfirestore\u001b[22m function initialized."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4000                │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ localhost:9099 │ http://localhost:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Functions      │ localhost:5001 │ http://localhost:4000/functions │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ localhost:8080 │ http://localhost:4000/firestore │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Database       │ localhost:9000 │ http://localhost:4000/database  │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Hosting        │ localhost:5000 │ n/a                             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Pub/Sub        │ localhost:8085 │ n/a                             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Storage        │ localhost:9199 │ http://localhost:4000/storage   │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2022-07-11T13:02:57.407Z] >>> [apiv2][query] POST http://localhost:5001/functions/projects/al-distor-org/trigger_multicast [none]
+[debug] [2022-07-11T13:02:57.407Z] >>> [apiv2][body] POST http://localhost:5001/functions/projects/al-distor-org/trigger_multicast {"eventId":"aea54f2b-76c6-4e85-98b7-a7ad0615a477","eventType":"providers/firebase.auth/eventTypes/user.create","resource":{"name":"projects/al-distor-org","service":"firebaseauth.googleapis.com"},"params":{},"timestamp":"2022-07-11T13:02:57.406Z","data":{"uid":"uQ5Cm0ELXbVoO8GXCWLHRlM9ukIK","email":"abobkerelaghel@gmail.com","emailVerified":false,"displayName":"Abobker Elaghel","photoURL":"","metadata":{"creationTime":"1657544577405","lastSignInTime":"1657544577404"},"customClaims":{},"providerData":[{"providerId":"password","email":"abobkerelaghel@gmail.com","federatedId":"abobkerelaghel@gmail.com","rawId":"abobkerelaghel@gmail.com","displayName":"Abobker Elaghel","photoUrl":""}]}}
+[debug] [2022-07-11T13:02:57.420Z] <<< [apiv2][status] POST http://localhost:5001/functions/projects/al-distor-org/trigger_multicast 200
+[debug] [2022-07-11T13:02:57.420Z] <<< [apiv2][body] POST http://localhost:5001/functions/projects/al-distor-org/trigger_multicast {"status":"multicast_acknowledged"}

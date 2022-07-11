@@ -39,8 +39,8 @@ export const getFounders = (
     return getDocs(query(FoundersCollection, ...transactionsConstraints));
 };
 
-export const deleteFounder = (id: string, title: string) => {
+export const deleteFounder = (id: string) => {
     return deleteDoc(FounderDoc(id)).then(() => {
-        return deletePhoto(title, 'Founders');
+        return deletePhoto(id, 'Founders');
     });
 };

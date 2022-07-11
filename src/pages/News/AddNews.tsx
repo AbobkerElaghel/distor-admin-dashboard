@@ -21,7 +21,7 @@ import useSnackBar from '../../hooks/SnackBarHook';
 import { useLocation } from 'wouter';
 import { serverTimestamp } from 'firebase/firestore';
 import { AuthContext } from '../../providers/AuthProvider';
-import { addNews } from '../../firebase/Firestore/NewsCollection';
+import { addNews, updateNews } from '../../firebase/Firestore/NewsCollection';
 import deletePhoto from '../../firebase/Storage/deletePhoto';
 import uploadPhotoAndGetUrl from '../../firebase/Storage/uploadPhotoAndGetUrl';
 
@@ -77,16 +77,17 @@ const AddNews = () => {
 
         try {
             setSubmitting(true);
-            const photoURL = await uploadPhotoAndGetUrl(title, "News", photo[0]);
-            await addNews({
+            const newsCreated = await addNews({
                 title,
                 language,
                 RichContent,
                 excerpt,
                 userId: Auth?.user?.uid,
-                photoURL,
+
                 date: isAutoDate ? serverTimestamp() : date
             });
+            const photoURL = await uploadPhotoAndGetUrl(newsCreated.id, "News", photo[0]);
+            updateNews(newsCreated.id, { photoURL });
             setSnackBarValue({ message: t('addNewsPage.feedbackNewsAdded'), severity: "success" }, 2000);
             setTimeout(() => {
                 setLocation('/news');

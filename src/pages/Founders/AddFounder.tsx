@@ -21,7 +21,7 @@ import useSnackBar from '../../hooks/SnackBarHook';
 import { useLocation } from 'wouter';
 import { serverTimestamp } from 'firebase/firestore';
 import { AuthContext } from '../../providers/AuthProvider';
-import { addFounders } from '../../firebase/Firestore/FoundersCollection';
+import { addFounders, updateFounder } from '../../firebase/Firestore/FoundersCollection';
 import deletePhoto from '../../firebase/Storage/deletePhoto';
 import uploadPhotoAndGetUrl from '../../firebase/Storage/uploadPhotoAndGetUrl';
 
@@ -77,16 +77,17 @@ const AddBlogs = () => {
         }
         try {
             setSubmitting(true);
-            const photoURL = await uploadPhotoAndGetUrl(title, "Founders", photo[0]);
-            await addFounders({
+            const founder = await addFounders({
                 title,
                 language,
                 excerpt,
                 RichContent,
                 userId: Auth?.user?.uid,
-                photoURL,
+                // photoURL,
                 date: isAutoDate ? serverTimestamp() : date
             });
+            const photoURL = await uploadPhotoAndGetUrl(founder.id, "Founders", photo[0]);
+            await updateFounder(founder.id, { photoURL });
             setSnackBarValue({ message: t('AddFounderPage.feedbackFounderAdded'), severity: "success" }, 2000);
             setTimeout(() => {
                 setLocation('/founders');

@@ -21,10 +21,10 @@ const Founders = () => {
     const { t } = useTranslation();
     const [_, setLocation] = useLocation();
 
-    const MatEdit = ({ id, title }: any) => {
+    const MatEdit = ({ id }: any) => {
         const handleDeleteClick = () => {
             if (window.confirm(t('Generics.areyousure'))) {
-                deleteFounder(id, title).then(() => {
+                deleteFounder(id).then(() => {
                     setRefresh(!refresh);
                 });
             }
@@ -86,7 +86,7 @@ const Founders = () => {
             field: "Actions", headerAlign: "center", headerName: t('UsersPage.columnActions'), disableColumnMenu: true, align: "right", hideSortIcons: true, sortable: false, width: 100, renderCell: (params) => {
                 return (
                     <div style={{ cursor: "pointer" }}>
-                        <MatEdit title={params.row.title} id={params.row.id} />
+                        <MatEdit id={params.row.id} />
                     </div>
                 );
             }
