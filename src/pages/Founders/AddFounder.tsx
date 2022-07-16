@@ -77,7 +77,7 @@ const AddBlogs = () => {
         }
         try {
             setSubmitting(true);
-            const founder = await addFounders({
+            const doc = await addFounders({
                 title,
                 language,
                 excerpt,
@@ -86,8 +86,8 @@ const AddBlogs = () => {
                 // photoURL,
                 date: isAutoDate ? serverTimestamp() : date
             });
-            const photoURL = await uploadPhotoAndGetUrl(founder.id, "Founders", photo[0]);
-            await updateFounder(founder.id, { photoURL });
+            const photoURL = await uploadPhotoAndGetUrl(doc.id, "founders", photo[0]);
+            await updateFounder(doc.id, { photoURL });
             setSnackBarValue({ message: t('AddFounderPage.feedbackFounderAdded'), severity: "success" }, 2000);
             setTimeout(() => {
                 setLocation('/founders');

@@ -72,7 +72,7 @@ const EditFounders = ({ params }: any) => {
         let photoURL = undefined;
 
         if (photo && photo.length) {
-            photoURL = await uploadPhotoAndGetUrl(title, "Founders", photo[0]);
+            photoURL = await uploadPhotoAndGetUrl(params?.id, "founders", photo[0]);
         }
 
         try {

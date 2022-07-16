@@ -21,11 +21,11 @@ import useSnackBar from '../../hooks/SnackBarHook';
 import { useLocation } from 'wouter';
 import { serverTimestamp } from 'firebase/firestore';
 import { AuthContext } from '../../providers/AuthProvider';
-import { getSingleFounder, updateFounder } from '../../firebase/Firestore/FoundersCollection';
+import { getSingleEvent, updateEvent } from '../../firebase/Firestore/EventsCollection';
 import deletePhoto from '../../firebase/Storage/deletePhoto';
 import uploadPhotoAndGetUrl from '../../firebase/Storage/uploadPhotoAndGetUrl';
 
-const EditFounders = ({ params }: any) => {
+const EditEvents = ({ params }: any) => {
     const { t } = useTranslation();
     const Theme = useContext(ThemeContext);
     const Auth = useContext(AuthContext);
@@ -45,7 +45,7 @@ const EditFounders = ({ params }: any) => {
     const [errors, setErrors] = useState<any>();
     const { SnackBarComponent, setSnackBarValue } = useSnackBar();
     const [submitting, setSubmitting] = useState(false);
-    const onFoundersSubmit = async (e: any) => {
+    const onEventsSubmit = async (e: any) => {
         e.preventDefault();
 
         if (!title) {
@@ -72,12 +72,12 @@ const EditFounders = ({ params }: any) => {
         let photoURL = undefined;
 
         if (photo && photo.length) {
-            photoURL = await uploadPhotoAndGetUrl(title, "Founders", photo[0]);
+            photoURL = await uploadPhotoAndGetUrl(params?.id, "events", photo[0]);
         }
 
         try {
             setSubmitting(true);
-            await updateFounder(params?.id, photoURL ? {
+            await updateEvent(params?.id, photoURL ? {
                 title,
                 // category,
                 RichContent,
@@ -91,25 +91,25 @@ const EditFounders = ({ params }: any) => {
                 userId: Auth?.user?.uid,
                 date: isAutoDate ? serverTimestamp() : date
             });
-            setSnackBarValue({ message: "Updated Founders successfully", severity: "success" }, 2000);
+            setSnackBarValue({ message: "Updated Events successfully", severity: "success" }, 2000);
             setTimeout(() => {
-                setLocation('/founders');
+                setLocation('/events');
             }, 2100)
         } catch (error: any) {
-            setSnackBarValue({ message: error.message || 'Error in Editing a new Founders', severity: "error" }, 3000);
+            setSnackBarValue({ message: error.message || 'Error in Editing a new Events', severity: "error" }, 3000);
             console.dir(error)
             setSubmitting(false);
-            await deletePhoto(title, "Founders");
+            await deletePhoto(title, "Events");
         }
     }
 
     useEffect(() => {
         if (!params?.id) {
-            setLocation('/founders');
+            setLocation('/events');
             return;
         }
 
-        getSingleFounder(params.id)
+        getSingleEvent(params.id)
             .then((doc) => {
                 if (doc.exists()) {
                     const data = doc.data();
@@ -122,7 +122,7 @@ const EditFounders = ({ params }: any) => {
                     setPhotoURL(data.photoURL);
                     // setNewsObject(doc.data());
                 } else {
-                    setLocation('/founders');
+                    setLocation('/events');
                 }
             })
 
@@ -152,8 +152,8 @@ const EditFounders = ({ params }: any) => {
             margin: "auto",
         }}>
             <SnackBarComponent />
-            <Typography marginTop={7} marginBottom={3} fontWeight={500} variant='h3' component={"h3"}>{t('editFoundersPage.editFounder')}</Typography>
-            <form onSubmit={onFoundersSubmit}>
+            <Typography marginTop={7} marginBottom={3} fontWeight={500} variant='h3' component={"h3"}>{t('EventPages.editEvent')}</Typography>
+            <form onSubmit={onEventsSubmit}>
                 <FormControl fullWidth>
                     <Paper elevation={4} sx={{ p: 4 }}>
                         <Typography variant='h5' fontWeight={500} component={'h5'}>{t('Generics.basicInfo')}</Typography>
@@ -212,7 +212,7 @@ const EditFounders = ({ params }: any) => {
                             fullWidth
                             value={category}
                             onChange={(_, value) => setCategory(value || "")}
-                            options={["Founder", "News"]}
+                            options={["Event", "News"]}
                             renderInput={(params) => <TextField value={category} error={errors?.category} required name='category' margin='dense' {...params} label='Category' />}
                         />
 
@@ -243,4 +243,4 @@ const EditFounders = ({ params }: any) => {
     )
 };
 
-export default EditFounders;
+export default EditEvents;

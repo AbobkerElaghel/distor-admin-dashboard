@@ -7,11 +7,12 @@ import useSnackBar from '../../hooks/SnackBarHook';
 import { Link } from 'wouter';
 import { useEffect, useState } from 'react';
 import { Avatar, IconButton, Tooltip, Typography } from '@mui/material';
-import { deleteEvent, getEvents } from '../../firebase/Firestore/EventsCollection';
+import { getEvents } from '../../firebase/Firestore/EventsCollection';
 import { useLocation } from 'wouter';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { useTranslation } from 'react-i18next';
+import { deleteFirestoreDocument } from '../../firebase/Firestore/utils/DeleteDoc';
 
 const Events = () => {
     const { SnackBarComponent, setSnackBarValue } = useSnackBar();
@@ -24,7 +25,8 @@ const Events = () => {
     const MatEdit = ({ id }: any) => {
         const handleDeleteClick = () => {
             if (window.confirm(t('Generics.areyousure'))) {
-                deleteEvent(id).then(() => {
+
+                deleteFirestoreDocument(id, 'events').then(() => {
                     setRefresh(!refresh);
                 });
             }
@@ -34,13 +36,13 @@ const Events = () => {
             setLocation(`/events/edit/${id}`)
         }
         return <>
-            <Tooltip title={t('EventsPage.deleteEvent')}>
-                <IconButton color="error" aria-label={t('EventsPage.deleteEvent')} onClick={handleDeleteClick} >
+            <Tooltip title={t('EventPages.deleteEvent')}>
+                <IconButton color="error" aria-label={t('EventPages.deleteEvent')} onClick={handleDeleteClick} >
                     <DeleteIcon />
                 </IconButton>
             </Tooltip>
-            <Tooltip title={t('EventsPage.editEvent')}>
-                <IconButton aria-label={t('EventsPage.editEvent')} onClick={handleEditClick} >
+            <Tooltip title={t('EventPages.editEvent')}>
+                <IconButton aria-label={t('EventPages.editEvent')} onClick={handleEditClick} >
                     <EditIcon />
                 </IconButton>
             </Tooltip>
@@ -50,7 +52,7 @@ const Events = () => {
     const columns: GridColDef[] = [
         {
             field: 'title',
-            headerName: t('EventsPage.Event'),
+            headerName: t('Generics.name'),
             width: 400,
             editable: false,
             renderCell: ({ row }) => {
@@ -107,7 +109,7 @@ const Events = () => {
             padding: 1
         }}>
             <Link to='/events/new'>
-                <Button startIcon={<PersonAddIcon />} variant='contained'>{t('EventsPage.addEventButton')}</Button>
+                <Button startIcon={<PersonAddIcon />} variant='contained'>{t('EventPages.addEvent')}</Button>
             </Link>
         </Box>
     );

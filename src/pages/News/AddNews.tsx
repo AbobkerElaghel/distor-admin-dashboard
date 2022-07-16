@@ -77,17 +77,16 @@ const AddNews = () => {
 
         try {
             setSubmitting(true);
-            const newsCreated = await addNews({
+            const doc = await addNews({
                 title,
                 language,
                 RichContent,
                 excerpt,
                 userId: Auth?.user?.uid,
-
                 date: isAutoDate ? serverTimestamp() : date
             });
-            const photoURL = await uploadPhotoAndGetUrl(newsCreated.id, "News", photo[0]);
-            updateNews(newsCreated.id, { photoURL });
+            const photoURL = await uploadPhotoAndGetUrl(doc.id, "news", photo[0]);
+            updateNews(doc.id, { photoURL });
             setSnackBarValue({ message: t('addNewsPage.feedbackNewsAdded'), severity: "success" }, 2000);
             setTimeout(() => {
                 setLocation('/news');

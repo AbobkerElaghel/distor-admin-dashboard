@@ -64,7 +64,7 @@ const EditNews = ({ params }: any) => {
 
         let photoURL = undefined;
         if (photo && photo.length) {
-            photoURL = await uploadPhotoAndGetUrl(title, "News", photo[0]);
+            photoURL = await uploadPhotoAndGetUrl(params?.id, "news", photo[0]);
         }
 
         try {

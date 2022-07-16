@@ -78,6 +78,10 @@ const Founders = lazy(() => import('../pages/Founders/Founders'));
 const AddFounder = lazy(() => import('../pages/Founders/AddFounder'));
 const EditFounder = lazy(() => import('../pages/Founders/EditFounder'));
 
+const Events = lazy(() => import('../pages/Events/Events'));
+const AddEvent = lazy(() => import('../pages/Events/AddEvent'));
+const EditEvent = lazy(() => import('../pages/Events/EditEvent'));
+
 
 // Pages
 // Lazy Loading Components //
@@ -117,6 +121,8 @@ export default function ResponsiveDrawer() {
     '/founders/edit': t('breadcrumbNameMap./founders/edit'),
     '/events': t('breadcrumbNameMap./events'),
     '/events/new': t('breadcrumbNameMap./events/new'),
+    '/events/edit': t('breadcrumbNameMap./events/edit'),
+
   };
 
   const pathnames = location.split('/').filter((x) => x);
@@ -234,7 +240,6 @@ export default function ResponsiveDrawer() {
           <Drawer
             variant="permanent"
             sx={{
-
               display: { xs: 'none', sm: 'none', md: 'block' },
               '& .MuiDrawer-paper': { ...transitionAllSX, boxSizing: 'border-box', width: drawerWidth },
             }}
@@ -378,6 +383,11 @@ export default function ResponsiveDrawer() {
               <PrivateRoute path="/founders" component={Founders} />
               <PrivateRoute path="/founders/new" component={AddFounder} />
               <PrivateRoute path="/founders/edit/:id" component={EditFounder} />
+
+              <PrivateRoute path="/events" component={Events} />
+              <PrivateRoute path="/events/new" component={AddEvent} />
+              <PrivateRoute path="/events/edit/:id" component={EditEvent} />
+
 
             </Switch>
           </Suspense>

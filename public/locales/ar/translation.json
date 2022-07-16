@@ -257,9 +257,9 @@
         "/founders": "المؤسسون",
         "/founders/new": "أضافة مؤسس",
         "/founders/edit": "تعديل مؤسس",
-
         "/events/new": "أضافة حدث",
-        "/events": "الأحداث"
+        "/events": "الأحداث",
+        "/events/edit": "تعديل حدث"
     },
     "AddFileCategory": {
         "modalTitle": "أضافة تصنيف ملفات جديد",
@@ -269,6 +269,11 @@
         "feedbackFileCategoryAdded": "تمت الاضافة بنجاح",
         "feedbackFileCategoryAddedError": "مشكلة في أضافة",
         "feedbackFileCategoryAuthRequired": "تأكد من تسجيل الدخول"
+    },
+    "EventPages": {
+        "addEvent": "أضافة حدث جديد",
+        "editEvent": "تعديل الحدث",
+        "deleteEvent": "حدف حدث"
     },
     "editFoundersPage": {
         "addFounderButton": "أضافة مؤسس جديد",
@@ -280,6 +285,7 @@
         "areyousure": "هل أنت متأكد من العملية؟",
         "createdAt": "تاريخ الأنشاء",
         "name": "الأسم",
+        "add": "أضافة",
         "excerpt": "المختصر",
         "email": "البريد الألكتروني",
         "roles": "الصلاحيات",
@@ -288,6 +294,8 @@
         "phone": "رقم الهاتف",
         "actions": "التحكم",
         "submit": "حفظ",
+        "delete": "حذف",
+        "edit": "تعديل",
         "imageDescription": "سوف تضهر الصورة هنا عند الاختيار",
         "basicInfo": "معلومات الاساسية",
         "title": "العنوان",
@@ -299,6 +307,11 @@
         "autoSelect": "أختيار تلقائي",
         "fr": "الفرنسية",
         "ar": "العربية",
-        "en": "الأنجليزية"
+        "en": "الأنجليزية",
+        "feedbackAdded": "تمت الاضافة بنجاح",
+        "feedbackAddedError": "مشكلة في أضافة",
+        "feedbackAuthRequired": "تأكد من تسجيل الدخول",
+        "feedbackRichContentRequired": "المحتوى مطلوب",
+        "feedbackPhotoRequired": "الصورة مطلوبة"
     }
 }

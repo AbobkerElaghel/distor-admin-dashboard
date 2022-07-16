@@ -251,9 +251,9 @@
         "/founders": "Founders",
         "/founders/new": "Add Founder",
         "/founders/edit": "Edit Founder",
-
+        "/events": "Events",
         "/events/new": "Add Event",
-        "/events": "Events"
+        "/events/edit": "Edit Event"
     },
     "AddFileCategory": {
         "modalTitle": "Add New File Category",
@@ -264,12 +264,20 @@
         "feedbackFileCategoryAddedError": "Error in Adding Category",
         "feedbackFileCategoryAuthRequired": "Make sure you are signed in"
     },
+    "EventPages": {
+        "addEvent": "Add new Event",
+        "editEvent": "Edit Event",
+        "deleteEvent": "Delete Event"
+    },
     "Generics": {
         "areyousure": "Are You Sure?",
         "createdAt": "Created At",
         "name": "Name",
+        "add": "Add",
         "email": "Email",
         "excerpt": "Excerpt",
+        "delete": "Delete",
+        "edit": "Edit",
         "roles": "Roles",
         "phone": "Phone Number",
         "password": "Password",
@@ -287,7 +295,11 @@
         "autoSelect": "Auto Select",
         "fr": "French",
         "ar": "Arabic",
-        "en": "English"
-
+        "en": "English",
+        "feedbackAdded": "Added Successfully",
+        "feedbackAddedError": "Error in adding",
+        "feedbackAuthRequired": "Auth Required",
+        "feedbackRichContentRequired": "Content Required",
+        "feedbackPhotoRequired": "Photo Required"
     }
 }

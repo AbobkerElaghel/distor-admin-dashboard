@@ -21,7 +21,7 @@ import useSnackBar from '../../hooks/SnackBarHook';
 import { useLocation } from 'wouter';
 import { serverTimestamp } from 'firebase/firestore';
 import { AuthContext } from '../../providers/AuthProvider';
-import { addActivities } from '../../firebase/Firestore/ActivitiesCollection';
+import { addActivities, updateActivity } from '../../firebase/Firestore/ActivitiesCollection';
 import deletePhoto from '../../firebase/Storage/deletePhoto';
 import uploadPhotoAndGetUrl from '../../firebase/Storage/uploadPhotoAndGetUrl';
 
@@ -76,16 +76,17 @@ const AddActivities = () => {
         }
         try {
             setSubmitting(true);
-            const photoURL = await uploadPhotoAndGetUrl(title, "Activities", photo[0]);
-            await addActivities({
+            const doc = await addActivities({
                 title,
                 excerpt,
                 language,
                 RichContent,
                 userId: Auth?.user?.uid,
-                photoURL,
+                // photoURL,
                 date: isAutoDate ? serverTimestamp() : date
             });
+            const photoURL = await uploadPhotoAndGetUrl(doc.id, "activities", photo[0]);
+            await updateActivity(doc.id, { photoURL });
             setSnackBarValue({ message: t('addActivitiesPage.feedbackActivityAdded'), severity: "success" }, 2000);
             setTimeout(() => {
                 setLocation('/activities');

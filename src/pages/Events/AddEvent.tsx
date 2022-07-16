@@ -21,7 +21,7 @@ import useSnackBar from '../../hooks/SnackBarHook';
 import { useLocation } from 'wouter';
 import { serverTimestamp } from 'firebase/firestore';
 import { AuthContext } from '../../providers/AuthProvider';
-import { addFounders, updateFounder } from '../../firebase/Firestore/FoundersCollection';
+import { addEvents, updateEvent } from '../../firebase/Firestore/EventsCollection';
 import deletePhoto from '../../firebase/Storage/deletePhoto';
 import uploadPhotoAndGetUrl from '../../firebase/Storage/uploadPhotoAndGetUrl';
 
@@ -41,7 +41,7 @@ const AddBlogs = () => {
     const { SnackBarComponent, setSnackBarValue } = useSnackBar();
     const [submitting, setSubmitting] = useState(false);
 
-    const onFoundersSubmit = async (e: any) => {
+    const onEventsSubmit = async (e: any) => {
         e.preventDefault();
         const title = e.target.elements.title.value;
         const excerpt = e.target.elements.excerpt.value;
@@ -58,7 +58,7 @@ const AddBlogs = () => {
         };
 
         if (!RichContent) {
-            setSnackBarValue({ message: t('AddFounderPage.feedbackFounderRichContentRequired'), severity: "error" }, 5000);
+            setSnackBarValue({ message: t('Generics.feedbackRichContentRequired'), severity: "error" }, 5000);
             return;
         };
 
@@ -68,16 +68,16 @@ const AddBlogs = () => {
         };
 
         if (!photo.length) {
-            setSnackBarValue({ message: t('AddFounderPage.feedbackFounderPhotoRequired'), severity: "error" }, 5000);
+            setSnackBarValue({ message: t('Generics.feedbackPhotoRequired'), severity: "error" }, 5000);
             return;
         }
         if (!Auth?.user?.uid) {
-            setSnackBarValue({ message: t('AddFounderPage.feedbackFounderAuthRequired'), severity: "error" }, 5000);
+            setSnackBarValue({ message: t('Generics.feedbackAuthRequired'), severity: "error" }, 5000);
             return;
         }
         try {
             setSubmitting(true);
-            const founder = await addFounders({
+            const doc = await addEvents({
                 title,
                 language,
                 excerpt,
@@ -86,18 +86,18 @@ const AddBlogs = () => {
                 // photoURL,
                 date: isAutoDate ? serverTimestamp() : date
             });
-            const photoURL = await uploadPhotoAndGetUrl(founder.id, "Founders", photo[0]);
-            await updateFounder(founder.id, { photoURL });
-            setSnackBarValue({ message: t('AddFounderPage.feedbackFounderAdded'), severity: "success" }, 2000);
+            const photoURL = await uploadPhotoAndGetUrl(doc.id, "events", photo[0]);
+            await updateEvent(doc.id, { photoURL });
+            setSnackBarValue({ message: t('Generics.feedbackAdded'), severity: "success" }, 2000);
             setTimeout(() => {
-                setLocation('/founders');
+                setLocation('/events');
             }, 2100)
         } catch (error: any) {
-            setSnackBarValue({ message: error.message || t('AddFounderPage.feedbackFounderAddedError'), severity: "error" }, 3000);
+            setSnackBarValue({ message: error.message || t('Generics.feedbackAdded'), severity: "error" }, 3000);
             console.dir(error);
             setSubmitting(false);
             if (!(error.message === "Title Name is Used Already")) {
-                await deletePhoto(title, "Founders");
+                await deletePhoto(title, "Events");
             }
         }
     }
@@ -128,14 +128,14 @@ const AddBlogs = () => {
             margin: "auto",
         }}>
             <SnackBarComponent />
-            <Typography marginTop={7} marginBottom={3} fontWeight={500} variant='h3' component={"h3"}>{t('AddFounderPage.addUserButton')}</Typography>
-            <form onSubmit={onFoundersSubmit}>
+            <Typography marginTop={7} marginBottom={3} fontWeight={500} variant='h3' component={"h3"}>{t('EventPages.addEvent')}</Typography>
+            <form onSubmit={onEventsSubmit}>
                 <FormControl fullWidth>
                     <Paper elevation={4} sx={{ p: 4 }}>
                         <Typography variant='h5' fontWeight={500} component={'h5'}>{t('addBlogsPage.basicInfo')}</Typography>
                         <TextField error={errors?.title} required name="title" margin='normal' fullWidth label={t('addBlogsPage.title')} variant="outlined" />
                         <TextField error={errors?.excerpt} required name="excerpt" margin='normal' fullWidth label={t('addPageCommons.excerpt')} variant="outlined" />
-                        <Typography marginTop={5} marginBottom={2} variant='h6' component={'p'}>{t('AddFounderPage.content')}</Typography>
+                        <Typography marginTop={5} marginBottom={2} variant='h6' component={'p'}>{t('Generics.content')}</Typography>
                         <Box sx={{
                             border: "1px sold rgb(45, 55, 72)",
                             borderTopLeftRadius: "8px",
@@ -178,7 +178,7 @@ const AddBlogs = () => {
                     <Paper elevation={4} sx={{ p: 4, marginTop: 2 }}>
                         <Typography variant='h5' fontWeight={500} component={'h5'}>{t('addBlogsPage.image')}</Typography>
                         <Typography variant='subtitle1' sx={{ opacity: 0.75 }}
-                            fontWeight={500} component={'p'}>{t('addBlogsPage.imageDescription')}</Typography>
+                            fontWeight={500} component={'p'}>{t('Generics.imageDescription')}</Typography>
                         <ImageDropZone dispacther={setPhoto} />
                     </Paper>
                     <Paper elevation={4} sx={{ p: 4, marginTop: 2 }}>
@@ -213,7 +213,7 @@ const AddBlogs = () => {
                     </Paper>
                     <Button disabled={submitting} type='submit' sx={{
                         mb: 3
-                    }} variant='contained'>{t('AddFounderPage.submit')}</Button>
+                    }} variant='contained'>{t('Generics.submit')}</Button>
                 </FormControl>
             </form>
         </Box>
