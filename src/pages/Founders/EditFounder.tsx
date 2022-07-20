@@ -4,9 +4,6 @@ import Box from '@mui/material/Box';
 // import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
-import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import ReactQuill from 'react-quill';
@@ -29,6 +26,7 @@ const EditFounders = ({ params }: any) => {
     const { t } = useTranslation();
     const Theme = useContext(ThemeContext);
     const Auth = useContext(AuthContext);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, setLocation] = useLocation();
     // Fields
 

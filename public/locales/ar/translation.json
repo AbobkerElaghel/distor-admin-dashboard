@@ -308,6 +308,8 @@
         "fr": "الفرنسية",
         "ar": "العربية",
         "en": "الأنجليزية",
+        "workspace": "مساحة العمل",
+        "projectName": "الأسم",
         "feedbackAdded": "تمت الاضافة بنجاح",
         "feedbackAddedError": "مشكلة في أضافة",
         "feedbackAuthRequired": "تأكد من تسجيل الدخول",

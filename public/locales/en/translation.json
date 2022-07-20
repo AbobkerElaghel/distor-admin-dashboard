@@ -293,6 +293,8 @@
         "submit": "Submit",
         "date": "Date",
         "autoSelect": "Auto Select",
+        "workspace": "Work Space",
+        "projectName": "Name",
         "fr": "French",
         "ar": "Arabic",
         "en": "English",

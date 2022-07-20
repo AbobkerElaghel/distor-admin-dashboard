@@ -52,6 +52,8 @@ import LinkRouterProps from '../interfaces/LinkRouterProps';
 
 // Objects
 import transitionAllSX from '../helpers/transitionAllSX';
+import { Divider } from '@mui/material';
+
 // Objects
 
 // Lazy Loading Components //
@@ -94,6 +96,9 @@ export default function ResponsiveDrawer() {
   const Auth = useContext(AuthContext);
   const { t, i18n } = useTranslation();
   const [location] = useLocation();
+  const iconTitleSpacing = "34px";
+  const titleFontSizeAR = '1.1rem';
+  const titleFontSizeEN = '0.85rem';
 
   const LinkRouter = (props: LinkRouterProps) => (
     <MuiLink {...props} component={Link as any} />
@@ -145,8 +150,21 @@ export default function ResponsiveDrawer() {
     <div style={{
       padding: "0 0.5rem"
     }}>
-      <Toolbar />
-
+      <Stack margin={1} direction={'row'}>
+        <img width={60} height={60} src="/logo512.png" alt="" />
+        <Stack sx={{
+          marginLeft: 1.5
+        }}>
+          <Typography variant="h6">{t('Generics.projectName')}</Typography>
+          <Typography variant="subtitle2" sx={{
+            opacity: 0.75
+          }}>{t('Generics.workspace')}</Typography>
+        </Stack>
+      </Stack>
+      {/* <Toolbar /> */}
+      <Divider sx={{
+        marginY: 2
+      }} />
 
       {/* General */}
       <List subheader={<ListSubheader sx={{ ...transitionAllSX, fontSize: i18n.resolvedLanguage === 'ar' ? '1.4rem' : "'1.1rem'" }}>{t('sidebar.subheaderTitlesGeneral')}</ListSubheader>}>
@@ -163,10 +181,13 @@ export default function ResponsiveDrawer() {
           return (
             <Link key={index} href={href}>
               <ListItemButton sx={transitionAllSX} selected={isSelected} key={title}>
-                <ListItemIcon sx={transitionAllSX}>
-                  <Icon fontSize='medium' sx={transitionAllSX} color={isSelected ? 'primary' : "action"} />
+                <ListItemIcon sx={{
+                  ...transitionAllSX,
+                  minWidth: iconTitleSpacing
+                }}>
+                  <Icon fontSize='small' sx={{ ...transitionAllSX }} color={isSelected ? 'primary' : "action"} />
                 </ListItemIcon>
-                <ListItemText primary={<Typography sx={transitionAllSX} color={isSelected ? 'primary' : ""} fontSize={i18n.resolvedLanguage === 'ar' ? '1.3rem' : "'1rem'"} fontWeight={500}>{title}</Typography>} />
+                <ListItemText primary={<Typography sx={transitionAllSX} color={isSelected ? 'primary' : ""} fontSize={i18n.resolvedLanguage === 'ar' ? titleFontSizeAR : titleFontSizeEN} fontWeight={500}>{title}</Typography>} />
               </ListItemButton>
             </Link>
           );
@@ -183,10 +204,13 @@ export default function ResponsiveDrawer() {
           return (
             <Link key={index} href={href}>
               <ListItemButton sx={transitionAllSX} selected={isSelected} key={title}>
-                <ListItemIcon sx={transitionAllSX}>
+                <ListItemIcon sx={{
+                  ...transitionAllSX,
+                  minWidth: iconTitleSpacing
+                }}>
                   <Icon fontSize='medium' sx={transitionAllSX} color={isSelected ? 'primary' : "action"} />
                 </ListItemIcon>
-                <ListItemText primary={<Typography sx={transitionAllSX} color={isSelected ? 'primary' : ""} fontSize={i18n.resolvedLanguage === 'ar' ? '1.3rem' : "'1rem'"} fontWeight={500}>{title}</Typography>} />
+                <ListItemText primary={<Typography sx={transitionAllSX} color={isSelected ? 'primary' : ""} fontSize={i18n.resolvedLanguage === 'ar' ? titleFontSizeAR : titleFontSizeEN} fontWeight={500}>{title}</Typography>} />
               </ListItemButton>
             </Link>
           );
@@ -200,10 +224,13 @@ export default function ResponsiveDrawer() {
           return (
             <Link key={index} href={href}>
               <ListItemButton sx={transitionAllSX} selected={isSelected} key={title}>
-                <ListItemIcon sx={transitionAllSX}>
+                <ListItemIcon sx={{
+                  ...transitionAllSX,
+                  minWidth: iconTitleSpacing
+                }}>
                   <Icon fontSize='medium' sx={transitionAllSX} color={isSelected ? 'primary' : "action"} />
                 </ListItemIcon>
-                <ListItemText primary={<Typography sx={transitionAllSX} color={isSelected ? 'primary' : ""} fontSize={i18n.resolvedLanguage === 'ar' ? '1.3rem' : "'1.1rem'"} fontWeight={500}>{title}</Typography>} />
+                <ListItemText primary={<Typography sx={transitionAllSX} color={isSelected ? 'primary' : ""} fontSize={i18n.resolvedLanguage === 'ar' ? titleFontSizeAR : titleFontSizeEN} fontWeight={500}>{title}</Typography>} />
               </ListItemButton>
             </Link>
           );
