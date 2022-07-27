@@ -302,6 +302,7 @@
         "feedbackAddedError": "Error in adding",
         "feedbackAuthRequired": "Auth Required",
         "feedbackRichContentRequired": "Content Required",
-        "feedbackPhotoRequired": "Photo Required"
+        "feedbackPhotoRequired": "Photo Required",
+        "NoFileFound": "No File Found"
     }
 }

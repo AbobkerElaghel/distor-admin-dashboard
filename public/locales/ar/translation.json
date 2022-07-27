@@ -314,6 +314,7 @@
         "feedbackAddedError": "مشكلة في أضافة",
         "feedbackAuthRequired": "تأكد من تسجيل الدخول",
         "feedbackRichContentRequired": "المحتوى مطلوب",
-        "feedbackPhotoRequired": "الصورة مطلوبة"
+        "feedbackPhotoRequired": "الصورة مطلوبة",
+        "NoFileFound": "لم يتم العثور على ملف"
     }
 }

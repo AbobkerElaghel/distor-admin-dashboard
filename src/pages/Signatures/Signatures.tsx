@@ -20,18 +20,19 @@ const Signatures = () => {
     const [loading, setLoading] = useState(false);
     const { t } = useTranslation();
 
-    const MatEdit = ({ id, personId }: any) => {
+    const MatEdit = ({ id, signature }: any) => {
         const handleDeleteClick = () => {
             decrementSignaturesCount()
                 .then(() => {
                     return deleteSignature(id)
                 })
                 .then(() => {
-                    return deletePhoto(personId, 'peopleIds');
-                })
-                .then(() => {
                     setSnackBarValue({ message: "deleted signature", severity: "info" }, 2000);
                     setRefresh(!refresh);
+                })
+                .then(() => {
+                    if (signature.fileURL)
+                        return deletePhoto(signature.personId, 'peopleIds');
                 })
                 .catch((e) => {
                     setSnackBarValue({ message: "Error with deleting signature", severity: "error" }, 2000);
@@ -85,12 +86,15 @@ const Signatures = () => {
             field: "fileURL", headerAlign: "center", headerName: t('SignaturesPage.columnFileURL'), disableColumnMenu: true, hideSortIcons: true, sortable: false, width: 150, renderCell: params => {
                 return (
                     <Button onClick={() => {
-                        console.log(params.row.fileURL);
-                        const link = document.createElement("a");
-                        link.target = "_blank";
-                        link.href = params.row.fileURL;
-                        link.download = params.row.name;
-                        link.click();
+                        if (params.row.fileURL) {
+                            const link = document.createElement("a");
+                            link.target = "_blank";
+                            link.href = params.row.fileURL;
+                            link.download = params.row.name;
+                            link.click();
+                        } else {
+                            alert('No File found')
+                        }
                     }} variant="contained" endIcon={<DownloadIcon />}>{t('Download')}</Button>
                 );
             }
@@ -99,7 +103,7 @@ const Signatures = () => {
             field: "Actions", headerAlign: "center", headerName: t('SignaturesPage.columnActions'), disableColumnMenu: true, align: "right", hideSortIcons: true, sortable: false, width: 100, renderCell: params => {
                 return (
                     <div style={{ cursor: "pointer" }}>
-                        <MatEdit id={params.id} personId={params.row.personId} />
+                        <MatEdit id={params.id} signature={params.row} />
                     </div>
                 );
             }
