@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { deleteSignature, getSignaturesDocs } from '../../firebase/Firestore/SignaturesCollection';
 import deletePhoto from '../../firebase/Storage/deletePhoto';
 import DownloadIcon from '@mui/icons-material/Download';
+import { decrementSignaturesCount } from '../../firebase/Firestore/SignaturesCountCollection';
 const Signatures = () => {
     const { SnackBarComponent, setSnackBarValue } = useSnackBar();
     const [rows, setRows] = useState<any>([]);
@@ -21,7 +22,10 @@ const Signatures = () => {
 
     const MatEdit = ({ id, personId }: any) => {
         const handleDeleteClick = () => {
-            deleteSignature(id)
+            decrementSignaturesCount()
+                .then(() => {
+                    return deleteSignature(id)
+                })
                 .then(() => {
                     return deletePhoto(personId, 'peopleIds');
                 })

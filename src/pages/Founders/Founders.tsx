@@ -29,7 +29,6 @@ const Founders = () => {
                 });
             }
         }
-
         const handleEditClick = () => {
             setLocation(`/founders/edit/${id}`)
         }

@@ -75,7 +75,7 @@ const AddFile = () => {
 
         try {
             setSubmitting(true);
-            const fileURL = await uploadFileAndGetUrl(title, category, file[0]);
+            const fileURL = await uploadFileAndGetUrl(title, `files/${category}`, file[0]);
             await addFile({
                 title,
                 date: serverTimestamp(),
@@ -94,7 +94,7 @@ const AddFile = () => {
             console.dir(error);
             setSubmitting(false);
             if (!(error.message === "Title Name is Used Already")) {
-                await deletePhoto(title, category);
+                await deletePhoto(title, `files/${category}`);
             }
         }
     };

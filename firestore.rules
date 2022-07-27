@@ -41,12 +41,13 @@ service cloud.firestore {
 
     match /signatures/{newsignatureId} {
       allow read: if request.auth != null && (isAdmin() || isEditor()) || request.query.limit == 1;
+      allow delete: if request.auth != null && (isAdmin() || isEditor()) || request.query.limit == 1;
       allow create: if true;
     }
 
     match /signaturesCount/{count} {
       allow read: if true;
-      allow create: if true;
+      allow update: if true;
     }
   }
 }

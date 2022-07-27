@@ -51,7 +51,9 @@ const Files = () => {
             .then(() => {
                 setRefresh(!refresh);
             })
-            .catch()
+            .catch((error) => {
+                console.log(error);
+            })
     }
     const RenderFiles = () => {
         const result = [];

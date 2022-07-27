@@ -79,11 +79,9 @@ const Signatures = lazy(() => import('../pages/Signatures/Signatures'));
 const Founders = lazy(() => import('../pages/Founders/Founders'));
 const AddFounder = lazy(() => import('../pages/Founders/AddFounder'));
 const EditFounder = lazy(() => import('../pages/Founders/EditFounder'));
-
 const Events = lazy(() => import('../pages/Events/Events'));
 const AddEvent = lazy(() => import('../pages/Events/AddEvent'));
 const EditEvent = lazy(() => import('../pages/Events/EditEvent'));
-
 
 // Pages
 // Lazy Loading Components //
@@ -127,7 +125,6 @@ export default function ResponsiveDrawer() {
     '/events': t('breadcrumbNameMap./events'),
     '/events/new': t('breadcrumbNameMap./events/new'),
     '/events/edit': t('breadcrumbNameMap./events/edit'),
-
   };
 
   const pathnames = location.split('/').filter((x) => x);
