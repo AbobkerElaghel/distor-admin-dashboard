@@ -13,13 +13,13 @@ import { deleteSignature, getSignaturesDocs } from '../../firebase/Firestore/Sig
 import deletePhoto from '../../firebase/Storage/deletePhoto';
 import DownloadIcon from '@mui/icons-material/Download';
 import { decrementSignaturesCount } from '../../firebase/Firestore/SignaturesCountCollection';
+import MUICustomToolbar from '../../components/MUICustomToolbar';
 const Signatures = () => {
     const { SnackBarComponent, setSnackBarValue } = useSnackBar();
     const [rows, setRows] = useState<any>([]);
     const [refresh, setRefresh] = useState(false);
     const [loading, setLoading] = useState(false);
     const { t } = useTranslation();
-
     const MatEdit = ({ id, signature }: any) => {
         const handleDeleteClick = () => {
             decrementSignaturesCount()
@@ -145,6 +145,7 @@ const Signatures = () => {
                 rows={rows}
                 columns={columns}
                 components={{
+                    Toolbar: MUICustomToolbar,
                 }}
                 rowHeight={65}
                 pageSize={5}

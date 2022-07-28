@@ -73,7 +73,7 @@ const Events = () => {
         },
         {
             field: 'language',
-            headerName: t('Generics.excerpt'),
+            headerName: t('Generics.language'),
             width: 220,
             editable: false,
             renderCell: (params) => {

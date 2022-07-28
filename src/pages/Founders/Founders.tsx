@@ -14,7 +14,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import { useTranslation } from 'react-i18next';
 
 const Founders = () => {
-    const { SnackBarComponent, setSnackBarValue } = useSnackBar();
+    const { SnackBarComponent } = useSnackBar();
     const [rows, setRows] = useState<any>([]);
     const [refresh, setRefresh] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -70,7 +70,7 @@ const Founders = () => {
         },
         {
             field: 'language',
-            headerName: t('Generics.excerpt'),
+            headerName: t('Generics.language'),
             width: 220,
             editable: false,
             renderCell: (params) => {
@@ -141,4 +141,4 @@ const Founders = () => {
     )
 }
 
-export default Founders
+export default Founders;

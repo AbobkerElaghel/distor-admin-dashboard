@@ -76,6 +76,7 @@ const EditEvents = ({ params }: any) => {
             setSubmitting(true);
             await updateEvent(params?.id, photoURL ? {
                 title,
+                excerpt,
                 // category,
                 RichContent,
                 userId: Auth?.user?.uid,
@@ -83,6 +84,7 @@ const EditEvents = ({ params }: any) => {
                 date: isAutoDate ? serverTimestamp() : date
             } : {
                 title,
+                excerpt,
                 // category,
                 RichContent,
                 userId: Auth?.user?.uid,

@@ -56,12 +56,6 @@ const EditFounders = ({ params }: any) => {
             return;
         };
 
-        // if (!category) {
-        //     setErrors({ ...errors, category: true });
-        //     return;
-        // };
-
-
         if (!Auth?.user?.uid) {
             setSnackBarValue({ message: "Make sure you are signed in", severity: "error" }, 5000);
             return;
@@ -77,6 +71,7 @@ const EditFounders = ({ params }: any) => {
             setSubmitting(true);
             await updateFounder(params?.id, photoURL ? {
                 title,
+                excerpt,
                 // category,
                 RichContent,
                 userId: Auth?.user?.uid,
@@ -84,6 +79,7 @@ const EditFounders = ({ params }: any) => {
                 date: isAutoDate ? serverTimestamp() : date
             } : {
                 title,
+                excerpt,
                 // category,
                 RichContent,
                 userId: Auth?.user?.uid,
