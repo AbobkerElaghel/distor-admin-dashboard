@@ -28,7 +28,11 @@ service firebase.storage {
     match /peopleIds/{newUserPhoto} {
       allow read: if true;
       allow create: if request.resource.size < 3 * 1024 * 1024;
-      allow delete: if true;
+      allow delete: if request.auth != null && (request.auth.token.admin == true || request.auth.token.editor == true);
+    }
+    match /files/{Location}/{newUserPhoto} {
+      allow read: if true;
+      allow write: if request.resource.size < 3 * 1024 * 1024 && request.auth != null && (request.auth.token.admin == true || request.auth.token.editor == true);
     }
   }
 }
