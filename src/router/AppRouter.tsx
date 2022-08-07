@@ -5,7 +5,6 @@ import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
@@ -52,7 +51,9 @@ import LinkRouterProps from '../interfaces/LinkRouterProps';
 
 // Objects
 import transitionAllSX from '../helpers/transitionAllSX';
-import { Divider } from '@mui/material';
+import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
+
 
 // Objects
 
@@ -89,6 +90,8 @@ const drawerWidth = 250;
 export default function ResponsiveDrawer() {
 
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [clickedPublish, setClickedPublish] = useState(false);
+
   const Theme = useContext(ThemeContext);
   const RTL = useContext(RTLContext);
   const Auth = useContext(AuthContext);
@@ -332,6 +335,20 @@ export default function ResponsiveDrawer() {
 
             {/* START - Right Section of the navbar */}
             <Stack spacing={2} direction={'row'} marginY="auto" marginX={3}>
+              {Auth?.user ? <Button
+                size='large'
+                variant='contained'
+                disabled={clickedPublish}
+                sx={{
+                  zIndex: 99999
+                }}
+                onClick={() => {
+                  fetch('https://api.vercel.com/v1/integrations/deploy/prj_AQcaqF7N1FK4JkdwqkpurSf0ugCp/0UCmvKtRaX')
+                  setClickedPublish(true);
+                  alert(t('Generics.pushedUpdates'))
+                }}
+              >{t('Generics.publish')}</Button> : undefined}
+
               <IconButton sx={{
                 marginY: "auto"
               }} onClick={() => { Theme?.toggleDarkMode() }}>
@@ -407,15 +424,14 @@ export default function ResponsiveDrawer() {
               <PrivateRoute path="/founders" component={Founders} />
               <PrivateRoute path="/founders/new" component={AddFounder} />
               <PrivateRoute path="/founders/edit/:id" component={EditFounder} />
-
               <PrivateRoute path="/events" component={Events} />
               <PrivateRoute path="/events/new" component={AddEvent} />
               <PrivateRoute path="/events/edit/:id" component={EditEvent} />
-
-
             </Switch>
           </Suspense>
-          {/* START - MAIN SECTION */}
+          {/* END - MAIN SECTION */}
+
+          {/* Publish Button */}
 
         </Box>
       </Box>
