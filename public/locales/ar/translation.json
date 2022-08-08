@@ -10,7 +10,7 @@
     "sidebar": {
         "main": "الرئيسي",
         "news": "الأخبار",
-        "blogs": "المدونات",
+        "blogs": "المقالات",
         "activities": "المناشط",
         "files": "الملفات",
         "users": "المستخدمين",
@@ -56,15 +56,15 @@
         "date": "التاريخ",
         "autoSelect": "أختيار تلقائي",
         "submit": "أضافة الخبر",
-        "feedbackNewsAdded": "تمت أضافة المدونة بنجاح",
-        "feedbackNewsAddedError": "مشكلة في أضافة المدونة",
-        "feedbackNewsRichContentRequired": " محتوى المدونة مطلوب",
+        "feedbackNewsAdded": "تمت أضافة المقال بنجاح",
+        "feedbackNewsAddedError": "مشكلة في أضافة المقال",
+        "feedbackNewsRichContentRequired": " محتوى المقال مطلوب",
         "feedbackNewsPhotoRequired": "الصورة مطلوبة",
         "feedbackNewsAuthRequired": "تأكد من تسجيل الدخول"
     },
     "addBlogsPage": {
-        "createNewBlog": "أنشاء مدونة جديد",
-        "editBlog": "تعديل مدونة",
+        "createNewBlog": "أنشاء مقال جديد",
+        "editBlog": "تعديل مقال",
         "basicInfo": "معلومات الاساسية",
         "title": "العنوان",
         "content": "المحتوي",
@@ -74,10 +74,10 @@
         "languages": "اللغة",
         "date": "التاريخ",
         "autoSelect": "أختيار تلقائي",
-        "submit": "أضافة المدونة",
-        "feedbackBlogAdded": "تمت أضافة المدونة بنجاح",
-        "feedbackBlogAddedError": "مشكلة في أضافة المدونة",
-        "feedbackBlogRichContentRequired": " محتوى المدونة مطلوب",
+        "submit": "أضافة المقال",
+        "feedbackBlogAdded": "تمت أضافة المقال بنجاح",
+        "feedbackBlogAddedError": "مشكلة في أضافة المقال",
+        "feedbackBlogRichContentRequired": " محتوى المقال مطلوب",
         "feedbackBlogPhotoRequired": "الصورة مطلوبة",
         "feedbackBlogAuthRequired": "تأكد من تسجيل الدخول"
     },
@@ -91,15 +91,15 @@
         "languages": "اللغة",
         "date": "التاريخ",
         "autoSelect": "أختيار تلقائي",
-        "submit": "أضافة المدونة",
+        "submit": "أضافة المقال",
         "category": "التصنيف",
-        "feedbackFileAdded": "تمت الملف المدونة بنجاح",
+        "feedbackFileAdded": "تمت الملف المقال بنجاح",
         "feedbackFileAddedError": "مشكلة في أضافة الملف",
         "feedbackFileFileRequired": "الملف مطلوبة",
         "feedbackFileAuthRequired": "تأكد من تسجيل الدخول"
     },
     "editBlogsPage": {
-        "editBlog": "تعديل مدونة",
+        "editBlog": "تعديل مقال",
         "basicInfo": "معلومات الاساسية",
         "title": "العنوان",
         "content": "المحتوي",
@@ -109,7 +109,7 @@
         "languages": "اللغة",
         "date": "التاريخ",
         "autoSelect": "أختيار تلقائي",
-        "submit": "تعديل مدونة"
+        "submit": "تعديل مقال"
     },
     "editActivityPage": {
         "editActivity": "تعديل منشط",
@@ -239,9 +239,9 @@
     },
     "breadcrumbNameMap": {
         "/": "الرئيسي",
-        "/blogs": "المدونات",
-        "/blogs/new": "أنشاء مدونة",
-        "/blogs/edit": "تعديل مدونة",
+        "/blogs": "المقالات",
+        "/blogs/new": "أنشاء مقال",
+        "/blogs/edit": "تعديل مقال",
         "/users": "المستخدمين",
         "/users/new": "أضافة مستخدم",
         "/users/edit/id": "تعديل مستخدم",
@@ -297,7 +297,6 @@
         "submit": "حفظ",
         "delete": "حذف",
         "publish": "نشر التحديثات",
-
         "edit": "تعديل",
         "imageDescription": "سوف تضهر الصورة هنا عند الاختيار",
         "basicInfo": "معلومات الاساسية",
