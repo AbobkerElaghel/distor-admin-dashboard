@@ -151,7 +151,7 @@ export default function ResponsiveDrawer() {
       padding: "0 0.5rem"
     }}>
       <Stack margin={1} direction={'row'}>
-        <img width={60} height={60} src="/logo512.png" alt="" />
+        <img width={60} height={60} src="/logo.svg" alt="" />
         <Stack sx={{
           marginLeft: 1.5
         }}>
