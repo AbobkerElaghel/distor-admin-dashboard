@@ -39,6 +39,8 @@ const EditActivities = ({ params }: any) => {
     const [photoURL, setPhotoURL] = useState<string>("");
     const [isAutoDate, setIsAutoDate] = useState<boolean>(true);
     const [title, setTitle] = useState<string>("");
+    const [excerpt, setExcerpt] = useState<string>("");
+
     // const [category, setCategory] = useState<string>("");
 
     const [errors, setErrors] = useState<any>();
@@ -78,6 +80,7 @@ const EditActivities = ({ params }: any) => {
             setSubmitting(true);
             await updateActivity(params?.id, photoURL ? {
                 title,
+                excerpt,
                 // category,
                 RichContent,
                 userId: Auth?.user?.uid,
@@ -85,6 +88,7 @@ const EditActivities = ({ params }: any) => {
                 date: isAutoDate ? serverTimestamp() : date
             } : {
                 title,
+                excerpt,
                 // category,
                 RichContent,
                 userId: Auth?.user?.uid,
@@ -113,6 +117,8 @@ const EditActivities = ({ params }: any) => {
                 if (doc.exists()) {
                     const data = doc.data();
                     setTitle(data.title);
+                    setExcerpt(data.excerpt);
+
                     // setCategory(data.category);
                     setRichContent(data.RichContent);
                     setIsAutoDate(false);
@@ -155,6 +161,8 @@ const EditActivities = ({ params }: any) => {
                     <Paper elevation={4} sx={{ p: 4 }}>
                         <Typography variant='h5' fontWeight={500} component={'h5'}>{t('editActivitiesPage.basicInfo')}</Typography>
                         <TextField onChange={({ target: { value } }) => setTitle(value)} value={title} error={errors?.title} required name="title" margin='normal' fullWidth label={t('editActivitiesPage.title')} variant="outlined" />
+                        <TextField onChange={({ target: { value } }) => setExcerpt(value)} value={excerpt} error={errors?.excerpt} required name="excerpt" margin='normal' fullWidth label={t('Generics.excerpt')} variant="outlined" />
+
                         <Typography marginTop={5} marginBottom={2} variant='h6' component={'p'}>{t('editActivitiesPage.content')}</Typography>
                         <Box sx={{
                             border: "1px sold rgb(45, 55, 72)",

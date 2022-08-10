@@ -28,19 +28,7 @@ const News = () => {
         <>
             {/* START - Search bar */}
             <Stack justifyContent={"space-between"} sx={{ p: '2px 4px', }} direction={"row"}>
-                {/* <Paper
-                    component="form"
-                    sx={{ display: 'flex', alignItems: 'center', width: { md: '300px' } }}
-                >
-                    <InputBase
-                        sx={{ ml: 1, flex: 1 }}
-                        placeholder={t("newsPage.searchBar")}
-                        inputProps={{ 'aria-label': 'search google maps' }}
-                    />
-                    <IconButton sx={{ p: '10px' }} aria-label="search">
-                        <SearchIcon />
-                    </IconButton>
-                </Paper> */}
+
                 <Link to='/news/new'>
                     <Button color='primary' startIcon={<AddIcon />} variant='contained'>{t("newsPage.addButton")}</Button>
                 </Link>

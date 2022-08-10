@@ -33,7 +33,6 @@ const AddBlogs = () => {
     const [RichContent, setRichContent] = useState("");
     const [date, setDate] = useState<Date | null>(null);
     const [photo, setPhoto] = useState<File[]>([]);
-    const [isAutoDate, setIsAutoDate] = useState<boolean>(true);
     const [errors, setErrors] = useState<any>();
     const { SnackBarComponent, setSnackBarValue } = useSnackBar();
     const [submitting, setSubmitting] = useState(false);
@@ -81,7 +80,7 @@ const AddBlogs = () => {
                 RichContent,
                 userId: Auth?.user?.uid,
                 // photoURL,
-                date: isAutoDate ? serverTimestamp() : date
+                date: date ? date : serverTimestamp()
             });
             const photoURL = await uploadPhotoAndGetUrl(doc.id, "founders", photo[0]);
             await updateFounder(doc.id, { photoURL });

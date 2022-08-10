@@ -84,7 +84,7 @@ const AddBlogs = () => {
                 RichContent,
                 userId: Auth?.user?.uid,
                 // photoURL,
-                date: isAutoDate ? serverTimestamp() : date
+                date: date ? date : serverTimestamp()
             });
             const photoURL = await uploadPhotoAndGetUrl(doc.id, "events", photo[0]);
             await updateEvent(doc.id, { photoURL });

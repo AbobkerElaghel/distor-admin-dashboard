@@ -39,6 +39,8 @@ const EditNews = ({ params }: any) => {
     const [photoURL, setPhotoURL] = useState<string>("");
     const [isAutoDate, setIsAutoDate] = useState<boolean>(true);
     const [title, setTitle] = useState<string>("");
+    const [excerpt, setExcerpt] = useState<string>("");
+
 
     const [errors, setErrors] = useState<any>();
     const { SnackBarComponent, setSnackBarValue } = useSnackBar();
@@ -71,12 +73,14 @@ const EditNews = ({ params }: any) => {
             setSubmitting(true);
             await updateNews(params?.id, photoURL ? {
                 title,
+                excerpt,
                 RichContent,
                 userId: Auth?.user?.uid,
                 photoURL,
                 date: isAutoDate ? serverTimestamp() : date
             } : {
                 title,
+                excerpt,
                 RichContent,
                 userId: Auth?.user?.uid,
                 date: isAutoDate ? serverTimestamp() : date
@@ -104,6 +108,8 @@ const EditNews = ({ params }: any) => {
                 if (doc.exists()) {
                     const data = doc.data();
                     setTitle(data.title);
+                    setExcerpt(data.excerpt);
+
                     setRichContent(data.RichContent);
                     setIsAutoDate(false);
                     setDate(data.date);
@@ -145,6 +151,8 @@ const EditNews = ({ params }: any) => {
                     <Paper elevation={4} sx={{ p: 4 }}>
                         <Typography variant='h5' fontWeight={500} component={'h5'}>{t('editNewsPage.basicInfo')}</Typography>
                         <TextField onChange={({ target: { value } }) => setTitle(value)} value={title} error={errors?.title} required name="title" margin='normal' fullWidth label={t('editNewsPage.title')} variant="outlined" />
+                        <TextField onChange={({ target: { value } }) => setExcerpt(value)} value={excerpt} error={errors?.excerpt} required name="excerpt" margin='normal' fullWidth label={t('Generics.excerpt')} variant="outlined" />
+
                         <Typography marginTop={5} marginBottom={2} variant='h6' component={'p'}>{t('editNewsPage.content')}</Typography>
                         <Box sx={{
                             border: "1px sold rgb(45, 55, 72)",
