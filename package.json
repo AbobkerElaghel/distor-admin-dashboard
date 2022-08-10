@@ -10,6 +10,8 @@
     "@mui/material": "^5.6.3",
     "@mui/x-data-grid": "^5.10.0",
     "@mui/x-date-pickers": "^5.0.0-alpha.2",
+    "@types/crypto-js": "^4.1.1",
+    "crypto-js": "^4.1.1",
     "date-fns": "^2.28.0",
     "firebase": "^9.7.0",
     "i18next": "^21.6.16",

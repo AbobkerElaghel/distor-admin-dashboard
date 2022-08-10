@@ -2,7 +2,7 @@ import Button from '@mui/material/Button'
 import Paper from '@mui/material/Paper'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { AuthContext } from '../providers/AuthProvider';
 import { useLocation } from "wouter";
 import useSnackBar from '../hooks/SnackBarHook'

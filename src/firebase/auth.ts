@@ -1,11 +1,9 @@
-import { connectAuthEmulator, signInWithEmailAndPassword, sendPasswordResetEmail, initializeAuth } from "firebase/auth";
+import { connectAuthEmulator, browserLocalPersistence, signInWithEmailAndPassword, sendPasswordResetEmail, initializeAuth } from "firebase/auth";
 import firebaseConfigApp from "./configApp";
 
-const auth = initializeAuth(firebaseConfigApp);
+export const auth = initializeAuth(firebaseConfigApp);
 
-if (process.env.NODE_ENV === "development") {
-    connectAuthEmulator(auth, 'http://localhost:9099');
-}
+auth.setPersistence(browserLocalPersistence);
 
 export const firebaseEmailSignIn = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password);
