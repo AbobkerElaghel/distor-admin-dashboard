@@ -145,7 +145,6 @@ const Blogs = () => {
                         }}>
                             <Box display={"flex"} justifyContent={"space-between"}>
                                 <Avatar src={Auth?.user?.photoURL as string | undefined}>{Auth?.user?.displayName ? Auth?.user?.displayName[0] : 'A'}</Avatar>
-
                                 {/* onClick={() => onDeleteFile(file.id!, file.category, file.title)} */}
                                 <IconButton onClick={() => {
                                     deleteBlog(blogsItem.id, blogsItem.title);
