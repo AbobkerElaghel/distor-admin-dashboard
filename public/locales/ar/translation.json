@@ -17,6 +17,7 @@
         "signatures": "التوقيعات",
         "founders": "المؤسسين",
         "events": "الأحداث",
+        "qas": "الأسئلة",
         "subheaderTitlesGeneral": "العام",
         "subheaderTitlesFounders": "المؤسسين",
         "subheaderTitlesControl": "تحكم"
@@ -259,7 +260,10 @@
         "/founders/edit": "تعديل مؤسس",
         "/events/new": "أضافة حدث",
         "/events": "الأحداث",
-        "/events/edit": "تعديل حدث"
+        "/events/edit": "تعديل حدث",
+        "/qas": "الاسئلة",
+        "/qas/new": "أضافة سؤال",
+        "/qas/edit": "تعديل سؤال"
     },
     "AddFileCategory": {
         "modalTitle": "أضافة تصنيف ملفات جديد",
@@ -310,10 +314,15 @@
         "fr": "الفرنسية",
         "ar": "العربية",
         "en": "الأنجليزية",
+        "addQ": "أضافة سؤال",
+        "q": "السؤال",
+        "a": "الجواب",
         "workspace": "مساحة العمل",
         "projectName": "قناه الأمة الليبية",
         "feedbackAdded": "تمت الاضافة بنجاح",
         "feedbackAddedError": "مشكلة في أضافة",
+        "feedbackErrorUsedAlready": "مستخدم مسبقا",
+
         "feedbackAuthRequired": "تأكد من تسجيل الدخول",
         "feedbackRichContentRequired": "المحتوى مطلوب",
         "feedbackPhotoRequired": "الصورة مطلوبة",

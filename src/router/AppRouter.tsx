@@ -31,6 +31,7 @@ import LocalActivityIcon from '@mui/icons-material/LocalActivity';
 import CreateIcon from '@mui/icons-material/Create';
 import PeopleIcon from '@mui/icons-material/People';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 // Icons
 
 // Utils
@@ -84,6 +85,10 @@ const Events = lazy(() => import('../pages/Events/Events'));
 const AddEvent = lazy(() => import('../pages/Events/AddEvent'));
 const EditEvent = lazy(() => import('../pages/Events/EditEvent'));
 
+const QAS = lazy(() => import('../pages/QAS/QAS'));
+const AddQAS = lazy(() => import('../pages/QAS/AddQAS'));
+const EditQAS = lazy(() => import('../pages/QAS/EditQAS'));
+
 // Pages
 // Lazy Loading Components //
 const drawerWidth = 250;
@@ -128,6 +133,9 @@ export default function ResponsiveDrawer() {
     '/events': t('breadcrumbNameMap./events'),
     '/events/new': t('breadcrumbNameMap./events/new'),
     '/events/edit': t('breadcrumbNameMap./events/edit'),
+    '/qas': t('breadcrumbNameMap./qas'),
+    '/qas/new': t('breadcrumbNameMap./qas/new'),
+    '/qas/edit': t('breadcrumbNameMap./qas/edit'),
   };
 
   const pathnames = location.split('/').filter((x) => x);
@@ -174,7 +182,9 @@ export default function ResponsiveDrawer() {
           { title: t('sidebar.news'), Icon: NewspaperIcon, href: "/news" },
           { title: t('sidebar.files'), Icon: FileCopyIcon, href: "/files" },
           { title: t('sidebar.activities'), Icon: LocalActivityIcon, href: "/activities" },
-          { title: t('sidebar.signatures'), Icon: CreateIcon, href: "/signatures" }
+          { title: t('sidebar.signatures'), Icon: CreateIcon, href: "/signatures" },
+          { title: t('sidebar.qas'), Icon: QuestionAnswerIcon, href: "/qas" }
+
 
         ].map(({ title, Icon, href }, index) => {
           const isSelected = location === href;
@@ -427,6 +437,9 @@ export default function ResponsiveDrawer() {
               <PrivateRoute path="/events" component={Events} />
               <PrivateRoute path="/events/new" component={AddEvent} />
               <PrivateRoute path="/events/edit/:id" component={EditEvent} />
+              <PrivateRoute path="/qas" component={QAS} />
+              <PrivateRoute path="/qas/new" component={AddQAS} />
+              <PrivateRoute path="/qas/edit/:id" component={EditQAS} />
             </Switch>
           </Suspense>
           {/* END - MAIN SECTION */}

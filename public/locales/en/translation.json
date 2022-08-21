@@ -17,6 +17,7 @@
         "signatures": "Signatures",
         "founders": "Founders",
         "events": "Events",
+        "qas": "Q&As",
         "subheaderTitlesGeneral": "General",
         "subheaderTitlesFounders": "Founders",
         "subheaderTitlesControl": "Control"
@@ -253,7 +254,11 @@
         "/founders/edit": "Edit Founder",
         "/events": "Events",
         "/events/new": "Add Event",
-        "/events/edit": "Edit Event"
+        "/events/edit": "Edit Event",
+        "/qas": "Add Q&A",
+        "/qas/new": "Edit Q&A",
+        "/qas/edit": "Edit Q&A"
+        
     },
     "AddFileCategory": {
         "modalTitle": "Add New File Category",
@@ -278,6 +283,10 @@
         "excerpt": "Excerpt",
         "delete": "Delete",
         "edit": "Edit",
+        "addQ": "Add Question",
+        "q": "Question",
+        "a": "Answer",
+
         "pushedUpdates": "Updated will be pushed to the website shortly..",
         "roles": "Roles",
         "phone": "Phone Number",
