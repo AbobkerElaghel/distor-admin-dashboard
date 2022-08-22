@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
+import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
 import transitionAllSX from '../../helpers/transitionAllSX';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
@@ -74,17 +74,26 @@ const Files = () => {
                             <Grid sx={{
                                 opacity: 1,
                                 ...transitionAllSX,
-                                ":hover": { opacity: 0.9 },
+                                ":hover": { opacity: 0.75 },
                                 bgcolor: "secondary.main",
                                 color: "text.primary"
                             }} borderRadius={6} marginY={1} padding={1.5} display={'flex'} item xl={2.93} md={5.9} xs={12} component="div">
                                 <Box display={'flex'} width={"100%"} justifyContent={'space-between'}>
                                     <Box display={'flex'}>
-                                        <InsertDriveFileIcon sx={{
-                                            marginY: "auto",
-                                            fontSize: 50,
-                                            marginRight: 1.5
-                                        }} />
+                                        <IconButton sx={{
+                                            marginRight: 1
+                                        }} onClick={() => {
+                                            const link = document.createElement("a");
+                                            link.href = file.fileURL;
+                                            link.target = "_blank";
+                                            link.download = file.title;
+                                            link.click();
+                                        }} aria-label="delete" size="large">
+                                            <SimCardDownloadIcon sx={{
+                                                fontSize: 50,
+                                            }} />
+                                        </IconButton>
+
                                         <Box>
                                             <Typography component={"h6"} variant={"h6"}>
                                                 {file.title}
